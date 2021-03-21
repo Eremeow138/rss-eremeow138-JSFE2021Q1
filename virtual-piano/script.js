@@ -8,6 +8,8 @@ const btnFullScreen = document.querySelector('.fullscreen');
 
 const pressedKeys = {};
 
+let cX; //Координаты мыши
+let cY;
 // Для каждой клавиши пианино создаем на странице свой плеер
 pianoKeys.forEach((elem) => {
   const note = elem.dataset.note;
@@ -35,7 +37,6 @@ pianoKeys.forEach((item) => {
     return false;
   };
 });
-
 let isMouseDown = false; // флаг что клавиша мышки зажата, нужен для событий mouseover и mouseout
 // слушаем mousedown. Если цель - клавиша, то берем ноту у клавиши
 piano.addEventListener('mousedown', (event) => {
@@ -56,9 +57,13 @@ document.addEventListener('mouseup', (event) => {
   }
   isMouseDown = false; // клавиша мышки нажата
 });
-// при событии mouseover (налету мыши на клавишу), смотрим по флагу isMouseDown, нажата ли кнопка мыши, если да, то играем ноту
+piano.addEventListener('mousemove',(event) => {
+  cX = event.clientX;
+  cY = event.clientY;
+})
+// при событии mouseover (налету мыши на клавишу), смотрим по флагу isMouseDown, нажата ли кнопка мыши, а также смотрим было ли перемещение мыши(может и не быть если клавиша уменшится в размере и курсор мышки попадет на другую клавишу),если да, то играем ноту
 piano.addEventListener('mouseover', (event) => {
-  if (isMouseDown) {
+  if (isMouseDown && (event.clientX !== cX || event.clientY !== cY)) {
     const note = event.target.dataset.note;
     if (note) {
       playAudio(note);
