@@ -1,0 +1,22 @@
+// Обертка для всего контента страницы кроме подвала
+.wrapper {
+  font-size: $main_font_size;
+  min-height: 100%;
+  height: 100%;
+}
+// Стили для блока вывешенного по центру
+.container {
+  max-width: $container_width;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  opacity: 0;
+}

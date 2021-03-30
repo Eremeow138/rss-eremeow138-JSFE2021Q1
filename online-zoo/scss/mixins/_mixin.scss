@@ -1,0 +1,104 @@
+// Mixin =======================================================================
+
+// Placeholder for input
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin formField {
+  input:not([type]),
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"],
+  textarea {
+    @content;
+  }
+}
+
+// =============================================================================
+// Fonts
+// =============================================================================
+// @include font-face(Samplino, fonts/Samplino);
+// @font-face {
+// 	font-family: "Samplino";
+// 	src: url("fonts/Samplino.eot?") format("eot"),
+// 		 url("fonts/Samplino.woff2") format("woff2"),
+// 		 url("fonts/Samplino.woff") format("woff"),
+// 		 url("fonts/Samplino.ttf") format("truetype"),
+// 		 url("fonts/Samplino.svg#Samplino") format("svg");
+// }
+// @include font-face("Samplina Neue", fonts/SamplinaNeue, bold, italic);
+// @font-face {
+// 	font-family: "Samplina Neue";
+// 	font-style: italic;
+// 	font-weight: bold;
+// 	src: url("fonts/SamplinaNeue.eot?") format("eot"),
+// 	     url("fonts/SamplinaNeue.woff2") format("woff2"),
+// 	     url("fonts/SamplinaNeue.woff") format("woff"),
+// 	     url("fonts/SamplinaNeue.ttf") format("truetype"),
+// 	     url("fonts/SamplinaNeue.svg#Samplina_Neue") format("svg");
+// }
+//
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + "." + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

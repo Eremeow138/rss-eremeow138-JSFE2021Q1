@@ -1,0 +1,30 @@
+//  ==========================
+//  Eremin Alexey
+//  Email: eremeow138@yandex.ru
+//  GitHub: https://github.com/Eremeow138
+//  ==========================
+// Файл с переменными
+@import "variables/variables";
+// Подключение примесей
+@import "mixins/mixin";
+// Пример подключение шрифта через google fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// Пример подключение шрифта через mixin
+// 4 параметра: 1. Название шрифта; 2. Путь к шрифту; 3. Толщина шрифта(font-weight); 4. Стиль шрифта(font-style)
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Bold", bold, normal);
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Black", 900, normal);
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Light", 300, normal);
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Thin", 100, normal);
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Medium", 500, normal);
+@include font-face("Roboto", "../fonts/Roboto/Roboto-Regular", normal, normal);
+
+// Подключение отдельных фалов стилей в общий css
+
+// Файл со стилями сброса. Используется подправленный normalize.css
+@import "core/reset";
+// Файл с основными стилями каркаса страницы
+@import "core/template";
+// Стили для шапки
+@import "core/header";
+// Стили для подвала
+@import "core/footer";

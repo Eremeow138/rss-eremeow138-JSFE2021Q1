@@ -1,0 +1,22 @@
+/* Global variables */
+/* ======================================================================== */
+// Переменная для задания основоного шрифта на сайте
+$main_font_family: "Roboto";
+// Основной цвет текста на сайте
+$light_theme_color: #4F4F4F;
+// Основной line height
+$main_line_height: 1.2;
+// Основной размер шрифта
+$main_font_size: 14px;
+// Ширина для container_center
+$container_width: 1650px;
+// Высота подвала (если не нужна, можно поставит в auto)
+$footer_height: auto;
+// Набор основных цветов для сайта, можно просто перенести в Avocode
+$color_primary: #7b8287;
+$color_success: #36a566;
+$color_info: #03a9f4;
+$color_warning: #fca33e;
+$color_danger: #ff1a1a;
+$color_white: #ffffff;
+// Благодаря такому набору можно создавать цветовые модификаторы для элементив
