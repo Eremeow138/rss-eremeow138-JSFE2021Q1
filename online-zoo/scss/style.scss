@@ -55,3 +55,98 @@
 @import "core/footer";
 // Иконочный шрифт
 @import "core/icon-fonts";
+
+.header {
+  color: #333333;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 0;
+  }
+}
+.checkbox {
+  display: block;
+  width: 54px;
+  height: 30px;
+  border-radius: 190px;
+  background: #f2f2f2;
+  cursor: pointer;
+  &__input {
+    display: none;
+  }
+  &__input:checked + &__circle {
+    margin-left: 28px;
+    background-color: #1b1b1b;
+  }
+  &__circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 25px;
+    background: #fff;
+    box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+    display: block;
+    margin: 5px 6px;
+    transition: 0.3s;
+  }
+}
+.nav {
+  width: 100%;
+  max-width: 571px;
+  margin-top: 4px;
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  &__item {
+    cursor: pointer;
+    list-style: none;
+  }
+  &__link {
+    position: relative;
+    text-decoration: none;
+    background-color: transparent;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  &__link::after {
+    display: block;
+    content: attr(title);
+    font-weight: 900;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  &__link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    opacity: 0;
+    border-bottom: 1px solid #333333;
+    transition: 0.3s;
+  }
+
+  &__link:hover::before {
+    left: -5%;
+    width: 110%;
+    opacity: 1;
+  }
+
+  &__link:hover {
+    font-weight: 900;
+  }
+}
+.active:before {
+  left: -5%;
+  width: 110%;
+  opacity: 1;
+}
+.active {
+  font-weight: 900;
+}

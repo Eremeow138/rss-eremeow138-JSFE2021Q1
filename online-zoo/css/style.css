@@ -48,6 +48,13 @@
           box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: "Roboto";
+  color: #4F4F4F;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -398,10 +405,14 @@ template {
 }
 
 .container {
-  max-width: 1650px;
+  max-width: 1230px;
   padding: 0 15px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.container_large {
+  max-width: 1650px;
 }
 
 .visually-hidden {
@@ -482,5 +493,129 @@ template {
 
 .icon-zoo:before {
   content: "";
+}
+
+.header {
+  color: #333333;
+}
+
+.header__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 26px 0;
+}
+
+.checkbox {
+  display: block;
+  width: 54px;
+  height: 30px;
+  border-radius: 190px;
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  display: none;
+}
+
+.checkbox__input:checked + .checkbox__circle {
+  margin-left: 28px;
+  background-color: #1b1b1b;
+}
+
+.checkbox__circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  background: #fff;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  display: block;
+  margin: 5px 6px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.nav {
+  width: 100%;
+  max-width: 571px;
+  margin-top: 4px;
+}
+
+.nav__navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.nav__item {
+  cursor: pointer;
+  list-style: none;
+}
+
+.nav__link {
+  position: relative;
+  text-decoration: none;
+  background-color: transparent;
+  color: inherit;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.nav__link::after {
+  display: block;
+  content: attr(title);
+  font-weight: 900;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.nav__link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  opacity: 0;
+  border-bottom: 1px solid #333333;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.nav__link:hover::before {
+  left: -5%;
+  width: 110%;
+  opacity: 1;
+}
+
+.nav__link:hover {
+  font-weight: 900;
+}
+
+.active:before {
+  left: -5%;
+  width: 110%;
+  opacity: 1;
+}
+
+.active {
+  font-weight: 900;
 }
 /*# sourceMappingURL=style.css.map */
