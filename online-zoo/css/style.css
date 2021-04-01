@@ -1038,4 +1038,175 @@ template {
   font-size: 14px;
   text-align: left;
 }
+
+.pets {
+  padding: 70px 0 100px;
+}
+
+.pets__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pets__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin-top: 8px;
+}
+
+.pets__arrow {
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  -webkit-filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
+          filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
+  top: calc(50% - 16px);
+}
+
+.pets__arrow_left {
+  left: -28px;
+}
+
+.pets__arrow_right {
+  right: -28px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.pets__arrow_empty {
+  -webkit-filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg) brightness(89%) contrast(78%);
+          filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg) brightness(89%) contrast(78%);
+}
+
+.pets__arrow_empty:hover {
+  -webkit-filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg) brightness(89%) contrast(78%) !important;
+          filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg) brightness(89%) contrast(78%) !important;
+}
+
+.pets__arrow:hover {
+  -webkit-filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg) brightness(97%) contrast(89%);
+          filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg) brightness(97%) contrast(89%);
+}
+
+.pets__slide {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow: hidden;
+  margin: 0 15px;
+  width: 278px;
+  height: 399px;
+  border-radius: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 14px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #fff;
+}
+
+.pets__slide:hover .pets__plate {
+  top: 0;
+  opacity: 1;
+}
+
+.pets__slide::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+}
+
+.pets__slide:hover::after {
+  opacity: 1;
+}
+
+.pets__plate {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+  padding: 0 60px 44px 22px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.pets__actions {
+  font-size: 12px;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pets__actions .icon {
+  font-size: 25px;
+  margin-right: 2px;
+}
+
+.pets__action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.pets__action_blue {
+  color: turquoise;
+}
+
+.pets__action:hover {
+  color: #eb5757;
+}
 /*# sourceMappingURL=style.css.map */
