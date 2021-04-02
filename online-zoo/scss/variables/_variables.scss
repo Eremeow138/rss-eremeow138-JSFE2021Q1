@@ -20,3 +20,6 @@ $color_warning: #fca33e;
 $color_danger: #ff1a1a;
 $color_white: #ffffff;
 // Благодаря такому набору можно создавать цветовые модификаторы для элементив
+:root {
+  --base-grad: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+}
