@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* Global variables */
 /* ======================================================================== */
+:root {
+  --base-grad: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+}
+
 @font-face {
   font-family: "Roboto";
   font-style: normal;
@@ -1208,5 +1212,100 @@ template {
 
 .pets__action:hover {
   color: #eb5757;
+}
+
+.pay {
+  padding: 71px 0 100px;
+  background-color: #f2f2f2;
+}
+
+.pay__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pay__description {
+  font-size: 14px;
+  margin: 0;
+}
+
+.pay__instruction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-top: 92px;
+  margin-bottom: 60px;
+}
+
+.pay__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pay__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 52px;
+  width: 239px;
+  height: 239px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+}
+
+.pay__item:nth-child(odd) {
+  width: 245px;
+  height: 245px;
+  border-radius: 50%;
+  background: var(--base-grad);
+}
+
+.pay__icon {
+  margin-top: 5px;
+  position: relative;
+  font-size: 65px;
+  background: var(--base-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+}
+
+.pay__text {
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
+  margin: 12px 0 0 0;
 }
 /*# sourceMappingURL=style.css.map */
