@@ -1308,4 +1308,102 @@ template {
   text-align: center;
   margin: 12px 0 0 0;
 }
+
+.testimonials {
+  padding: 70px 0 100px;
+  background-color: #e5e5e5;
+}
+
+.testimonials__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.testimonials__slider {
+  margin: 33px -15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.testimonials__arrow {
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  -webkit-filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
+          filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
+  top: calc(50% - 16px);
+}
+
+.testimonials__arrow_left {
+  left: -28px;
+}
+
+.testimonials__arrow_right {
+  right: -28px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.testimonials__arrow:hover {
+  -webkit-filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg) brightness(97%) contrast(89%);
+          filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg) brightness(97%) contrast(89%);
+}
+
+.testimonials__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 15px;
+  padding: 47px 72px;
+  width: calc(50% - 30px);
+  height: 310px;
+  background-color: #fefefe;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
+  border-radius: 5px;
+}
+
+.testimonials__photo {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid #bdbdbd;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.testimonials__photo_auto {
+  background-size: auto;
+}
+
+.testimonials__name {
+  margin: 17px 0;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.testimonials__text {
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+}
 /*# sourceMappingURL=style.css.map */
