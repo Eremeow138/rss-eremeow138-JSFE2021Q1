@@ -641,6 +641,16 @@ template {
   content: "";
 }
 
+.logotype {
+  -webkit-filter: invert(8%) sepia(77%) saturate(0%) hue-rotate(295deg) brightness(88%) contrast(71%);
+          filter: invert(8%) sepia(77%) saturate(0%) hue-rotate(295deg) brightness(88%) contrast(71%);
+}
+
+.logotype_white {
+  -webkit-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(51deg) brightness(102%) contrast(105%);
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(51deg) brightness(102%) contrast(105%);
+}
+
 .intro {
   height: 940px;
   padding: 15px 0;
