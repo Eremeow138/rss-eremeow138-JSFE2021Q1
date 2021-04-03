@@ -1406,4 +1406,158 @@ template {
   text-align: left;
   font-size: 14px;
 }
+
+.map {
+  padding: 70px 0 100px;
+}
+
+.map__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.map__box {
+  height: auto;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.pin {
+  width: 67px;
+  height: 94px;
+  position: absolute;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pin__pseudo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 67px;
+  height: 94px;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.pin__image {
+  position: absolute;
+  left: calc(50% - 21px);
+  top: 13px;
+  width: 43px;
+  height: 43px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.pin:hover > .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pin:hover > .pin__pseudo {
+  opacity: 1;
+}
+
+#pin-panda {
+  top: calc(36% - 94px);
+  left: calc(77% - 33px);
+}
+
+#pin-eagle {
+  top: calc(33% - 94px);
+  left: calc(13% - 33px);
+}
+
+#pin-crocodile {
+  top: calc(39% - 94px);
+  left: calc(23% - 33px);
+}
+
+#pin-gorilla {
+  top: calc(56% - 94px);
+  left: calc(50.5% - 33px);
+}
+
+.world {
+  width: 100%;
+}
+
+.tooltip {
+  cursor: pointer;
+  visibility: hidden;
+  position: relative;
+  width: 436px;
+  top: 100px;
+  left: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 50px 44px 44px;
+  background-color: #fefefe;
+  -webkit-box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+          box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
+  border-radius: 8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+  z-index: 10;
+}
+
+.tooltip__img {
+  margin-right: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tooltip__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.tooltip__title {
+  color: #333333;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.tooltip__text {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+}
 /*# sourceMappingURL=style.css.map */
