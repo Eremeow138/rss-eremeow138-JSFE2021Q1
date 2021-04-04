@@ -271,6 +271,10 @@
   font-size: 18px;
   color: #fff;
   transition: all 0.3s;
+  &_large{
+    width: 275px;
+    font-weight: 500;
+  }
 }
 .button:hover {
   background: linear-gradient(106.89deg, #eb5757 -14.32%, #eb5757 100.68%);
@@ -287,6 +291,17 @@
   font-size: 20px;
   margin-left: 2px;
   margin-bottom: 75px;
+  &_inline {
+    margin: 0;
+    display: flex;
+  }
+  &_inline > &__item {
+    display: inline-block;
+    margin: 0 15px 0 0;
+  }
+  &_inline > &__item:nth-child(3) {
+    order: 4;
+  }
   &__item {
     list-style: none;
     margin-top: 5px;

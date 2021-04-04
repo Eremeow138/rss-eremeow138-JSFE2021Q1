@@ -36,6 +36,16 @@
   width: 100%;
   max-width: 571px;
   margin-top: 4px;
+  &_small{
+    max-width: 380px;
+  }
+  &_white{
+    color: #fefefe;
+
+  }
+  &_white .nav__link::before{
+    border-bottom: 1px solid #fefefe;
+  }
   &__navbar {
     display: flex;
     justify-content: space-between;
