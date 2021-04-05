@@ -11,14 +11,14 @@
 // @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
 // Пример подключение шрифта через mixin
 // 4 параметра: 1. Название шрифта; 2. Путь к шрифту; 3. Толщина шрифта(font-weight); 4. Стиль шрифта(font-style)
-@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Bold", bold, normal);
-@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Black", 900, normal);
-@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Light", 300, normal);
-@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Thin", 100, normal);
-@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Medium", 500, normal);
+@include font-face("Roboto", "../../../assets/fonts/Roboto/Roboto-Bold", bold, normal);
+@include font-face("Roboto", "../../../assets/fonts/Roboto/Roboto-Black", 900, normal);
+@include font-face("Roboto", "../../../assets/fonts/Roboto/Roboto-Light", 300, normal);
+@include font-face("Roboto", "../../../assets/fonts/Roboto/Roboto-Thin", 100, normal);
+@include font-face("Roboto", "../../../assets/fonts/Roboto/Roboto-Medium", 500, normal);
 @include font-face(
   "Roboto",
-  "/assets/fonts/Roboto/Roboto-Regular",
+  "../../../assets/fonts/Roboto/Roboto-Regular",
   normal,
   normal
 );
