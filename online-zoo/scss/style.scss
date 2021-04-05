@@ -240,8 +240,10 @@
   }
 
   &__logo {
-    color: #4bd8b5;
     font-size: 81px;
+    background: var(--base-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &__title {
