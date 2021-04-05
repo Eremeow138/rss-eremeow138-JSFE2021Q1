@@ -186,6 +186,8 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
       width: 157px;
       height: 157px;
       background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+      user-select: none;
+      cursor: default;
     }
     &_active > .page-slider__img {
       width: 150px;

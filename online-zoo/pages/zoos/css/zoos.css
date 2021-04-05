@@ -1421,6 +1421,11 @@ template {
   width: 157px;
   height: 157px;
   background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
 }
 
 .page-slider__item_active > .page-slider__img {

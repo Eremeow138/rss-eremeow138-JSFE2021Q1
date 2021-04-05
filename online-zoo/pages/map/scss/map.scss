@@ -103,6 +103,8 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
       height: 157px;
       margin: 0;
       background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+      user-select: none;
+      cursor: default;
     }
     &_active > .favorite-slider__img {
       // margin: 0;

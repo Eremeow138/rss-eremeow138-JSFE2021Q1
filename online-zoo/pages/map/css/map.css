@@ -1344,6 +1344,11 @@ template {
   height: 157px;
   margin: 0;
   background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
 }
 
 .favorite-slider__item_active > .favorite-slider__img {
