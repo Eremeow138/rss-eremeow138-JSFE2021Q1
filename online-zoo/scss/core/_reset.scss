@@ -3,12 +3,12 @@
   box-sizing: border-box;
 }
 body {
-  width: 1920px;
+  // width: 1920px;
   margin: 0;
   font-size: 100%;
   font-family: $main_font_family;
   color: $light_theme_color;
-  // overflow-x: hidden;
+  overflow-x: hidden;
   // line-height: 1.2;
 }
 a {

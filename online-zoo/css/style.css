@@ -53,11 +53,11 @@
 }
 
 body {
-  width: 1920px;
   margin: 0;
   font-size: 100%;
   font-family: "Roboto";
   color: #4f4f4f;
+  overflow-x: hidden;
 }
 
 a {
