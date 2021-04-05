@@ -5,32 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>Online Zoo</title>
   </head>
   <body>
-    <header class="header">
+    <header id="header" class="header">
       <h1 class="visually-hidden">Online Zoo</h1>
       <div class="container container_large">
         <div class="header__content">
-          <a class="logotype" href="#">
-            <img class="logotype__img" src="assets/images/logo.svg" alt="" />
+          <a class="logotype" href="/index.html">
+            <img class="logotype__img" src="/assets/images/logo.svg" alt="" />
           </a>
           <nav class="nav">
             <ul class="nav__navbar">
               <li class="nav__item">
-                <a class="nav__link active" href="#" title="About">About</a>
+                <a class="nav__link active" href="/index.html">About</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" title="Zoos">Zoos</a>
+                <a class="nav__link" href="/pages/zoos/panda/index.html">Zoos</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" title="Map">Map</a>
+                <a class="nav__link" href="/pages/map/index.html">Map</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" title="Contact Us">Contact Us</a>
+                <a class="nav__link" href="#footer">Contact Us</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" title="Design">Design</a>
+                <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp">Design</a>
               </li>
             </ul>
           </nav>
@@ -530,29 +530,29 @@
         </div>
       </article>
     </main>
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="container container_large">
         <article class="footer__content">
           <section class="footer__top">
             <div class="footer__logo">
-              <a class="logotype logotype_white" href="#">
-                <img class="logotype__img" src="assets/images/logo.svg" alt="" />
+              <a class="logotype logotype_white" href="#header">
+                <img class="logotype__img" src="/assets/images/logo.svg" alt="" />
               </a>
             </div>
             <div class="footer__menu">
               <nav class="nav nav_small nav_white">
                 <ul class="nav__navbar">
                   <li class="nav__item">
-                    <a class="nav__link" href="#" title="About">About</a>
+                    <a class="nav__link" href="#header" title="About">About</a>
                   </li>
                   <li class="nav__item">
-                    <a class="nav__link" href="#" title="Zoos">Zoos</a>
+                    <a class="nav__link" href="/pages/zoos/panda/index.html" title="Zoos">Zoos</a>
                   </li>
                   <li class="nav__item">
-                    <a class="nav__link" href="#" title="Map">Map</a>
+                    <a class="nav__link" href="/pages/map/index.html" title="Map">Map</a>
                   </li>
                   <li class="nav__item">
-                    <a class="nav__link" href="#" title="Design">Design</a>
+                    <a class="nav__link" href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" title="Design">Design</a>
                   </li>
                 </ul>
               </nav>
@@ -571,14 +571,14 @@
                 </fieldset>
                 <div class="footer__checkbox-wrapper">
                   <label class="footer__check-label">
-                    <input class="footer__checkbox" type="checkbox">
+                    <input class="footer__checkbox" type="checkbox" required>
                     <span class="footer__check"></span>
                     <span class="footer__agree">I agree to the processing of Personal Data</span>
                   </label>
                 </div>
                 <button class="footer__button" type="submit">
                   <span class="footer__send">send</span>
-                  <img src="assets/images/arrow-black.svg" class="footer__arrow"></img>
+                  <img src="/assets/images/arrow-black.svg" class="footer__arrow"></img>
                 </button>
               </form>
             </div>
