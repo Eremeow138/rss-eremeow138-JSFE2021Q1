@@ -739,10 +739,6 @@ template {
   left: calc(50.5% - 33px);
 }
 
-.world {
-  width: 100%;
-}
-
 .tooltip {
   cursor: pointer;
   visibility: hidden;
