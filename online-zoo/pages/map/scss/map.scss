@@ -1,0 +1,136 @@
+//  ==========================
+//  Eremin Alexey
+//  Email: eremeow138@yandex.ru
+//  GitHub: https://github.com/Eremeow138
+//  ==========================
+// Файл с переменными
+@import "../../../scss/variables/variables";
+// Подключение примесей
+@import "../../../scss/mixins/mixin";
+// Пример подключение шрифта через google fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// Пример подключение шрифта через mixin
+// 4 параметра: 1. Название шрифта; 2. Путь к шрифту; 3. Толщина шрифта(font-weight); 4. Стиль шрифта(font-style)
+@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Bold", bold, normal);
+@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Black", 900, normal);
+@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Light", 300, normal);
+@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Thin", 100, normal);
+@include font-face("Roboto", "/assets/fonts/Roboto/Roboto-Medium", 500, normal);
+@include font-face(
+  "Roboto",
+  "/assets/fonts/Roboto/Roboto-Regular",
+  normal,
+  normal
+);
+
+// Подключение отдельных фалов стилей в общий css
+
+// Файл со стилями сброса. Используется подправленный normalize.css
+@import "../../../scss/core/reset";
+// Файл с основными стилями каркаса страницы
+@import "../../../scss/core/template";
+// Стили для шапки
+@import "../../../scss/core/header";
+// Стили для подвала
+@import "../../../scss/core/footer";
+// Иконочный шрифт
+$icomoon-font-path: "../../../assets/fonts/icomoon";
+@import "../../../scss/core/icon-fonts";
+.favorite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: -47px;
+  &__desc {
+    margin: 0;
+    margin-top: -10px;
+    max-width: 790px;
+    font-size: 14px;
+  }
+}
+.favorite-slider {
+  width: 100%;
+  position: relative;
+  margin-top: 55px;
+  transition: all 0.3s;
+  &__arrow {
+    position: absolute;
+    cursor: pointer;
+    top: calc(50% - 15px);
+    filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
+      brightness(110%) contrast(84%);
+    &_left {
+      left: 10px;
+    }
+    &_right {
+      right: 10px;
+      transform: rotate(180deg);
+    }
+    &_empty {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%);
+    }
+    &_empty:hover {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%) !important;
+    }
+  }
+  &__arrow:hover {
+    filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg)
+      brightness(97%) contrast(89%);
+  }
+  &__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    &_active {
+      width: 157px;
+      height: 157px;
+      margin: 0;
+      background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+    }
+    &_active > .favorite-slider__img {
+      // margin: 0;
+      width: 150px;
+      height: 150px;
+      border: 7px solid #fff;
+    }
+  }
+  &__item:hover {
+    width: 157px;
+    height: 157px;
+    // margin: 0;
+    // margin: 0 -10px;
+    background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+  }
+  &__item:hover > .favorite-slider__img {
+    width: 150px;
+    height: 150px;
+    border: 7px solid #fff;
+  }
+  &__img {
+    width: 115px;
+    height: 115px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+  }
+}
