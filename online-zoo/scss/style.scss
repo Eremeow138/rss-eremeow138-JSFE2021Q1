@@ -151,10 +151,10 @@
     opacity: 0;
     transition: all 0.3s;
     background: linear-gradient(
-        357.17deg,
-        #000000 -56.45%,
-        rgba(0, 0, 0, 0) 65.03%
-      )
+      357.17deg,
+      #000000 -56.45%,
+      rgba(0, 0, 0, 0) 65.03%
+    );
   }
   &__slide:hover::after {
     opacity: 1;
@@ -629,7 +629,7 @@
   top: calc(33% - 94px);
   left: calc(13% - 33px);
 }
-#pin-crocodile {
+#pin-alligator {
   top: calc(39% - 94px);
   left: calc(23% - 33px);
 }
