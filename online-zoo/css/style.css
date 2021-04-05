@@ -623,6 +623,10 @@ template {
   padding: 70px 0 100px;
 }
 
+.map_bg-gray {
+  background-color: #f2f2f2;
+}
+
 .map__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1777,7 +1781,6 @@ template {
 
 .testimonials {
   padding: 70px 0 100px;
-  background-color: #e5e5e5;
 }
 
 .testimonials__wrapper {
