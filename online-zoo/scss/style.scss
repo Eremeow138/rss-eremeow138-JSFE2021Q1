@@ -56,14 +56,6 @@
 // Иконочный шрифт
 @import "core/icon-fonts";
 
-.logotype {
-  filter: invert(8%) sepia(77%) saturate(0%) hue-rotate(295deg) brightness(88%)
-    contrast(71%);
-  &_white {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(51deg)
-      brightness(102%) contrast(105%);
-  }
-}
 .intro {
   height: 940px;
   padding: 15px 0;
@@ -162,8 +154,7 @@
         357.17deg,
         #000000 -56.45%,
         rgba(0, 0, 0, 0) 65.03%
-      ),
-      url(panda-3875289_1920.jpg);
+      )
   }
   &__slide:hover::after {
     opacity: 1;
@@ -257,66 +248,6 @@
     background: #fefefe;
     cursor: pointer;
   }
-}
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  width: 245px;
-  height: 55px;
-  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
-  border-radius: 3px;
-  font-weight: 900;
-  font-size: 18px;
-  color: #fff;
-  transition: all 0.3s;
-  &_large{
-    width: 275px;
-    font-weight: 500;
-  }
-}
-.button:hover {
-  background: linear-gradient(106.89deg, #eb5757 -14.32%, #eb5757 100.68%);
-}
-.button .icon {
-  font-size: 32px;
-  margin-right: 5px;
-}
-
-.social {
-  padding: 0;
-  margin: 0;
-  color: #fefefe;
-  font-size: 20px;
-  margin-left: 2px;
-  margin-bottom: 75px;
-  &_inline {
-    margin: 0;
-    display: flex;
-  }
-  &_inline > &__item {
-    display: inline-block;
-    margin: 0 15px 0 0;
-  }
-  &_inline > &__item:nth-child(3) {
-    order: 4;
-  }
-  &__item {
-    list-style: none;
-    margin-top: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  &__item:hover {
-    color: #eb5757;
-  }
-}
-.title {
-  color: #333333;
-  font-weight: 900;
-  font-size: 48px;
-  margin: 30px 0;
 }
 .how {
   padding: 70px 0 100px;
@@ -654,7 +585,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
   &__pseudo {
     position: absolute;
     left: 0;
