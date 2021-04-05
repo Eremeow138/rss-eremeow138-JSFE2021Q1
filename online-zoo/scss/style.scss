@@ -83,6 +83,7 @@
     align-items: flex-end;
   }
   &__wrapper {
+    // padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,6 +92,7 @@
     left: 153px;
     color: #fff;
     width: 1083px;
+    overflow: hidden;
   }
   &__slider {
     padding-left: 175px;
@@ -512,4 +514,3 @@
     font-size: 14px;
   }
 }
-

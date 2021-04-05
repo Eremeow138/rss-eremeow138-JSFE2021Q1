@@ -1308,6 +1308,7 @@ template {
   left: 153px;
   color: #fff;
   width: 1083px;
+  overflow: hidden;
 }
 
 .intro__slider {
