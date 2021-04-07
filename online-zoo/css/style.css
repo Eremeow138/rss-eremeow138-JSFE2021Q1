@@ -437,6 +437,10 @@ template {
   max-width: 820px;
 }
 
+.container_left {
+  margin-left: 0;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);

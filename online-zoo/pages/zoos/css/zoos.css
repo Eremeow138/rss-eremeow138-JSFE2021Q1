@@ -437,6 +437,10 @@ template {
   max-width: 820px;
 }
 
+.container_left {
+  margin-left: 0;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -1259,16 +1263,25 @@ template {
 }
 
 .zoos {
-  padding: 30px 0 100px;
   position: relative;
   background-color: #fbfbfb;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .zoos__aside {
-  position: absolute;
-  top: 0px;
   width: 209px;
-  height: 100%;
+  margin-right: 135px;
+}
+
+.zoos__content {
+  padding: 30px 0 100px;
 }
 
 .zoos__box {
@@ -1360,7 +1373,7 @@ template {
   position: sticky;
   top: 10px;
   padding: 40px 0 50px;
-  margin-top: 60px;
+  margin-top: 58px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -1374,11 +1387,11 @@ template {
 }
 
 .page-slider__arrow_up {
-  top: 0px;
+  top: 6px;
 }
 
 .page-slider__arrow_down {
-  bottom: 10px;
+  bottom: 16px;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }

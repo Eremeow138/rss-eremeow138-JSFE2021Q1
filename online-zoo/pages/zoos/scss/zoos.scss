@@ -62,14 +62,19 @@
 $icomoon-font-path: "../../../assets/fonts/icomoon";
 @import "../../../scss/core/icon-fonts";
 .zoos {
-  padding: 30px 0 100px;
   position: relative;
   background-color: #fbfbfb;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
   &__aside {
-    position: absolute;
-    top: 0px;
     width: 209px;
-    height: 100%;
+    margin-right: 135px;
+  }
+  &__content {
+    padding: 30px 0 100px;
+
   }
   &__box {
     display: flex;
@@ -138,7 +143,7 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
   position: sticky;
   top: 10px;
   padding: 40px 0 50px;
-  margin-top: 60px;
+  margin-top: 58px;
   transition: all 0.3s;
   &__arrow {
     position: absolute;
@@ -147,10 +152,10 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
       brightness(110%) contrast(84%);
     &_up {
-      top: 0px;
+      top: 6px;
     }
     &_down {
-      bottom: 10px;
+      bottom: 16px;
       transform: rotate(180deg);
     }
     &_empty {
