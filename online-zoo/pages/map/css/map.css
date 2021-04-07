@@ -796,9 +796,11 @@ template {
 }
 
 .header {
+  position: relative;
   color: #333333;
   -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
           box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
+  z-index: 10;
 }
 
 .header__content {
@@ -1256,6 +1258,10 @@ template {
   content: "";
 }
 
+.intermediate {
+  background-color: #fbfbfb;
+}
+
 .favorite {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1267,7 +1273,7 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 30px;
+  padding-top: 30px;
   margin-bottom: -47px;
 }
 
