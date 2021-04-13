@@ -423,14 +423,22 @@ template {
 }
 
 .container {
-  max-width: 1230px;
+  max-width: 930px;
   padding: 0 15px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.container_large {
-  max-width: 1650px;
+@media (min-width: 1201px) {
+  .container_large {
+    max-width: 1650px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1230px;
+  }
 }
 
 .container_small {
