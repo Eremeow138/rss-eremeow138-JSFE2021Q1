@@ -462,6 +462,10 @@ template {
   margin-left: 0;
 }
 
+.container_slice {
+  overflow: hidden;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -1911,6 +1915,30 @@ template {
   padding: 70px 0 100px;
 }
 
+@media (max-width: 640px) {
+  .pets {
+    padding: 70px 0 105px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pets {
+    padding: 70px 0 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pets .button {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pets .button {
+    margin-top: 8px;
+  }
+}
+
 .pets__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1922,6 +1950,7 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 .pets__slider {
@@ -1932,6 +1961,36 @@ template {
   margin-top: 8px;
 }
 
+@media (max-width: 1200px) {
+  .pets__slider {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pets__slider {
+    margin: 0 -10px;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .pets__slider {
+    margin-top: 6px;
+    margin-bottom: 7px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pets__slider {
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+}
+
 .pets__arrow {
   position: absolute;
   -webkit-transition: all 0.3s;
@@ -1940,6 +1999,12 @@ template {
   -webkit-filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
           filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg) brightness(110%) contrast(84%);
   top: calc(50% - 16px);
+}
+
+@media (max-width: 1024px) {
+  .pets__arrow {
+    display: none;
+  }
 }
 
 .pets__arrow_left {
@@ -1995,6 +2060,20 @@ template {
   color: #fff;
 }
 
+@media (max-width: 1368px) {
+  .pets__slide {
+    width: 210px;
+    height: 301px;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pets__slide {
+    margin: 0 8px;
+  }
+}
+
 .pets__slide:hover .pets__plate {
   top: 0;
   opacity: 1;
@@ -2041,6 +2120,12 @@ template {
   cursor: pointer;
   border-radius: 5px;
   z-index: 10;
+}
+
+@media (max-width: 1368px) {
+  .pets__plate {
+    padding: 0 7px 32px 9px;
+  }
 }
 
 .pets__actions {

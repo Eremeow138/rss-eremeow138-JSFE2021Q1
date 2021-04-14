@@ -38,6 +38,9 @@
 .container_left {
   margin-left: 0;
 }
+.container_slice {
+  overflow: hidden;
+}
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);

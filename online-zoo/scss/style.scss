@@ -416,16 +416,48 @@
 }
 .pets {
   padding: 70px 0 100px;
+  @media (max-width: 640px) {
+    padding: 70px 0 105px;
+  }
+  @media (max-width: 425px) {
+    padding: 70px 0 50px;
+  }
+  .button {
+    @media (max-width: 640px) {
+      margin-top: 5px;
+    }
+    @media (max-width: 425px) {
+      margin-top: 8px;
+    }
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 
   &__slider {
     display: flex;
     position: relative;
     margin-top: 8px;
+    @media (max-width: 1200px) {
+      margin-top: 4px;
+    }
+    @media (max-width: 1024px) {
+      margin: 0 -10px;
+      align-self: flex-start;
+    }
+    @media (max-width: 640px) {
+      margin-top: 6px;
+      margin-bottom: 7px;
+    }
+    @media (max-width: 425px) {
+      margin-left: -8px;
+      margin-right: -8px;
+      margin-top: 0;
+      margin-bottom: 3px;
+    }
   }
   &__arrow {
     position: absolute;
@@ -434,6 +466,9 @@
     filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
       brightness(110%) contrast(84%);
     top: calc(50% - 16px);
+    @media (max-width: 1024px) {
+      display: none;
+    }
     &_left {
       left: -28px;
     }
@@ -471,6 +506,14 @@
     font-size: 14px;
     transition: all 0.3s;
     color: #fff;
+    @media (max-width: 1368px) {
+      width: 210px;
+      height: 301px;
+      margin: 0 10px;
+    }
+    @media (max-width: 425px) {
+      margin: 0 8px;
+    }
   }
   &__slide:hover .pets__plate {
     top: 0;
@@ -510,6 +553,9 @@
     cursor: pointer;
     border-radius: 5px;
     z-index: 10;
+    @media (max-width: 1368px) {
+      padding: 0 7px 32px 9px;
+    }
   }
   &__actions {
     font-size: 12px;
