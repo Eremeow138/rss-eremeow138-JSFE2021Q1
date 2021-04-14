@@ -601,6 +601,12 @@ template {
   width: 245px;
 }
 
+@media (max-width: 320px) {
+  .range {
+    margin: 28px 0 20px;
+  }
+}
+
 .range_nomargin {
   margin: 0;
 }
@@ -1743,6 +1749,12 @@ template {
 
 .how {
   padding: 70px 0 100px;
+}
+
+@media (max-width: 640px) {
+  .how {
+    padding: 70px 0 69px;
+  }
 }
 
 @media (max-width: 320px) {

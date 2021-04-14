@@ -601,6 +601,12 @@ template {
   width: 245px;
 }
 
+@media (max-width: 320px) {
+  .range {
+    margin: 28px 0 20px;
+  }
+}
+
 .range_nomargin {
   margin: 0;
 }

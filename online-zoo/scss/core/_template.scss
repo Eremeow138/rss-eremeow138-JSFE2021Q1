@@ -135,6 +135,9 @@
   position: relative;
   margin: 28px 0 32px;
   width: 245px;
+  @media (max-width: 320px) {
+    margin: 28px 0 20px;
+  }
   &_nomargin {
     margin: 0;
   }

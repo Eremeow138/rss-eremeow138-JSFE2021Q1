@@ -311,6 +311,9 @@
 
 .how {
   padding: 70px 0 100px;
+  @media (max-width: 640px) {
+    padding: 70px 0 69px;
+  }
   @media (max-width: 320px) {
     padding: 20px 0 50px;
   }
