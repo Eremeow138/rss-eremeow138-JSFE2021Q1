@@ -569,7 +569,7 @@ template {
   margin: 30px 0;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .title {
     font-size: 36px;
   }
@@ -601,7 +601,7 @@ template {
   width: 245px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .range {
     margin: 28px 0 20px;
   }
@@ -633,7 +633,7 @@ template {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .range_favorite {
     width: 140px;
     left: -115px;

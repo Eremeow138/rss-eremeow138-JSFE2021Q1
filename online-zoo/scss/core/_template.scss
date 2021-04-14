@@ -116,7 +116,7 @@
   font-weight: 900;
   font-size: 48px;
   margin: 30px 0;
-  @media (max-width: 320px) {
+  @media (max-width: 425px) {
     font-size: 36px;
   }
 }
@@ -135,7 +135,7 @@
   position: relative;
   margin: 28px 0 32px;
   width: 245px;
-  @media (max-width: 320px) {
+  @media (max-width: 425px) {
     margin: 28px 0 20px;
   }
   &_nomargin {
@@ -152,7 +152,7 @@
     @media (max-width: 640px) {
       left: -130px;
     }
-    @media (max-width: 320px) {
+    @media (max-width: 425px) {
       width: 140px;
       left: -115px;
       .range__input {
