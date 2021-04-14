@@ -311,11 +311,24 @@
 
 .how {
   padding: 70px 0 100px;
+  @media (max-width: 320px) {
+    padding: 20px 0 50px;
+  }
   &__describe {
     font-size: 14px;
     margin-top: 32px;
     margin-bottom: 30px;
     line-height: 16px;
+    @media (max-width: 1200px) {
+      margin-bottom: 14px;
+    }
+    @media (max-width: 640px) {
+      margin-bottom: 30px;
+    }
+    @media (max-width: 320px) {
+      margin-top: -10px;
+      margin-bottom: 33px;
+    }
   }
   &__wrapper {
     width: 100%;
@@ -326,12 +339,15 @@
 
   &__slider {
     width: 100%;
+    @media (max-width: 320px) {
+      margin-bottom: -10px;
+    }
   }
 
   &__slide {
     width: 100%;
     height: 323px;
-    background-position: center;
+    background-position: 10% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
