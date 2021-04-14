@@ -1827,6 +1827,18 @@ template {
   padding: 100px 0 117px;
 }
 
+@media (max-width: 640px) {
+  .inspire {
+    padding: 100px 0 97px;
+  }
+}
+
+@media (max-width: 320px) {
+  .inspire {
+    padding: 50px 0 47px;
+  }
+}
+
 .inspire__box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1834,10 +1846,45 @@ template {
   margin: 0 -15px;
 }
 
+@media (max-width: 640px) {
+  .inspire__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: -25px 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .inspire__box {
+    margin: -15px 0;
+  }
+}
+
 .inspire__item {
   width: 33.333%;
   padding: 0 15px;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .inspire__item {
+    width: 100%;
+    max-width: 317px;
+    margin: 25px 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .inspire__item {
+    max-width: 330px;
+    padding: 0;
+    margin: 15px 0;
+  }
 }
 
 .inspire__logo {
@@ -1857,6 +1904,7 @@ template {
 .inspire__text {
   font-size: 14px;
   text-align: left;
+  margin-bottom: 0;
 }
 
 .pets {
