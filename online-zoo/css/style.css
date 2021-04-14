@@ -1759,7 +1759,7 @@ template {
 
 @media (max-width: 320px) {
   .how {
-    padding: 20px 0 50px;
+    padding: 20px 0 52px;
   }
 }
 
@@ -1784,8 +1784,8 @@ template {
 
 @media (max-width: 320px) {
   .how__describe {
-    margin-top: -10px;
-    margin-bottom: 33px;
+    margin-top: -8px;
+    margin-bottom: 31px;
   }
 }
 
