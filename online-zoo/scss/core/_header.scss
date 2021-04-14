@@ -8,6 +8,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 26px 0 22px;
+    @media (max-width: 320px) {
+      padding: 24px 0 22px;
+    }
   }
 }
 .checkbox {
