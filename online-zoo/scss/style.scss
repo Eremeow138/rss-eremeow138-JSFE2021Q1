@@ -669,16 +669,45 @@
 .testimonials {
   padding: 70px 0 100px;
   // background-color: #e5e5e5;
+  @media (max-width: 1368px) {
+    .container {
+      max-width: 940px;
+    }
+  }
+  @media (max-width: 425px) {
+    padding: 20px 0 100px;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
+  &__slider-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    @media (max-width: 425px) {
+      margin-bottom: -10px;
+    }
+  }
   &__slider {
-    margin: 33px -15px 20px;
+    margin: 12px -15px 0px;
+    padding: 20px 0;
     display: flex;
     position: relative;
+    width: calc(100% + 30px);
+    overflow: hidden;
+    @media (max-width: 1368px) {
+      width: calc(100% + 20px);
+    }
+    @media (max-width: 768px) {
+      margin: -2px 0px 1px;
+    }
+    @media (max-width: 425px) {
+      margin: -13px -15px 1px;
+
+    }
   }
 
   &__arrow {
@@ -687,12 +716,15 @@
     cursor: pointer;
     filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
       brightness(110%) contrast(84%);
-    top: calc(50% - 16px);
+    top: calc(50% - 9px);
+    @media (max-width: 1024px) {
+      display: none;
+    }
     &_left {
-      left: -28px;
+      left: -43px;
     }
     &_right {
-      right: -28px;
+      right: -43px;
       transform: rotate(180deg);
     }
   }
@@ -712,6 +744,20 @@
     background-color: #fefefe;
     box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
     border-radius: 5px;
+    flex-shrink: 0;
+    @media (max-width: 1368px) {
+      padding: 47px 56px;
+      margin: 0 10px;
+      width: calc(50% - 20px);
+    }
+    @media (max-width: 768px) {
+      width: calc(100% - 20px);
+      padding: 47px 72px;
+    }
+    @media (max-width: 425px) {
+      padding: 50px 14px;
+      height: auto;
+    }
   }
 
   &__photo {
@@ -722,6 +768,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    flex-shrink: 0;
+    @media (max-width: 425px) {
+      margin-bottom: 32px;
+    }
     &_auto {
       background-size: auto;
     }
@@ -731,11 +781,17 @@
     margin: 17px 0;
     font-weight: 900;
     font-size: 20px;
+    @media (max-width: 425px) {
+      font-size: 16px;
+    }
   }
 
   &__text {
     margin: 0;
     text-align: left;
     font-size: 14px;
+    @media (max-width: 425px) {
+      margin-bottom: 63px;
+    }
   }
 }
