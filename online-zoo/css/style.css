@@ -2323,7 +2323,10 @@ template {
 
 @media (max-width: 425px) {
   .testimonials {
-    padding: 20px 0 100px;
+    padding: 20px 0 49px;
+  }
+  .testimonials .range {
+    margin-bottom: 24px;
   }
 }
 
