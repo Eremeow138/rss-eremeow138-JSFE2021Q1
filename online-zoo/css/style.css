@@ -1828,7 +1828,13 @@ template {
 
 .inspire {
   background-color: #f2f2f2;
-  padding: 100px 0 117px;
+  padding: 100px 0 131px;
+}
+
+@media (max-width: 1368px) {
+  .inspire {
+    padding: 100px 0 117px;
+  }
 }
 
 @media (max-width: 640px) {
