@@ -417,7 +417,7 @@
 .pets {
   padding: 70px 0 100px;
   @media (max-width: 640px) {
-    padding: 70px 0 105px;
+    padding: 70px 0 100px;
   }
   @media (max-width: 425px) {
     padding: 70px 0 50px;
@@ -582,6 +582,9 @@
 .pay {
   padding: 71px 0 100px;
   background-color: #f2f2f2;
+  @media (max-width: 425px) {
+    padding: 20px 0 50px;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -591,6 +594,14 @@
   &__description {
     font-size: 14px;
     margin: 0;
+    text-align: center;
+    @media (max-width: 640px) {
+      max-width: 538px;
+      margin-top: -12px;
+    }
+    @media (max-width: 425px) {
+      display: none;
+    }
   }
 
   &__instruction {
@@ -600,12 +611,26 @@
     width: 100%;
     margin-top: 92px;
     margin-bottom: 60px;
+    @media (max-width: 1200px) {
+      margin-top: 49px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      height: 935px;
+      margin-top: 46px;
+    }
+    @media (max-width: 425px) {
+      margin-top: 1px;
+      margin-bottom: 40px;
+    }
   }
 
   &__item {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
   &__box {
     display: flex;

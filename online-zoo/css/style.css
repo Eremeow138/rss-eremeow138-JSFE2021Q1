@@ -1917,7 +1917,7 @@ template {
 
 @media (max-width: 640px) {
   .pets {
-    padding: 70px 0 105px;
+    padding: 70px 0 100px;
   }
 }
 
@@ -2168,6 +2168,12 @@ template {
   background-color: #f2f2f2;
 }
 
+@media (max-width: 425px) {
+  .pay {
+    padding: 20px 0 50px;
+  }
+}
+
 .pay__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2184,6 +2190,20 @@ template {
 .pay__description {
   font-size: 14px;
   margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .pay__description {
+    max-width: 538px;
+    margin-top: -12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pay__description {
+    display: none;
+  }
 }
 
 .pay__instruction {
@@ -2201,6 +2221,31 @@ template {
   margin-bottom: 60px;
 }
 
+@media (max-width: 1200px) {
+  .pay__instruction {
+    margin-top: 49px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pay__instruction {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 935px;
+    margin-top: 46px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pay__instruction {
+    margin-top: 1px;
+    margin-bottom: 40px;
+  }
+}
+
 .pay__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2211,6 +2256,8 @@ template {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .pay__box {
