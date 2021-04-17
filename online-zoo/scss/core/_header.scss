@@ -12,6 +12,10 @@
       padding: 24px 0 22px;
     }
   }
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
 }
 .checkbox {
   display: block;
@@ -20,6 +24,10 @@
   border-radius: 190px;
   background: #f2f2f2;
   cursor: pointer;
+
+  @media (max-width: 320px) {
+    margin-top: 6px;
+  }
   &__input {
     display: none;
   }
@@ -42,6 +50,17 @@
   width: 100%;
   max-width: 571px;
   margin-top: 4px;
+  @media (max-width: 1024px) {
+    max-width: 450px;
+  }
+  @media (max-width: 768px) {
+    max-width: 375px;
+  }
+  &_main {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
   &_small {
     max-width: 380px;
   }
@@ -107,4 +126,37 @@
   font-weight: 900;
   cursor: default;
   pointer-events: none;
+}
+.toggle {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  z-index: 3;
+  border-width: 0;
+  margin: 0;
+  margin-left: 34px;
+  width: 40px;
+  height: 12px;
+  top: -2px;
+  border-top: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  overflow: visible;
+  outline: none;
+  background-color: transparent;
+  display: none;
+  @media (max-width: 640px) {
+    display: initial;
+  }
+  @media (max-width: 640px) {
+    margin-left: 25px;
+  }
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  width: 83%;
+  right: 0;
+  border-top: 3px solid #333333;
+  bottom: -12px;
 }

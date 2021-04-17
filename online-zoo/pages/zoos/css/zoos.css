@@ -1005,6 +1005,15 @@ template {
   }
 }
 
+.header__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .checkbox {
   display: block;
   width: 54px;
@@ -1012,6 +1021,12 @@ template {
   border-radius: 190px;
   background: #f2f2f2;
   cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  .checkbox {
+    margin-top: 6px;
+  }
 }
 
 .checkbox__input {
@@ -1040,6 +1055,24 @@ template {
   width: 100%;
   max-width: 571px;
   margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    max-width: 375px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav_main {
+    display: none;
+  }
 }
 
 .nav_small {
@@ -1123,6 +1156,46 @@ template {
   font-weight: 900;
   cursor: default;
   pointer-events: none;
+}
+
+.toggle {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  z-index: 3;
+  border-width: 0;
+  margin: 0;
+  margin-left: 34px;
+  width: 40px;
+  height: 12px;
+  top: -2px;
+  border-top: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  overflow: visible;
+  outline: none;
+  background-color: transparent;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .toggle {
+    display: initial;
+  }
+}
+
+@media (max-width: 640px) {
+  .toggle {
+    margin-left: 25px;
+  }
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  width: 83%;
+  right: 0;
+  border-top: 3px solid #333333;
+  bottom: -12px;
 }
 
 .footer {
