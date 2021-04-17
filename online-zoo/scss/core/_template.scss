@@ -229,6 +229,15 @@
 }
 .map {
   padding: 70px 0 100px;
+  @media (max-width: 768px) {
+    padding: 70px 0 80px;
+  }
+  @media (max-width: 425px) {
+    padding: 20px 0 58px;
+    .title {
+      margin-bottom: 10px;
+    }
+  }
   &_bg-gray {
     background-color: #f2f2f2;
   }
@@ -236,18 +245,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100%;
   }
 
   &__box {
-    height: auto;
     margin-top: 32px;
     margin-bottom: 32px;
     position: relative;
+    width: 100%;
+    @media (max-width: 1200px) {
+      padding-top: 48.8%;
+    }
+    @media (max-width: 768px) {
+      margin-top: 21px;
+    }
   }
 }
 .pin {
-  width: 67px;
-  height: 94px;
+  --pin-width: 67px;
+  --pin-height: 94px;
+  @media (max-width: 600px) {
+    --pin-width: 33px;
+    --pin-height: 46px;
+  }
+  width: var(--pin-width);
+  height: var(--pin-height);
   position: absolute;
   cursor: pointer;
   background-position: center;
@@ -260,8 +283,8 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: 67px;
-    height: 94px;
+    width: var(--pin-width);
+    height: var(--pin-height);
     cursor: pointer;
     background-position: center;
     background-repeat: no-repeat;
@@ -280,6 +303,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
+    @media (max-width: 600px) {
+      width: 22px;
+      height: 22px;
+      left: calc(50% - 10.5px);
+      top: 6px;
+    }
   }
   &_active > &__pseudo {
     opacity: 1;
@@ -293,23 +322,31 @@
   opacity: 1;
 }
 #pin-panda {
-  top: calc(36% - 94px);
-  left: calc(77% - 33px);
+  top: calc(36% - var(--pin-height));
+  left: calc(77% - (var(--pin-width) / 2));
 }
 #pin-eagle {
-  top: calc(33% - 94px);
-  left: calc(13% - 33px);
+  top: calc(33% - var(--pin-height));
+  left: calc(13% - (var(--pin-width) / 2));
 }
 #pin-alligator {
-  top: calc(39% - 94px);
-  left: calc(23% - 33px);
+  top: calc(39% - var(--pin-height));
+  left: calc(23% - (var(--pin-width) / 2));
 }
 #pin-gorilla {
-  top: calc(56% - 94px);
-  left: calc(50.5% - 33px);
+  top: calc(56% - var(--pin-height));
+  left: calc(50.5% - (var(--pin-width) / 2));
 }
 .world {
-  // width: 100%;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 1200px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 .tooltip {
   cursor: pointer;
@@ -323,9 +360,15 @@
   background-color: #fefefe;
   box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.15);
   border-radius: 8px;
-  transition: all 0.3s;
+  transition: opacity 0.3s;
   opacity: 0;
-  z-index: 10;
+  z-index: 200;
+  @media (max-width: 600px) {
+    width: 238px;
+    padding: 16px 24px 19px 15px;
+    top: 60px;
+    left: 0px;
+  }
   &__img {
     margin-right: 20px;
     width: 65px;
@@ -334,6 +377,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    flex-shrink: 0;
+    @media (max-width: 600px) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &__info {
@@ -347,10 +395,16 @@
     font-weight: 900;
     font-size: 18px;
     margin-bottom: 2px;
+    @media (max-width: 600px) {
+      font-size: 14px;
+    }
   }
 
   &__text {
     margin: 5px 0 0 0;
     font-size: 14px;
+    @media (max-width: 600px) {
+      font-size: 10px;
+    }
   }
 }
