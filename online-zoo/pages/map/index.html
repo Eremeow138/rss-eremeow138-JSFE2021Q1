@@ -55,7 +55,6 @@
               </p>
               <div class="favorite-slider">
                 <img class="favorite-slider__arrow favorite-slider__arrow_left favorite-slider__arrow_empty" src="../../assets/images/arrow.svg" alt="">
-                <img class="favorite-slider__arrow favorite-slider__arrow_empty favorite-slider__arrow_right" src="../../assets/images/arrow.svg" alt="">
                 <div class="favorite-slider__wrapper">
                   <div class="favorite-slider__item">
                     <div class="favorite-slider__img" style="background-image: url(../../assets/images/gorilla.jpg);" title="Gorilla">
@@ -90,6 +89,7 @@
                     </div>
                   </div>
                 </div>
+                <img class="favorite-slider__arrow favorite-slider__arrow_empty favorite-slider__arrow_right" src="../../assets/images/arrow.svg" alt="">
               </div>
               <label class="range range_dark">
                 <output class="range__current" name="current"><b class="range__big">02/</b>08</output>
@@ -99,27 +99,7 @@
             <section class="map">
               <div class="map__wrapper">
                 <div class="map__box">
-                  <div id="pin-panda" class="pin pin_active" title="Panda" style="background-image: url(../../assets/images/pin.svg);">
-                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
-                    <div class="pin__image" style="background-image: url(../../assets/images/panda.jpg);" alt="">
-                    </div>
-                  </div>
-                  <div id="pin-eagle" class="pin" title="Eagle" style="background-image: url(../../assets/images/pin.svg);">
-                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
-                    <div class="pin__image" style="background-image: url(../../assets/images/eagle.jpg);" alt="">
-                    </div>
-                  </div>
-                  <div id="pin-alligator" title="Alligator" class="pin" style="background-image: url(../../assets/images/pin.svg);">
-                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
-                    <div class="pin__image" style="background-image: url(../../assets/images/alligator.jpg);" alt="">
-                    </div>
-                  </div>
-                  <div id="pin-gorilla" title="Gorilla" class="pin" style="background-image: url(../../assets/images/pin.svg);">
-                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
-                    <div class="pin__image" style="background-image: url(../../assets/images/gorilla.jpg);" alt="">
-                    </div>
-                  </div>
-                  <svg class="world" width="1200" height="498" viewBox="0 0 1200 498" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg class="world" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 498" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path stroke="#333333" d="M742.625 212.977L743.227 212.795L743.438 213.779L746.131 213.219L749.036 213.31L751.157 213.415L753.339 210.995L755.747 208.711L757.748 206.518L758.515 207.743L759.252 210.556L757.477 210.572L757.387 212.886L758.049 213.385L756.529 214.081L756.634 215.533L755.747 217.016L755.762 218.438L755.115 219.194L744.446 217.409L742.821 213.794L742.625 212.977Z" fill="#333333"/>
                     <path stroke="#333333" d="M771.425 172.316L775.111 173.677L777.609 173.193L778.076 171.574L780.694 171.045L782.454 169.956L782.665 167.112L785.434 166.416L785.75 165.146L787.51 166.099L788.563 166.204L790.459 166.235L793.152 166.991L794.266 167.43L796.538 166.28L797.802 166.961L798.614 165.327L800.661 165.403L801.082 164.888L801.187 163.451L802.421 162.211L804.407 163.013L804.242 164.102L805.295 164.268L805.521 167.278L807.071 168.443L808.124 167.687L809.583 167.339L811.404 165.736L813.796 166.008H817.302L818.1 167.036L816.204 167.43L814.594 168.095L810.757 168.504L807.221 169.26L805.506 170.803L806.574 172.316L807.266 174.101L805.807 175.598L806.183 176.96L805.446 178.245L802.165 178.14L803.881 180.499L801.834 181.392L800.706 183.54L801.202 185.688L799.999 186.686L798.675 186.353L796.102 186.822L795.876 187.821H793.303L791.648 189.833L791.919 192.873L787.615 194.34L785.163 194.038L784.561 194.809L782.424 194.356L779.024 194.9L773.005 193.07L775.758 189.848L775.187 187.549L772.493 186.943L771.937 184.69L770.432 181.846L771.636 179.879L770.071 179.365L770.658 176.763L771.425 172.316Z" fill="#333333"/>
                     <path stroke="#333333" d="M631.401 150.185L631.055 151.395L631.612 152.923L633.071 153.8L633.056 154.738L631.988 155.253L631.853 156.417L630.378 158.142L629.791 157.885L629.686 157.098L627.745 155.903L627.354 154.209L627.504 151.773L627.91 150.669L627.308 150.094L627.022 148.96L628.377 147.205L628.617 147.886L629.505 147.568L630.273 148.521L631.1 148.884L631.401 150.185Z" fill="#333333"/>
@@ -297,6 +277,26 @@
                     <path stroke="#333333" d="M713.39 241.098L712.863 239.571L711.75 238.496L711.419 237.075L709.538 235.804L707.522 232.824L706.378 229.92L703.82 227.469L702.226 226.879L699.713 223.491L699.186 221.01L699.216 218.907L696.974 214.959L695.259 213.567L693.318 212.826L692.054 210.784L692.189 209.982L691.121 208.137L690.053 207.335L688.518 204.688L686.231 201.814L684.29 199.363L682.56 199.378L682.981 197.427L683.056 196.186L683.387 194.765L687.284 195.324L688.714 194.235L689.451 192.949L692.054 192.45L692.535 191.255L693.634 190.65L689.917 187.095L696.673 185.295L697.29 184.766L701.518 185.734L706.875 188.23L717.242 195.4L723.712 195.672L726.827 196.02L727.85 197.714L730.287 197.624L731.928 200.694L733.703 201.511L734.41 202.767L736.923 204.264L737.254 205.732L737.013 206.927L737.54 208.122L738.638 209.12L739.195 210.285L739.782 211.162L740.895 211.858L741.843 211.616L742.626 212.977L742.821 213.794L744.446 217.41L755.114 219.195L755.761 218.438L757.567 220.964L755.761 228.089L745.424 231.644L735.343 233.021L732.153 234.609L729.821 238.36L728.196 238.95L727.263 237.755L725.909 237.937L722.493 237.589L721.816 237.226L717.754 237.317L716.806 237.634L715.316 236.712L714.473 238.451L714.895 239.949L713.39 241.098Z" fill="#333333"/>
                     <path stroke="#333333" d="M1137.9 336.564L1138.77 337.79L1136.29 337.759L1135.16 335.566L1137.21 336.428L1137.9 336.564ZM1133.63 334.386L1132.23 334.477L1130.09 334.114L1129.4 333.554L1129.75 332.147L1132.05 332.707L1133.13 333.448L1133.63 334.386ZM1136.65 333.418L1136.07 334.083L1133.72 330.998L1133.16 328.865H1134.37L1135.4 331.709L1136.65 333.418ZM1130.65 328.925L1130.74 329.636L1128.08 328.139L1126.22 326.853L1124.98 325.673L1125.53 325.31L1127.11 326.157L1129.9 327.791L1130.65 328.925ZM1122.6 325.401L1121.88 325.612L1120.39 324.796L1119.02 323.328L1119.24 322.738L1121.26 324.251L1122.6 325.401Z" fill="#333333"/>
                   </svg>
+                  <div id="pin-panda" class="pin pin_active" title="Panda" style="background-image: url(../../assets/images/pin.svg);">
+                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
+                    <div class="pin__image" style="background-image: url(../../assets/images/panda.jpg);" alt="">
+                    </div>
+                  </div>
+                  <div id="pin-eagle" class="pin" title="Eagle" style="background-image: url(../../assets/images/pin.svg);">
+                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
+                    <div class="pin__image" style="background-image: url(../../assets/images/eagle.jpg);" alt="">
+                    </div>
+                  </div>
+                  <div id="pin-alligator" title="Alligator" class="pin" style="background-image: url(../../assets/images/pin.svg);">
+                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
+                    <div class="pin__image" style="background-image: url(../../assets/images/alligator.jpg);" alt="">
+                    </div>
+                  </div>
+                  <div id="pin-gorilla" title="Gorilla" class="pin" style="background-image: url(../../assets/images/pin.svg);">
+                    <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
+                    <div class="pin__image" style="background-image: url(../../assets/images/gorilla.jpg);" alt="">
+                    </div>
+                  </div>
                 </div>
                 <a class="button button_mt" href="../zoos/panda/index.html"
                   ><i class="icon icon-play"></i>watch online</a>

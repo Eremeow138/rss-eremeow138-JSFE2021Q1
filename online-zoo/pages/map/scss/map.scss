@@ -63,6 +63,65 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
 @import "../../../scss/core/icon-fonts";
 .intermediate {
   background-color: #fbfbfb;
+  @media (max-width: 1200px) {
+    padding-bottom: 60px;
+    .map {
+      padding: 37px 0;
+    }
+    .map__box {
+      padding-top: 43%;
+      width: 89%;
+    }
+    .pin__image {
+      width: 35px;
+      height: 35px;
+      left: calc(50% - 17px);
+      top: 12px;
+    }
+    .pin {
+      --pin-width: 59px;
+      --pin-height: 83px;
+    }
+    .button_mt {
+      margin: 3px;
+    }
+  }
+  @media (max-width: 768px) {
+    padding-bottom: 41px;
+    .map__box {
+      padding-top: 48%;
+      width: 100%;
+      margin-top: 17px;
+    }
+    .pin__image {
+      width: 43px;
+      height: 43px;
+      left: calc(50% - 21px);
+      top: 11px;
+    }
+    .pin {
+      --pin-width: 66px;
+      --pin-height: 93px;
+    }
+  }
+  @media (max-width: 425px) {
+    padding-bottom: 20px;
+    .map__box {
+      padding-top: 48.5%;
+      width: 100%;
+      margin-top: 27px;
+    }
+    .pin__image {
+      width: 22px;
+      height: 22px;
+      left: calc(50% - 10.5px);
+      top: 6px;
+    }
+    .pin {
+      --pin-width: 33px;
+      --pin-height: 47px;
+    }
+  }
 }
 .favorite {
   display: flex;
@@ -75,6 +134,27 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     margin-top: -10px;
     max-width: 790px;
     font-size: 14px;
+    @media (max-width: 425px) {
+      font-size: 12px;
+      margin: 0;
+      max-width: 280px;
+      line-height: 14px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .range {
+      margin-top: 24px;
+    }
+  }
+  @media (max-width: 425px) {
+    .title {
+      font-size: 24px;
+      margin-top: 5px;
+      margin-bottom: 12px;
+    }
+    .range {
+      margin-top: 20px;
+    }
   }
 }
 .favorite-slider {
@@ -84,18 +164,47 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
   transition: all 0.3s;
   display: flex;
   justify-content: center;
+  @media (max-width: 1200px) {
+    margin-top: 36px;
+    width: 90%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 425px) {
+    margin-top: 39px;
+  }
   &__arrow {
-    position: absolute;
+    position: relative;
     cursor: pointer;
-    top: calc(50% - 15px);
     filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
       brightness(110%) contrast(84%);
+
     &_left {
-      left: 10px;
+      right: 23px;
+      @media (max-width: 1200px) {
+        right: 31px;
+      }
+      @media (max-width: 768px) {
+        right: 7px;
+      }
+      @media (max-width: 425px) {
+        right: -5px;
+      }
     }
     &_right {
-      right: 10px;
+      left: 23px;
+      // margin-left: 10px;
       transform: rotate(180deg);
+      @media (max-width: 1200px) {
+        left: 31px;
+      }
+      @media (max-width: 768px) {
+        left: 7px;
+      }
+      @media (max-width: 425px) {
+        left: -8px;
+      }
     }
     &_empty {
       filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
@@ -115,22 +224,33 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
+    @media (max-width: 1200px) {
+      max-width: 690px;
+    }
+    @media (max-width: 1024px) {
+      max-width: 538px;
+    }
+    @media (max-width: 639px) {
+      max-width: 245px;
+    }
   }
   &__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 0 15px;
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s;
     flex-shrink: 0;
-    &__item:first-child{
+    @media (max-width: 1024px) {
+      margin: 0 7px;
+    }
+    &__item:first-child {
       margin-left: 0;
     }
-    &__item:last-child{
+    &__item:last-child {
       margin-right: 0;
     }
     &_active {
@@ -140,11 +260,23 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
       background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
       user-select: none;
       cursor: default;
+      @media (max-width: 1024px) {
+        margin: 0px 4px;
+      }
+      @media (max-width: 639px) {
+        width: 85px;
+        height: 85px;
+      }
     }
     &_active > .favorite-slider__img {
       width: 150px;
       height: 150px;
       border: 7px solid #fff;
+      @media (max-width: 639px) {
+        width: 79px;
+        height: 79px;
+        border: 2px solid #fff;
+      }
     }
     &_active:hover {
       transform: scale(1) !important;
@@ -162,5 +294,9 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.3s;
+    @media (max-width: 639px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 }
