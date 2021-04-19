@@ -49,6 +49,14 @@
   margin: -1px;
   opacity: 0;
 }
+.main {
+  @media (max-width: 640px) {
+    margin-top: 94px;
+  }
+  @media (max-width: 425px) {
+    margin-top: 92px;
+  }
+}
 .button {
   display: flex;
   justify-content: center;

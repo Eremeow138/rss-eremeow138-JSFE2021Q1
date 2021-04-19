@@ -475,6 +475,18 @@ template {
   opacity: 0;
 }
 
+@media (max-width: 640px) {
+  .main {
+    margin-top: 94px;
+  }
+}
+
+@media (max-width: 425px) {
+  .main {
+    margin-top: 92px;
+  }
+}
+
 .button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -985,6 +997,14 @@ template {
   -webkit-box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
           box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
   z-index: 10;
+  background-color: #fff;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .header {
+    position: fixed;
+  }
 }
 
 .header__content {
@@ -1024,7 +1044,7 @@ template {
   cursor: pointer;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 640px) {
   .checkbox {
     margin-top: 6px;
   }
@@ -1177,6 +1197,7 @@ template {
   outline: none;
   background-color: transparent;
   display: none;
+  cursor: pointer;
 }
 
 @media (max-width: 640px) {
@@ -1187,7 +1208,7 @@ template {
 
 @media (max-width: 640px) {
   .toggle {
-    margin-left: 25px;
+    margin-left: 34px;
   }
 }
 
