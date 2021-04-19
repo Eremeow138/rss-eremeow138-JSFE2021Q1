@@ -82,6 +82,8 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
   position: relative;
   margin-top: 55px;
   transition: all 0.3s;
+  display: flex;
+  justify-content: center;
   &__arrow {
     position: absolute;
     cursor: pointer;
@@ -108,55 +110,53 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg)
       brightness(97%) contrast(89%);
   }
-  &__slide {
+  &__wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    overflow: hidden;
   }
   &__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 115px;
-    height: 115px;
+    margin-left: 15px;
+    margin-right: 15px;
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s;
+    flex-shrink: 0;
+    &__item:first-child{
+      margin-left: 0;
+    }
+    &__item:last-child{
+      margin-right: 0;
+    }
     &_active {
       width: 157px;
       height: 157px;
-      margin: 0;
+      margin: 0px -10px;
       background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
       user-select: none;
       cursor: default;
     }
     &_active > .favorite-slider__img {
-      // margin: 0;
       width: 150px;
       height: 150px;
       border: 7px solid #fff;
     }
+    &_active:hover {
+      transform: scale(1) !important;
+    }
   }
   &__item:hover {
-    width: 157px;
-    height: 157px;
-    // margin: 0;
-    // margin: 0 -10px;
-    background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+    transform: scale(1.05);
   }
-  &__item:hover > .favorite-slider__img {
-    width: 150px;
-    height: 150px;
-    border: 7px solid #fff;
-  }
+
   &__img {
-    width: 115px;
-    height: 115px;
-    border: 5px solid #fff;
+    width: 108px;
+    height: 108px;
     border-radius: 50%;
     background-position: center;
     background-size: cover;

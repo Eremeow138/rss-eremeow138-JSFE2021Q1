@@ -1792,6 +1792,12 @@ template {
   margin-top: 55px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .favorite-slider__arrow {
@@ -1827,17 +1833,17 @@ template {
           filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg) brightness(97%) contrast(89%);
 }
 
-.favorite-slider__slide {
+.favorite-slider__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: hidden;
 }
 
 .favorite-slider__item {
@@ -1850,21 +1856,29 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 115px;
-  height: 115px;
+  margin-left: 15px;
+  margin-right: 15px;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.favorite-slider__item__item:first-child {
+  margin-left: 0;
+}
+
+.favorite-slider__item__item:last-child {
+  margin-right: 0;
 }
 
 .favorite-slider__item_active {
   width: 157px;
   height: 157px;
-  margin: 0;
+  margin: 0px -10px;
   background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1879,22 +1893,19 @@ template {
   border: 7px solid #fff;
 }
 
-.favorite-slider__item:hover {
-  width: 157px;
-  height: 157px;
-  background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+.favorite-slider__item_active:hover {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
 }
 
-.favorite-slider__item:hover > .favorite-slider__img {
-  width: 150px;
-  height: 150px;
-  border: 7px solid #fff;
+.favorite-slider__item:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .favorite-slider__img {
-  width: 115px;
-  height: 115px;
-  border: 5px solid #fff;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   background-position: center;
   background-size: cover;
