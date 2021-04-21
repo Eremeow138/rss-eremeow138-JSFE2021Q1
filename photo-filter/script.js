@@ -6,6 +6,7 @@ const defaultFilters = {};
 const image = document.querySelector('.editor img');
 const baseLink =
   'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/';
+const fileInput = document.querySelector('input[type="file"]');
 let imageCounter = 1;
 
 document.addEventListener('DOMContentLoaded', (e) => {
@@ -48,7 +49,7 @@ async function viewNextImage(src) {
       imageCounter = 1;
       getNextImage(baseLink);
       toggleBtn(btnNext);
-    }else{
+    } else {
       console.error(`Response error: ${res.status}`);
     }
   }
@@ -91,6 +92,17 @@ function toggleBtn(btn) {
     btn.disabled = true;
   }
 }
+//функция закрузки изображения с компьютера
+function uploadImage() {
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+    image.src = reader.result;
+  };
+  fileInput.value = null;
+}
 filters.addEventListener('input', (event) => handleUpdate(event.target));
 btnReset.addEventListener('click', () => handleUpdateDefault(inputs));
 btnNext.addEventListener('click', () => getNextImage(baseLink));
+fileInput.addEventListener('change', uploadImage);
