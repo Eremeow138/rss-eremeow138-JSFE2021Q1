@@ -8,7 +8,8 @@ const baseLink =
   'https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/';
 const fileInput = document.querySelector('input[type="file"]');
 let imageCounter = 1;
-
+const btnDownload = document.querySelector('.btn-save');
+const canvas = document.querySelector('canvas');
 document.addEventListener('DOMContentLoaded', (e) => {
   // при загрузке документа записываем в объект defaultFilters значения фильтров
   inputs.forEach((item) => {
@@ -102,7 +103,34 @@ function uploadImage() {
   };
   fileInput.value = null;
 }
+//функция закрузки изображения на компьютер
+function downloadImage() {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+  const ctx = canvas.getContext('2d');
+  const hClient = image.height;
+  const hImage = image.naturalHeight;
+  let k;
+  if (hClient > hImage) {
+    k = hClient / hImage;
+  } else {
+    k = hImage / hClient;
+  }
+  let filter = window.getComputedStyle(image).filter;
+  const blur = filter.split(' ')[0].match(/\d{1,}/)[0];
+  const newFilter = window
+    .getComputedStyle(image)
+    .filter.replace(/blur\([0-9]*px\)/, `blur(${blur * k}px)`);
+  ctx.filter = newFilter;
+  ctx.drawImage(image, 0, 0);
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+}
 filters.addEventListener('input', (event) => handleUpdate(event.target));
 btnReset.addEventListener('click', () => handleUpdateDefault(inputs));
 btnNext.addEventListener('click', () => getNextImage(baseLink));
 fileInput.addEventListener('change', uploadImage);
+btnDownload.addEventListener('click', downloadImage);
