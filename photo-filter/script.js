@@ -10,6 +10,8 @@ const fileInput = document.querySelector('input[type="file"]');
 let imageCounter = 1;
 const btnDownload = document.querySelector('.btn-save');
 const canvas = document.querySelector('canvas');
+const btnFullScreen = document.querySelector('.fullscreen')
+
 document.addEventListener('DOMContentLoaded', (e) => {
   // при загрузке документа записываем в объект defaultFilters значения фильтров
   inputs.forEach((item) => {
@@ -129,6 +131,42 @@ function downloadImage() {
   link.click();
   link.delete;
 }
+// --начало куска кода для входа в полноэкранный режим
+btnFullScreen.addEventListener('click', (event) => {
+  if (document.fullscreenElement !== null) {
+    deactivateFullscreen(document.documentElement);
+  } else {
+    activateFullscreen(document.documentElement);
+  }
+});
+
+function activateFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
+// Whack fullscreen
+function deactivateFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+}
+
+document.addEventListener('fullscreenchange', (event) => {
+  btnFullScreen.classList.toogle('openfullscreen');
+});
+// --конец куска кода для входа в полноэкранный режим
 filters.addEventListener('input', (event) => handleUpdate(event.target));
 btnReset.addEventListener('click', () => handleUpdateDefault(inputs));
 btnNext.addEventListener('click', () => getNextImage(baseLink));
