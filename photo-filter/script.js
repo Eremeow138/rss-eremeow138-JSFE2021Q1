@@ -10,7 +10,7 @@ const fileInput = document.querySelector('input[type="file"]');
 let imageCounter = 1;
 const btnDownload = document.querySelector('.btn-save');
 const canvas = document.querySelector('canvas');
-const btnFullScreen = document.querySelector('.fullscreen')
+const btnFullScreen = document.querySelector('.fullscreen');
 
 document.addEventListener('DOMContentLoaded', (e) => {
   // при загрузке документа записываем в объект defaultFilters значения фильтров
@@ -45,6 +45,7 @@ async function viewNextImage(src) {
     img.src = src;
     img.onload = () => {
       image.src = src;
+      image.setAttribute('crossOrigin', 'anonymous');
       toggleBtn(btnNext);
     };
   } else {
