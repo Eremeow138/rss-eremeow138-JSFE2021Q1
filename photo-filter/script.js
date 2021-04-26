@@ -115,19 +115,14 @@ function downloadImage() {
   const ctx = canvas.getContext('2d');
   const hClient = image.height;
   const hImage = image.naturalHeight;
-  let k;
-  if (hClient > hImage) {
-    k = hClient / hImage;
-  } else {
-    k = hImage / hClient;
-  }
+  const k = hImage / hClient;
   let filter = window.getComputedStyle(image).filter;
   const blur = filter.split(' ')[0].match(/\d{1,}/)[0];
   const newFilter = window
     .getComputedStyle(image)
-    .filter.replace(/blur\([0-9]*px\)/, `blur(${blur * k}px)`);
+    .filter.replace(/blur\([0-9]*px\)/, `blur(${(blur * k).toFixed(2)}px)`);
   ctx.filter = newFilter;
-  ctx.drawImage(image, 0, 0);
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
   link.href = canvas.toDataURL();
   link.click();
   link.delete;
