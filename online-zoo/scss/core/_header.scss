@@ -1,9 +1,9 @@
 .header {
   position: relative;
-  color: #333333;
+  color: var(--main-dark-color);
   box-shadow: 0px 4px 8px rgba(44, 101, 77, 0.08);
   z-index: 10;
-  background-color: #fff;
+  background-color: var(--bg-color-header);
   width: 100%;
   @media (max-width: 640px) {
     position: fixed;
@@ -27,7 +27,7 @@
   width: 54px;
   height: 30px;
   border-radius: 190px;
-  background: #f2f2f2;
+  background: var(--bg-color-two);
   cursor: pointer;
   @media (max-width: 640px) {
     margin-top: 6px;
@@ -108,7 +108,7 @@
     left: 50%;
     width: 0;
     opacity: 0;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid var(--main-dark-color);
     transition: 0.3s;
   }
 
@@ -143,8 +143,8 @@
   width: 40px;
   height: 12px;
   top: -2px;
-  border-top: 3px solid #333333;
-  border-bottom: 3px solid #333333;
+  border-top: 3px solid var(--main-dark-color);
+  border-bottom: 3px solid var(--main-dark-color);
   overflow: visible;
   outline: none;
   background-color: transparent;
@@ -163,6 +163,6 @@
   position: absolute;
   width: 83%;
   right: 0;
-  border-top: 3px solid #333333;
+  border-top: 3px solid var(--main-dark-color);
   bottom: -12px;
 }

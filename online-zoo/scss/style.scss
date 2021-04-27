@@ -311,6 +311,7 @@
 
 .how {
   padding: 70px 0 100px;
+  background-color: var(--bg-color-one);
   @media (max-width: 640px) {
     padding: 70px 0 69px;
   }
@@ -357,7 +358,7 @@
   }
 }
 .inspire {
-  background-color: #f2f2f2;
+  background-color: var(--bg-color-two);
   padding: 100px 0 131px;
   @media (max-width: 1368px) {
     padding: 100px 0 117px;
@@ -405,7 +406,7 @@
   }
 
   &__title {
-    color: #333333;
+    color: var(--main-dark-color);
     font-weight: 900;
     margin: 15px 0;
     font-size: 20px;
@@ -419,6 +420,7 @@
 }
 .pets {
   padding: 70px 0 100px;
+  background-color: var(--bg-color-one);
   @media (max-width: 640px) {
     padding: 70px 0 100px;
   }
@@ -468,8 +470,7 @@
     position: absolute;
     transition: all 0.3s;
     cursor: pointer;
-    filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
-      brightness(110%) contrast(84%);
+    filter: var(--arrow-filter-one);
     top: calc(50% - 16px);
     @media (max-width: 1024px) {
       display: none;
@@ -586,7 +587,7 @@
 }
 .pay {
   padding: 71px 0 100px;
-  background-color: #f2f2f2;
+  background-color: var(--bg-color-two);
   @media (max-width: 425px) {
     padding: 20px 0 50px;
   }
@@ -646,7 +647,7 @@
     width: 239px;
     height: 239px;
     border-radius: 50%;
-    background-color: #f2f2f2;
+    background-color: var(--bg-color-two);
   }
   &__item:nth-child(odd) {
     width: 245px;
@@ -714,7 +715,6 @@
     }
     @media (max-width: 425px) {
       margin: -13px -15px 1px;
-
     }
   }
 
@@ -722,8 +722,7 @@
     position: absolute;
     transition: all 0.3s;
     cursor: pointer;
-    filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
-      brightness(110%) contrast(84%);
+    filter: var(--arrow-filter-one);
     top: calc(50% - 9px);
     @media (max-width: 1024px) {
       display: none;
@@ -749,7 +748,7 @@
     padding: 47px 72px;
     width: calc(50% - 30px);
     height: 310px;
-    background-color: #fefefe;
+    background-color: var(--bg-color-three);
     box-shadow: 2px 4px 15px rgba(6, 12, 70, 0.1);
     border-radius: 5px;
     flex-shrink: 0;
