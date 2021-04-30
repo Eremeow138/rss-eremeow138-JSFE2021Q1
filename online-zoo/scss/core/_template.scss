@@ -169,19 +169,13 @@
     margin: 0;
   }
   &_favorite {
-    left: -98px;
+    margin-left: 314px;
     @media (max-width: 1440px) {
-      left: -120px;
+      margin-left: 306px;
     }
-    @media (max-width: 1200px) {
-      left: -67px;
-    }
-    @media (max-width: 640px) {
-      left: -130px;
-    }
-    @media (max-width: 425px) {
+    @media (max-width: 639px) {
+      margin-left: 306px;
       width: 140px;
-      left: -115px;
       .range__input {
         margin-top: 3px;
       }
