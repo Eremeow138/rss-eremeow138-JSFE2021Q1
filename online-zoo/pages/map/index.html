@@ -56,42 +56,44 @@
               <div class="favorite-slider">
                 <img class="favorite-slider__arrow favorite-slider__arrow_left favorite-slider__arrow_empty" src="../../assets/images/arrow.svg" alt="">
                 <div class="favorite-slider__wrapper">
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/gorilla.jpg);" title="Gorilla">
+                  <div class="favorite-slider__line">
+                    <div class="favorite-slider__item favorite-slider__item_active" data-name="Gorilla">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/gorilla.jpg);" title="Gorilla">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item favorite-slider__item_active">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/panda.jpg);" title="Panda">
+                    <div class="favorite-slider__item" data-name="Panda">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/panda.jpg);" title="Panda">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/alligator.jpg);" title="Alligator">
+                    <div class="favorite-slider__item" data-name="Alligator">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/alligator.jpg);" title="Alligator">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/eagle.jpg);" title="Eagle">
+                    <div class="favorite-slider__item" data-name="Eagle">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/eagle.jpg);" title="Eagle">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/tiger.jpg);" title="Tiger">
+                    <div class="favorite-slider__item" data-name="Tiger">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/tiger.jpg);" title="Tiger">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/elephant.jpg);" title="Elephant">
+                    <div class="favorite-slider__item" data-name="Elephant">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/elephant.jpg);" title="Elephant">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/lion.jpg);" title="Lion">
+                    <div class="favorite-slider__item" data-name="Lion">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/lion.jpg);" title="Lion">
+                      </div>
                     </div>
-                  </div>
-                  <div class="favorite-slider__item">
-                    <div class="favorite-slider__img" style="background-image: url(../../assets/images/zebra.jpg);" title="Zebra">
+                    <div class="favorite-slider__item" data-name="Zebra">
+                      <div class="favorite-slider__img" style="background-image: url(../../assets/images/zebra.jpg);" title="Zebra">
+                      </div>
                     </div>
                   </div>
                 </div>
                 <img class="favorite-slider__arrow favorite-slider__arrow_empty favorite-slider__arrow_right" src="../../assets/images/arrow.svg" alt="">
               </div>
-              <label class="range range_dark">
+              <label id="range-map" class="range range_dark">
                 <output class="range__current" name="current"><b class="range__big">02/</b>08</output>
                 <input class="range__input" type="range" min="1" max="8" value="2" >
               </label>
@@ -277,7 +279,7 @@
                     <path stroke="#333333" d="M713.39 241.098L712.863 239.571L711.75 238.496L711.419 237.075L709.538 235.804L707.522 232.824L706.378 229.92L703.82 227.469L702.226 226.879L699.713 223.491L699.186 221.01L699.216 218.907L696.974 214.959L695.259 213.567L693.318 212.826L692.054 210.784L692.189 209.982L691.121 208.137L690.053 207.335L688.518 204.688L686.231 201.814L684.29 199.363L682.56 199.378L682.981 197.427L683.056 196.186L683.387 194.765L687.284 195.324L688.714 194.235L689.451 192.949L692.054 192.45L692.535 191.255L693.634 190.65L689.917 187.095L696.673 185.295L697.29 184.766L701.518 185.734L706.875 188.23L717.242 195.4L723.712 195.672L726.827 196.02L727.85 197.714L730.287 197.624L731.928 200.694L733.703 201.511L734.41 202.767L736.923 204.264L737.254 205.732L737.013 206.927L737.54 208.122L738.638 209.12L739.195 210.285L739.782 211.162L740.895 211.858L741.843 211.616L742.626 212.977L742.821 213.794L744.446 217.41L755.114 219.195L755.761 218.438L757.567 220.964L755.761 228.089L745.424 231.644L735.343 233.021L732.153 234.609L729.821 238.36L728.196 238.95L727.263 237.755L725.909 237.937L722.493 237.589L721.816 237.226L717.754 237.317L716.806 237.634L715.316 236.712L714.473 238.451L714.895 239.949L713.39 241.098Z" fill="#333333"/>
                     <path stroke="#333333" d="M1137.9 336.564L1138.77 337.79L1136.29 337.759L1135.16 335.566L1137.21 336.428L1137.9 336.564ZM1133.63 334.386L1132.23 334.477L1130.09 334.114L1129.4 333.554L1129.75 332.147L1132.05 332.707L1133.13 333.448L1133.63 334.386ZM1136.65 333.418L1136.07 334.083L1133.72 330.998L1133.16 328.865H1134.37L1135.4 331.709L1136.65 333.418ZM1130.65 328.925L1130.74 329.636L1128.08 328.139L1126.22 326.853L1124.98 325.673L1125.53 325.31L1127.11 326.157L1129.9 327.791L1130.65 328.925ZM1122.6 325.401L1121.88 325.612L1120.39 324.796L1119.02 323.328L1119.24 322.738L1121.26 324.251L1122.6 325.401Z" fill="#333333"/>
                   </svg>
-                  <div id="pin-panda" class="pin pin_active" title="Panda" style="background-image: url(../../assets/images/pin.svg);">
+                  <div id="pin-panda" class="pin" title="Panda" style="background-image: url(../../assets/images/pin.svg);">
                     <div class="pin__pseudo" style="background-image: url(../../assets/images/pin-red.svg);"></div>
                     <div class="pin__image" style="background-image: url(../../assets/images/panda.jpg);" alt="">
                     </div>
@@ -385,6 +387,7 @@
       </footer>
     </div>
     <script src="../../changeThemes.js"></script>
+    <script src="../../sliderMap.js"></script>
   </body>
 </html>
 

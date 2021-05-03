@@ -98,6 +98,10 @@
   &_mt {
     margin-top: 10px;
   }
+  &_disable {
+    background: rgba(189, 189, 189, 0.57);;
+    pointer-events: none;
+  }
 }
 .button:hover {
   background: linear-gradient(106.89deg, #eb5757 -14.32%, #eb5757 100.68%);

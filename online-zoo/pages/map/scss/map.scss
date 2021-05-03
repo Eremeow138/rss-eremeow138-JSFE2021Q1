@@ -220,12 +220,13 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
       brightness(97%) contrast(89%);
   }
   &__wrapper {
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
     @media (max-width: 1200px) {
-      max-width: 690px;
+      max-width: 710px;
     }
     @media (max-width: 1024px) {
       max-width: 538px;
@@ -233,6 +234,15 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     @media (max-width: 639px) {
       max-width: 245px;
     }
+  }
+  &__line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    left: 0;
+    transition: left 0.4s;
+    margin-left: -10px;
   }
   &__item {
     display: flex;
@@ -242,7 +252,6 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     border-radius: 50%;
     background: transparent;
     cursor: pointer;
-    transition: all 0.3s;
     flex-shrink: 0;
     @media (max-width: 1024px) {
       margin: 0 7px;
@@ -293,7 +302,6 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    transition: all 0.3s;
     @media (max-width: 639px) {
       width: 60px;
       height: 60px;
