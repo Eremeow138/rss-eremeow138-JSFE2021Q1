@@ -581,6 +581,10 @@
       opacity: 1 !important;
     }
   }
+  &__slide:hover .pets__plate {
+    top: 0;
+    opacity: 1;
+  }
   &__slide::after {
     content: "";
     position: absolute;
@@ -597,6 +601,9 @@
       #000000 10.15%,
       rgba(0, 0, 0, 0) 59%
     );
+  }
+  &__slide:hover::after {
+    opacity: 1;
   }
   &__plate {
     position: relative;

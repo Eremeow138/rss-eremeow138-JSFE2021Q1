@@ -2607,6 +2607,11 @@ template {
   opacity: 1 !important;
 }
 
+.pets__slide:hover .pets__plate {
+  top: 0;
+  opacity: 1;
+}
+
 .pets__slide::after {
   content: "";
   position: absolute;
@@ -2620,6 +2625,10 @@ template {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   background: linear-gradient(348.75deg, #000000 10.15%, rgba(0, 0, 0, 0) 59%);
+}
+
+.pets__slide:hover::after {
+  opacity: 1;
 }
 
 .pets__plate {
