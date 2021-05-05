@@ -13,6 +13,7 @@
   --bg-color-map: #e1e1e1;
   --bg-color-map-active: #333333;
   --bg-color-four: #3c3c3c;
+  --bg-color-five: #4f4f4f;
 }
 // Обертка для всего контента страницы кроме подвала
 .wrapper {
@@ -99,7 +100,7 @@
     margin-top: 10px;
   }
   &_disable {
-    background: rgba(189, 189, 189, 0.57);;
+    background: rgba(189, 189, 189, 0.57);
     pointer-events: none;
   }
 }

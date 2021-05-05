@@ -72,7 +72,7 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
 }
 .zoos {
   position: relative;
-  background-color: var(--bg-color-four);
+  background-color: var(--bg-color-five);
   max-width: 1920px;
   margin: 0 auto;
   display: flex;
@@ -383,21 +383,21 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     &_active > .page-slider__img {
       width: 150px;
       height: 150px;
-      border: 7px solid var(--bg-color-four);
+      border: 7px solid var(--bg-color-five);
       @media (max-width: 1200px) {
         width: 114px;
         height: 114px;
-        border: 5px solid var(--bg-color-four);
+        border: 5px solid var(--bg-color-five);
       }
       @media (max-width: 768px) {
         width: 84px;
         height: 84px;
-        border: 3px solid var(--bg-color-four);
+        border: 3px solid var(--bg-color-five);
       }
       @media (max-width: 639px) {
         width: 59px;
         height: 59px;
-        border: 2px solid var(--bg-color-four);
+        border: 2px solid var(--bg-color-five);
       }
     }
   }
@@ -422,27 +422,27 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
   &__item:hover > .page-slider__img {
     width: 150px;
     height: 150px;
-    border: 7px solid var(--bg-color-four);
+    border: 7px solid var(--bg-color-five);
     @media (max-width: 1200px) {
       width: 114px;
       height: 114px;
-      border: 5px solid var(--bg-color-four);
+      border: 5px solid var(--bg-color-five);
     }
     @media (max-width: 768px) {
       width: 84px;
       height: 84px;
-      border: 3px solid var(--bg-color-four);
+      border: 3px solid var(--bg-color-five);
     }
     @media (max-width: 639px) {
       width: 59px;
       height: 59px;
-      border: 2px solid var(--bg-color-four);
+      border: 2px solid var(--bg-color-five);
     }
   }
   &__img {
     width: 117px;
     height: 117px;
-    border: 5px solid var(--bg-color-four);
+    border: 5px solid var(--bg-color-five);
     border-radius: 50%;
     background-position: center;
     background-size: cover;
@@ -459,7 +459,7 @@ $icomoon-font-path: "../../../assets/fonts/icomoon";
     @media (max-width: 639px) {
       width: 44px;
       height: 44px;
-      border: 2px solid var(--bg-color-four);
+      border: 2px solid var(--bg-color-five);
     }
   }
 }

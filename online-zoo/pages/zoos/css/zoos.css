@@ -12,6 +12,7 @@
   --bg-color-two: #f2f2f2;
   --bg-color-three: #fefefe;
   --bg-color-four: #fbfbfb;
+  --bg-color-five: #fbfbfb;
   --bg-color-tooltip: #fefefe;
   --main-dark-color: #333;
   --text-dark-color: #4f4f4f;
@@ -447,6 +448,7 @@ template {
   --bg-color-map: #e1e1e1;
   --bg-color-map-active: #333333;
   --bg-color-four: #3c3c3c;
+  --bg-color-five: #4f4f4f;
 }
 
 .wrapper {
@@ -1809,7 +1811,7 @@ template {
 
 .zoos {
   position: relative;
-  background-color: var(--bg-color-four);
+  background-color: var(--bg-color-five);
   max-width: 1920px;
   margin: 0 auto;
   display: -webkit-box;
@@ -2305,14 +2307,14 @@ template {
 .page-slider__item_active > .page-slider__img {
   width: 150px;
   height: 150px;
-  border: 7px solid var(--bg-color-four);
+  border: 7px solid var(--bg-color-five);
 }
 
 @media (max-width: 1200px) {
   .page-slider__item_active > .page-slider__img {
     width: 114px;
     height: 114px;
-    border: 5px solid var(--bg-color-four);
+    border: 5px solid var(--bg-color-five);
   }
 }
 
@@ -2320,7 +2322,7 @@ template {
   .page-slider__item_active > .page-slider__img {
     width: 84px;
     height: 84px;
-    border: 3px solid var(--bg-color-four);
+    border: 3px solid var(--bg-color-five);
   }
 }
 
@@ -2328,7 +2330,7 @@ template {
   .page-slider__item_active > .page-slider__img {
     width: 59px;
     height: 59px;
-    border: 2px solid var(--bg-color-four);
+    border: 2px solid var(--bg-color-five);
   }
 }
 
@@ -2363,14 +2365,14 @@ template {
 .page-slider__item:hover > .page-slider__img {
   width: 150px;
   height: 150px;
-  border: 7px solid var(--bg-color-four);
+  border: 7px solid var(--bg-color-five);
 }
 
 @media (max-width: 1200px) {
   .page-slider__item:hover > .page-slider__img {
     width: 114px;
     height: 114px;
-    border: 5px solid var(--bg-color-four);
+    border: 5px solid var(--bg-color-five);
   }
 }
 
@@ -2378,7 +2380,7 @@ template {
   .page-slider__item:hover > .page-slider__img {
     width: 84px;
     height: 84px;
-    border: 3px solid var(--bg-color-four);
+    border: 3px solid var(--bg-color-five);
   }
 }
 
@@ -2386,14 +2388,14 @@ template {
   .page-slider__item:hover > .page-slider__img {
     width: 59px;
     height: 59px;
-    border: 2px solid var(--bg-color-four);
+    border: 2px solid var(--bg-color-five);
   }
 }
 
 .page-slider__img {
   width: 117px;
   height: 117px;
-  border: 5px solid var(--bg-color-four);
+  border: 5px solid var(--bg-color-five);
   border-radius: 50%;
   background-position: center;
   background-size: cover;
@@ -2420,7 +2422,7 @@ template {
   .page-slider__img {
     width: 44px;
     height: 44px;
-    border: 2px solid var(--bg-color-four);
+    border: 2px solid var(--bg-color-five);
   }
 }
 /*# sourceMappingURL=zoos.css.map */

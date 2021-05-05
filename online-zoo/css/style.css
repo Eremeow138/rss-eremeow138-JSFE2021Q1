@@ -12,6 +12,7 @@
   --bg-color-two: #f2f2f2;
   --bg-color-three: #fefefe;
   --bg-color-four: #fbfbfb;
+  --bg-color-five: #fbfbfb;
   --bg-color-tooltip: #fefefe;
   --main-dark-color: #333;
   --text-dark-color: #4f4f4f;
@@ -447,6 +448,7 @@ template {
   --bg-color-map: #e1e1e1;
   --bg-color-map-active: #333333;
   --bg-color-four: #3c3c3c;
+  --bg-color-five: #4f4f4f;
 }
 
 .wrapper {
