@@ -1,5 +1,5 @@
 import 'normalize.css';
-import './style.scss';
+import './scss/style.scss';
 import { App } from './app';
 
 window.onload = () => {
