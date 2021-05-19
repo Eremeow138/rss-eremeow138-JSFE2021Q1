@@ -1,17 +1,22 @@
+import { BaseComponent } from './components/base-component';
 import { Game } from './components/game/game';
-import { ContentField } from './components/content-field/content-field';
+import { Header } from './components/header/header';
 import { ImageCategoryModel } from './models/image-category-model';
 
-export class App {
+export class App extends BaseComponent {
   private readonly game: Game;
 
-  private readonly contentField: ContentField;
-
-  constructor(private readonly rootElement: HTMLElement) {
+  constructor(private readonly root: HTMLElement) {
+    super('div', ['application']);
     this.game = new Game();
-    this.contentField = new ContentField();
-    this.contentField.element.appendChild(this.game.element);
-    this.rootElement.appendChild(this.contentField.element);
+  }
+
+  render(): HTMLElement {
+    this.root.appendChild(this.element);
+    this.element.appendChild(new Header().render());
+    this.element.appendChild(this.game.element);
+    this.start();
+    return this.element;
   }
 
   async start(): Promise<void> {

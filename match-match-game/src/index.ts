@@ -1,11 +1,12 @@
 import 'normalize.css';
 import './scss/style.scss';
 import { App } from './app';
+import { RootElement } from './assets/app.api';
 
 window.onload = () => {
-  const appElement = document.querySelector('body');
+  const rootNode: RootElement = document.querySelector('body');
 
-  if (!appElement) throw Error('App root element not found');
+  if (!rootNode) throw Error('App root element not found');
 
-  new App(appElement).start();
+  new App(rootNode).render();
 };
