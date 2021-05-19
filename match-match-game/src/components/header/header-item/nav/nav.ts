@@ -12,11 +12,17 @@ export class Nav extends BaseComponent {
   }
 
   render(): HTMLElement {
-    this.element.appendChild(new NavItem(`${question}`, 'About Game').render());
     this.element.appendChild(
-      new NavItem(`${star}`, 'Best Score', ['nav__icon_inverse']).render(),
+      new NavItem('#/about-game', `${question}`, 'About Game').render(),
     );
-    this.element.appendChild(new NavItem(`${gear}`, 'Game Settings').render());
+    this.element.appendChild(
+      new NavItem('#/best-score', `${star}`, 'Best Score', [
+        'nav__icon_inverse',
+      ]).render(),
+    );
+    this.element.appendChild(
+      new NavItem('#/game-settings', `${gear}`, 'Game Settings').render(),
+    );
     return this.element;
   }
 }

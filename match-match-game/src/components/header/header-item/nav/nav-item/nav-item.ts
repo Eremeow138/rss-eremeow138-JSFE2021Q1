@@ -7,13 +7,22 @@ export class NavItem extends BaseComponent {
 
   private text = '';
 
-  constructor(icon: string, text: string, extraIconClasses?: string[]) {
-    super('div', ['nav__item']);
+  private link: string;
+
+  constructor(
+    link: string,
+    icon: string,
+    text: string,
+    extraIconClasses?: string[],
+  ) {
+    super('a', ['nav__item']);
     if (extraIconClasses) {
       this.extraIconClasses = extraIconClasses.join(' ');
     }
     this.icon = icon;
     this.text = text;
+    this.link = link;
+    this.element.setAttribute('href', this.link);
   }
 
   render(): HTMLElement {
