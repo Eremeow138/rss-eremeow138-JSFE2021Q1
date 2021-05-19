@@ -2,7 +2,6 @@ import { BaseComponent } from './components/base-component';
 import { ContentField } from './components/content-field/content-field';
 import { Game } from './components/content-field/game/game';
 import { Header } from './components/header/header';
-import { ImageCategoryModel } from './models/image-category-model';
 
 export class App extends BaseComponent {
   private readonly game: Game;
