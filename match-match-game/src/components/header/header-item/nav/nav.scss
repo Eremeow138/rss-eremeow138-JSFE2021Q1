@@ -14,6 +14,12 @@
     justify-content: center;
     align-items: center;
     width: 96px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+  }
+  &__item:hover {
+    background-color: #1e88e5;
   }
   &__icon {
     width: 20px;
