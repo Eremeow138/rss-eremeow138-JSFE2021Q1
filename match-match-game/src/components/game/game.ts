@@ -1,8 +1,8 @@
 import './game.scss';
 import { delay } from '../../shared/delay';
 import { BaseComponent } from '../base-component';
-import { Card } from '../card/card';
-import { CardsField } from '../cards-field/cards-field';
+import { Card } from './cards-field/card/card';
+import { CardsField } from './cards-field/cards-field';
 
 const FLIP_DELAY = 2000;
 
@@ -16,7 +16,7 @@ export class Game extends BaseComponent {
   constructor() {
     super('div', ['game']);
     this.cardsField = new CardsField();
-    this.element.appendChild(this.cardsField.element);
+    this.element.appendChild(this.cardsField.render());
   }
 
   newGame(images: string[]): void {
@@ -26,7 +26,7 @@ export class Game extends BaseComponent {
       .map(url => new Card(url))
       .sort(() => Math.random() - 0.5);
     cards.forEach(card => {
-      card.element.addEventListener('click', () => this.cardHandler(card));
+      card.render().addEventListener('click', () => this.cardHandler(card));
     });
     this.cardsField.addCards(cards);
   }
@@ -51,5 +51,9 @@ export class Game extends BaseComponent {
     }
     this.activeCard = undefined;
     this.isAnimation = false;
+  }
+
+  render(): HTMLElement {
+    return this.element;
   }
 }

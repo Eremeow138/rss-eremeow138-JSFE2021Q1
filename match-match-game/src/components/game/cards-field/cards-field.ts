@@ -1,6 +1,6 @@
 import './cards-field.scss';
-import { BaseComponent } from '../base-component';
-import { Card } from '../card/card';
+import { BaseComponent } from '../../base-component';
+import { Card } from './card/card';
 
 const SHOW_TIME = 2000;
 export class CardsField extends BaseComponent {
@@ -21,5 +21,9 @@ export class CardsField extends BaseComponent {
     setTimeout(() => {
       this.cards.forEach(card => card.flipToBack());
     }, SHOW_TIME);
+  }
+
+  render(): HTMLElement {
+    return this.element;
   }
 }

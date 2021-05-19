@@ -14,7 +14,7 @@ export class App extends BaseComponent {
   render(): HTMLElement {
     this.root.appendChild(this.element);
     this.element.appendChild(new Header().render());
-    this.element.appendChild(this.game.element);
+    this.element.appendChild(this.game.render());
     this.start();
     return this.element;
   }
