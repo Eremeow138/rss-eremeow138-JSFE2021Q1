@@ -63,6 +63,7 @@ export class Game extends BaseComponent {
   }
 
   render(): HTMLElement {
+    this.start();
     return this.element;
   }
 }
