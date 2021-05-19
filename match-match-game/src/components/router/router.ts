@@ -2,6 +2,7 @@ import { BaseComponent } from '../base-component';
 import { Game } from '../content-field/game/game';
 import { Insruction } from '../content-field/instruction/instruction';
 import { PageNotFound } from '../content-field/page-not-found/page-not-found';
+import { Score } from '../content-field/score/score';
 
 export class Router {
   private hash: string;
@@ -11,6 +12,7 @@ export class Router {
   private readonly routes = [
     { path: '/', component: new Game() },
     { path: '/about-game', component: new Insruction() },
+    { path: '/best-score', component: new Score() },
   ];
 
   private component: BaseComponent | undefined;
