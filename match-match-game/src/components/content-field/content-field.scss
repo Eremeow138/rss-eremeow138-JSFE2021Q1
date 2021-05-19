@@ -1,11 +1,12 @@
 .content-field {
-  margin: 0 auto;
+  margin: 33px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 1000px;
-  height: 802px;
+  max-width: 1000px;
+  max-height: 802px;
+  padding: 28px;
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
