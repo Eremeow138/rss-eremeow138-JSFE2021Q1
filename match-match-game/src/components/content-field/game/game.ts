@@ -1,8 +1,9 @@
 import './game.scss';
-import { delay } from '../../shared/delay';
-import { BaseComponent } from '../base-component';
+import { delay } from '../../../shared/delay';
+import { BaseComponent } from '../../base-component';
 import { Card } from './cards-field/card/card';
 import { CardsField } from './cards-field/cards-field';
+import { ImageCategoryModel } from '../../../models/image-category-model';
 
 const FLIP_DELAY = 2000;
 
@@ -51,6 +52,14 @@ export class Game extends BaseComponent {
     }
     this.activeCard = undefined;
     this.isAnimation = false;
+  }
+
+  async start(): Promise<void> {
+    const res = await fetch('./images.json');
+    const categories: ImageCategoryModel[] = await res.json();
+    const cat = categories[0];
+    const images = cat.images.map(name => `${cat.category}/${name}`);
+    this.newGame(images);
   }
 
   render(): HTMLElement {

@@ -1,29 +1,25 @@
 import { BaseComponent } from './components/base-component';
-import { Game } from './components/game/game';
+import { ContentField } from './components/content-field/content-field';
+import { Game } from './components/content-field/game/game';
 import { Header } from './components/header/header';
 import { ImageCategoryModel } from './models/image-category-model';
 
 export class App extends BaseComponent {
   private readonly game: Game;
 
+  private readonly contentField: ContentField;
+
   constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
     this.game = new Game();
+    this.contentField = new ContentField();
   }
 
   render(): HTMLElement {
     this.root.appendChild(this.element);
     this.element.appendChild(new Header().render());
-    this.element.appendChild(this.game.render());
-    this.start();
+    this.contentField.addGameElements();
+    this.element.appendChild(this.contentField.render());
     return this.element;
-  }
-
-  async start(): Promise<void> {
-    const res = await fetch('./images.json');
-    const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
-    const images = cat.images.map(name => `${cat.category}/${name}`);
-    this.game.newGame(images);
   }
 }
