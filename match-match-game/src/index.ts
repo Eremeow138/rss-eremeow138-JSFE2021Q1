@@ -1,7 +1,7 @@
 import 'normalize.css';
 import './scss/style.scss';
 import { App } from './app';
-import { RootElement } from './assets/app.api';
+import { RootElement } from './app.api';
 
 window.onload = () => {
   const rootNode: RootElement = document.querySelector('body');
