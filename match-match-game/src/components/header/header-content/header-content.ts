@@ -6,9 +6,10 @@ import { Logo } from '../header-item/logo/logo';
 import { Button } from '../../../shared/button/button';
 import { Avatar } from '../header-item/avatar/avatar';
 import avatar from '../../../assets/avatar-default.svg';
+import { ModalService } from '../../../app.api';
 
 export class HeaderContent extends BaseComponent {
-  constructor() {
+  constructor(private readonly modalService: ModalService) {
     super('header', ['header__content']);
   }
 
@@ -25,7 +26,12 @@ export class HeaderContent extends BaseComponent {
 
     this.element
       .appendChild(new HeaderItem().render())
-      .append(new Button('stop game').render(), new Avatar(avatar).render());
+      .append(
+        new Button('Register new player', () =>
+          this.modalService.callAll(),
+        ).render(),
+        new Avatar(avatar).render(),
+      );
     return this.element;
   }
 }

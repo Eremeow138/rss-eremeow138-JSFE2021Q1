@@ -1,0 +1,33 @@
+.registration {
+  background-color: #fff;
+  padding: 21px;
+  &__title {
+    color: black;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__input-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    margin-bottom: 15px;
+  }
+
+  &__avatar {
+    width: 198px;
+    height: 198px;
+    object-fit: fill;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
