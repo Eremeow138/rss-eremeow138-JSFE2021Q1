@@ -3,6 +3,7 @@ import { Game } from '../content-field/game/game';
 import { Insruction } from '../content-field/instruction/instruction';
 import { PageNotFound } from '../content-field/page-not-found/page-not-found';
 import { Score } from '../content-field/score/score';
+import { Settings } from '../content-field/settings/settings';
 
 export class Router {
   private hash: string;
@@ -13,6 +14,7 @@ export class Router {
     { path: '/', component: new Game() },
     { path: '/about-game', component: new Insruction() },
     { path: '/best-score', component: new Score() },
+    { path: '/game-settings', component: new Settings() },
   ];
 
   private component: BaseComponent | undefined;
