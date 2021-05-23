@@ -1,9 +1,10 @@
 import './modal.scss';
 import { BaseComponent } from '../base-component';
 import { Registration } from './registration/registration';
+import { CallbackAddRecord } from '../../app.api';
 
 export class Modal extends BaseComponent {
-  constructor() {
+  constructor(private addRecord: CallbackAddRecord) {
     super('div', ['modal']);
   }
 
@@ -13,7 +14,10 @@ export class Modal extends BaseComponent {
 
   render(): HTMLElement {
     this.element.appendChild(
-      new Registration(this.ShowHiddenModal.bind(this)).render(),
+      new Registration(
+        this.ShowHiddenModal.bind(this),
+        this.addRecord,
+      ).render(),
     );
     return this.element;
   }

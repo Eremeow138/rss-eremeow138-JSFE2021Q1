@@ -24,14 +24,27 @@ export class HeaderContent extends BaseComponent {
       )
       .appendChild(new Nav().render());
 
-    this.element
-      .appendChild(new HeaderItem().render())
-      .append(
-        new Button('Register new player', () =>
-          this.modalService.callAll(),
-        ).render(),
+    if (localStorage.getItem('playerData')) {
+      this.element.appendChild(new HeaderItem().render()).append(
+        new Button('Start game', () => {
+          alert('start');
+        }).render(),
+        new Button('Logout', () => {
+          alert('start');
+        }).render(),
         new Avatar(avatar).render(),
       );
+    } else {
+      this.element
+        .appendChild(new HeaderItem().render())
+        .append(
+          new Button('Register new player', () =>
+            this.modalService.callAll(),
+          ).render(),
+          new Avatar(avatar).render(),
+        );
+    }
+
     return this.element;
   }
 }

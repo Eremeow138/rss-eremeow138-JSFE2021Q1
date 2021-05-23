@@ -5,6 +5,7 @@ import { Game } from './components/content-field/game/game';
 import { Header } from './components/header/header';
 import { Modal } from './components/modal/modal';
 import { Router } from './components/router/router';
+import { IndexedDB } from './indexed-db';
 
 export class App extends BaseComponent {
   private readonly game: Game;
@@ -15,6 +16,8 @@ export class App extends BaseComponent {
 
   private readonly modal: Modal;
 
+  private readonly db: IndexedDB;
+
   constructor(
     private readonly root: HTMLElement,
     private readonly modalService: ModalService,
@@ -23,7 +26,9 @@ export class App extends BaseComponent {
     this.game = new Game();
     this.contentField = new ContentField();
     this.router = new Router(this.contentField.render());
-    this.modal = new Modal();
+    this.db = new IndexedDB('Eremeow138', 'players', 'key');
+    this.modal = new Modal(this.db.addRecord.bind(this.db));
+
     this.modalService.subscribeOnModal(() => {
       this.modal.ShowHiddenModal();
     });
