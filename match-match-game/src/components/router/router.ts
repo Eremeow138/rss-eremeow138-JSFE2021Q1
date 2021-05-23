@@ -10,9 +10,8 @@ export class Router {
 
   private path: string;
 
-  private readonly routes = [
-    { path: '/', component: new Game() },
-    { path: '/about-game', component: new Insruction() },
+  private routes = [
+    { path: '/', component: new Insruction() },
     { path: '/best-score', component: new Score() },
     { path: '/game-settings', component: new Settings() },
   ];
@@ -52,5 +51,9 @@ export class Router {
     } else {
       this.rootElement.appendChild(new PageNotFound().render());
     }
+  }
+
+  addRouteToGame(): void {
+    this.routes.push({ path: '/game', component: new Game() });
   }
 }
