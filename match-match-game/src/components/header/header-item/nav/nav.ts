@@ -13,7 +13,7 @@ export class Nav extends BaseComponent {
 
   render(): HTMLElement {
     this.element.appendChild(
-      new NavItem('#/about-game', `${question}`, 'About Game').render(),
+      new NavItem('#/', `${question}`, 'About Game').render(),
     );
     this.element.appendChild(
       new NavItem('#/best-score', `${star}`, 'Best Score', [
