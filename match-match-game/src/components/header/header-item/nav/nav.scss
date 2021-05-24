@@ -17,6 +17,9 @@
     cursor: pointer;
     text-decoration: none;
     color: white;
+    &_active {
+      background-color: #1e88e5;
+    }
   }
   &__item:hover {
     background-color: #1e88e5;
