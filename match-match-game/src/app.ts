@@ -1,44 +1,19 @@
-import { ModalService } from './app.api';
 import { BaseComponent } from './components/base-component';
-import { ContentField } from './components/content-field/content-field';
-import { Game } from './components/content-field/game/game';
-import { Header } from './components/header/header';
-import { Modal } from './components/modal/modal';
 import { Router } from './components/router/router';
 import { IndexedDB } from './indexed-db';
 
 export class App extends BaseComponent {
-  private readonly game: Game;
-
-  private readonly contentField: ContentField;
-
   private readonly router: Router;
-
-  private readonly modal: Modal;
 
   private readonly db: IndexedDB;
 
-  constructor(
-    private readonly root: HTMLElement,
-    private readonly modalService: ModalService,
-  ) {
+  constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
-    this.game = new Game();
-    this.contentField = new ContentField();
-    this.router = new Router(this.contentField.render());
     this.db = new IndexedDB('Eremeow138', 'players', 'key');
-    this.modal = new Modal(this.db.addRecord.bind(this.db));
-
-    this.modalService.subscribeOnModal(() => {
-      this.modal.ShowHiddenModal();
-    });
+    this.router = new Router(this.root, this.db);
   }
 
   render(): HTMLElement {
-    this.root.appendChild(this.element);
-    this.element.appendChild(new Header(this.modalService).render());
-    this.element.appendChild(this.contentField.render());
-    this.element.appendChild(this.modal.render());
     this.router.route();
     window.addEventListener('hashchange', () => this.router.route());
 

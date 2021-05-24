@@ -1,10 +1,9 @@
 import './modal.scss';
 import { BaseComponent } from '../base-component';
 import { Registration } from './registration/registration';
-import { CallbackAddRecord } from '../../app.api';
 
 export class Modal extends BaseComponent {
-  constructor(private addRecord: CallbackAddRecord) {
+  constructor() {
     super('div', ['modal']);
   }
 
@@ -12,12 +11,9 @@ export class Modal extends BaseComponent {
     this.element.classList.toggle('modal_visible');
   }
 
-  render(): HTMLElement {
+  renderRegistration(): HTMLElement {
     this.element.appendChild(
-      new Registration(
-        this.ShowHiddenModal.bind(this),
-        this.addRecord,
-      ).render(),
+      new Registration(this.ShowHiddenModal.bind(this)).render(),
     );
     return this.element;
   }

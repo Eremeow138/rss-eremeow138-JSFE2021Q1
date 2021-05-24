@@ -1,14 +1,11 @@
 import './registration.scss';
-import { Callback, CallbackAddRecord } from '../../../app.api';
+import { Callback } from '../../../app.api';
 import { Button } from '../../../shared/button/button';
 import { BaseComponent } from '../../base-component';
 import avatar from '../../../assets/avatar-default.svg';
 
 export class Registration extends BaseComponent {
-  constructor(
-    private readonly showHideModal: Callback,
-    private readonly addRecord: CallbackAddRecord,
-  ) {
+  constructor(private readonly showHideModal: Callback) {
     super('div', ['registration']);
   }
 
@@ -55,16 +52,16 @@ export class Registration extends BaseComponent {
         }
       });
       localStorage.setItem('playerData', fieldsData);
-      const responsePromise: Promise<string> = this.addRecord(fieldsData);
-      responsePromise.then(
-        () => {
-          this.showHideModal();
-          const refreshBtn = document.createElement('a');
-          refreshBtn.href = '#/';
-          refreshBtn.click();
-        },
-        error => alert(error),
-      );
+      // const responsePromise: Promise<string> = this.addRecord(fieldsData);
+      // responsePromise.then(
+      //   () => {
+      //     this.showHideModal();
+      //     const refreshBtn = document.createElement('a');
+      //     refreshBtn.href = '#/';
+      //     refreshBtn.click();
+      //   },
+      //   error => alert(error),
+      // );
     });
     return this.element;
   }
