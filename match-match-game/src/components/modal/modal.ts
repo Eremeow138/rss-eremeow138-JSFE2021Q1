@@ -12,6 +12,7 @@ export class Modal extends BaseComponent {
   }
 
   renderRegistration(): HTMLElement {
+    this.element.innerHTML = '';
     this.element.appendChild(
       new Registration(this.ShowHiddenModal.bind(this)).render(),
     );

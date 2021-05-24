@@ -10,6 +10,7 @@ export class InstructionPage extends Page {
     this.contentField.element.appendChild(new Insruction().render());
     this.element.appendChild(this.contentField.render());
     this.element.appendChild(this.modal.renderRegistration());
+    this.modalService.cleanCallbacksArray();
     this.modalService.subscribeOnModal(() => {
       this.modal.ShowHiddenModal();
     });

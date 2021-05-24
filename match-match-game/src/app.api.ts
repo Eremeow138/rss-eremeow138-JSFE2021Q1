@@ -5,6 +5,8 @@ export interface ModalService {
   callAll(): void;
 
   subscribeOnModal(callback: () => void): void;
+
+  cleanCallbacksArray(): void;
 }
 
 export interface PlayerObject {

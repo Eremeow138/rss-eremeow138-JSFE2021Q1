@@ -1,7 +1,7 @@
 import { Callback, ModalService } from './app.api';
 
 export class ModalServiceImplmentation implements ModalService {
-  private readonly callbacks: Callback[];
+  private callbacks: Callback[];
 
   constructor() {
     this.callbacks = [];
@@ -13,5 +13,9 @@ export class ModalServiceImplmentation implements ModalService {
 
   subscribeOnModal(callback: Callback): void {
     this.callbacks.push(callback);
+  }
+
+  cleanCallbacksArray(): void {
+    this.callbacks = [];
   }
 }
