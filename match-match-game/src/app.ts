@@ -1,16 +1,53 @@
+import { RouterService } from './app.api';
 import { BaseComponent } from './components/base-component';
+import { Modal } from './components/modal/modal';
+import { Registration } from './components/modal/registration/registration';
+import { InstructionPage } from './components/page/instructionPage';
+import { ScorePage } from './components/page/scorePage';
+import { SettingsPage } from './components/page/settingsPage';
 import { Router } from './components/router/router';
 import { IndexedDB } from './indexed-db';
+import { ModalServiceImplmentation } from './modal-service';
+import { RouterServiceImplmentation } from './routerService';
 
 export class App extends BaseComponent {
   private readonly router: Router;
 
+  private readonly routerService: RouterService;
+
   private readonly db: IndexedDB;
+
+  private readonly modalService: ModalServiceImplmentation;
+
+  private readonly modal: Modal;
 
   constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
     this.db = new IndexedDB('Eremeow138', 'players', 'key');
-    this.router = new Router(this.root, this.db);
+    this.modalService = new ModalServiceImplmentation();
+    this.routerService = new RouterServiceImplmentation();
+    this.modal = new Modal(
+      new Registration(this.modalService, this.routerService).render(),
+    );
+
+    this.router = new Router(this.root, [
+      {
+        path: '/',
+        component: new InstructionPage(this.modalService, this.modal),
+      },
+      {
+        path: '/best-score',
+        component: new ScorePage(this.modalService, this.modal),
+      },
+      {
+        path: '/game-settings',
+        component: new SettingsPage(this.modalService, this.modal),
+      },
+    ]);
+    this.routerService.subscribeOnRouter(
+      'reroute',
+      this.router.route.bind(this.router),
+    );
   }
 
   render(): HTMLElement {

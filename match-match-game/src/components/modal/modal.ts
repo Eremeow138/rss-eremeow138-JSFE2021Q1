@@ -1,9 +1,8 @@
 import './modal.scss';
 import { BaseComponent } from '../base-component';
-import { Registration } from './registration/registration';
 
 export class Modal extends BaseComponent {
-  constructor() {
+  constructor(private readonly childe: HTMLElement) {
     super('div', ['modal']);
   }
 
@@ -11,11 +10,9 @@ export class Modal extends BaseComponent {
     this.element.classList.toggle('modal_visible');
   }
 
-  renderRegistration(): HTMLElement {
+  render(): HTMLElement {
     this.element.innerHTML = '';
-    this.element.appendChild(
-      new Registration(this.ShowHiddenModal.bind(this)).render(),
-    );
+    this.element.appendChild(this.childe);
     return this.element;
   }
 }
