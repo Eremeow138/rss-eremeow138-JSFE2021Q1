@@ -1,12 +1,7 @@
+import { RouteObject } from '../../app.api';
 import { BaseComponent } from '../base-component';
-import { Game } from '../content-field/game/game';
 import { PageNotFound } from '../content-field/page-not-found/page-not-found';
-import { Page } from '../page/page';
 
-interface RouteObject {
-  path: string;
-  component: Page | Game;
-}
 export class Router {
   private hash: string;
 
