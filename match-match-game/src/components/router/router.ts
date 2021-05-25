@@ -52,7 +52,7 @@ export class Router {
     }
   }
 
-  addRouteToGame(): void {
-    this.routes.push({ path: '/game', component: new Game() });
+  addRoute(route: RouteObject): void {
+    this.routes.push(route);
   }
 }
