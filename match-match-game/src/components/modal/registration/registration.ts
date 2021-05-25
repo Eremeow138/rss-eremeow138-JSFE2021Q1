@@ -1,12 +1,77 @@
 import './registration.scss';
-import { Callback } from '../../../app.api';
 import { Button } from '../../../shared/button/button';
 import { BaseComponent } from '../../base-component';
 import avatar from '../../../assets/avatar-default.svg';
+import { Input } from './input/input';
+import { ModalService, RouterService } from '../../../app.api';
 
 export class Registration extends BaseComponent {
-  constructor(private readonly showHideModal: Callback) {
-    super('div', ['registration']);
+  private arrOfInputs: Input[] = [];
+
+  firstNameInput: Input;
+
+  lastNameInput: Input;
+
+  emailInput: Input;
+
+  constructor(
+    private readonly modalService: ModalService,
+    private readonly routerService: RouterService,
+  ) {
+    super('div', ['registration', 'invalid']);
+
+    this.firstNameInput = new Input(
+      'firstName',
+      'First Name',
+      /^[^(~!@#$%*()_—+=|:;"'`<>,.?/^0-9)]{1,30}$/,
+      `The first name cannot contain special characters, numbers or be empty`,
+      this.disableEnableButton.bind(this),
+    );
+
+    this.arrOfInputs.push(this.firstNameInput);
+
+    this.lastNameInput = new Input(
+      'lastName',
+      'Last Name',
+      /^[^(~!@#$%*()_—+=|:;"'`<>,.?/^0-9)]{1,30}$/,
+      `The last name can't contain special characters, numbers or be empty`,
+      this.disableEnableButton.bind(this),
+    );
+
+    this.arrOfInputs.push(this.lastNameInput);
+
+    const FirstPartOfRegExp =
+      /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))/;
+    const SecondPartOfRegExp =
+      /@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regex = new RegExp(
+      `${FirstPartOfRegExp.source}${SecondPartOfRegExp.source}`,
+    );
+    this.emailInput = new Input(
+      'email',
+      'E-mail',
+      regex,
+      'Invalid or empty email entered',
+      this.disableEnableButton.bind(this),
+    );
+
+    this.arrOfInputs.push(this.emailInput);
+  }
+
+  checkInputsValidation(): boolean {
+    const isValid = this.arrOfInputs.reduce((prev, input) => {
+      return prev && input.getStatusValidation();
+    }, true);
+
+    return isValid;
+  }
+
+  disableEnableButton(): void {
+    if (this.checkInputsValidation()) {
+      this.element.classList.remove('invalid');
+    } else {
+      this.element.classList.add('invalid');
+    }
   }
 
   render(): HTMLElement {
@@ -15,9 +80,6 @@ export class Registration extends BaseComponent {
         <h2 class="registration__title">Register new Player</h2>
         <div class="registration__main">
           <div class="registration__input-box">
-            <input name="firstName" class="registration__input">
-            <input name="lastName" class="registration__input">
-            <input name="email"class="registration__input">
           </div>
           <img class="registration__avatar" src="${avatar}"></img>
         </div>
@@ -25,20 +87,35 @@ export class Registration extends BaseComponent {
         </div>
       </form>
     `;
+
+    this.element
+      .querySelector('.registration__input-box')
+      ?.append(
+        this.firstNameInput.render(),
+        this.lastNameInput.render(),
+        this.emailInput.render(),
+      );
     this.element
       .querySelector('.registration__footer')
       ?.appendChild(new Button('Add user', () => {}, 'submit').render());
+
     this.element.querySelector('.registration__footer')?.appendChild(
       new Button(
         'Canel',
         () => {
-          this.showHideModal();
+          this.modalService.callAll();
+          this.arrOfInputs.forEach(input => input.clear());
+          this.element.classList.add('invalid');
         },
         'button',
       ).render(),
     );
+
     this.element.addEventListener('submit', e => {
       e.preventDefault();
+      if (!this.checkInputsValidation()) {
+        return;
+      }
       const inputs: NodeListOf<HTMLInputElement> | null =
         this.element.querySelectorAll('.registration__input');
       let fieldsData = '{';
@@ -52,6 +129,8 @@ export class Registration extends BaseComponent {
         }
       });
       localStorage.setItem('playerData', fieldsData);
+      this.routerService.reroute();
+      this.modalService.callAll();
       // const responsePromise: Promise<string> = this.addRecord(fieldsData);
       // responsePromise.then(
       //   () => {
