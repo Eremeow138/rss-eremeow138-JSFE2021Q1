@@ -8,7 +8,10 @@ export interface ModalService {
 
   cleanCallbacksArray(): void;
 }
-
+export interface RouterService {
+  subscribeOnRouter(callbckName: string, callbck: Callback): void;
+  reroute(): void;
+}
 export interface PlayerObject {
   firstName: string;
   lastName: string;
