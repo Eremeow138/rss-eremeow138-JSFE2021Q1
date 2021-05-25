@@ -1,11 +1,7 @@
-import { IndexedDB } from '../../indexed-db';
 import { BaseComponent } from '../base-component';
 import { Game } from '../content-field/game/game';
 import { PageNotFound } from '../content-field/page-not-found/page-not-found';
-import { InstructionPage } from '../page/instructionPage';
 import { Page } from '../page/page';
-import { ScorePage } from '../page/scorePage';
-import { SettingsPage } from '../page/settingsPage';
 
 interface RouteObject {
   path: string;
@@ -22,12 +18,10 @@ export class Router {
 
   private readonly rootElement: HTMLElement;
 
-  constructor(rootElement: HTMLElement, db: IndexedDB) {
+  constructor(rootElement: HTMLElement, routes: RouteObject[]) {
     this.rootElement = rootElement;
     this.hash = '';
-    this.routes.push({ path: '/', component: new InstructionPage() });
-    this.routes.push({ path: '/best-score', component: new ScorePage() });
-    this.routes.push({ path: '/game-settings', component: new SettingsPage() });
+    this.routes = routes;
     this.path = this.parseLocation();
     this.component = this.findComponentByPath();
   }
