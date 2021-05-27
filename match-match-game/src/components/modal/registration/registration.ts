@@ -143,6 +143,8 @@ export class Registration extends BaseComponent {
           this.routerService,
         ),
       });
+      this.arrOfInputs.forEach(input => input.clear());
+      this.element.classList.add('invalid');
       this.modalService.callAll();
       // const responsePromise: Promise<string> = this.addRecord(fieldsData);
       // responsePromise.then(
