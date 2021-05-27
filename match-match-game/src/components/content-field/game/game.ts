@@ -44,12 +44,16 @@ export class Game extends BaseComponent {
       return;
     }
     if (this.activeCard.image !== card.image) {
+      this.activeCard.element.classList.add('wrong');
+      card.element.classList.add('wrong');
       await delay(FLIP_DELAY);
       await Promise.all([
         this.activeCard.flipToBack(),
         await card.flipToBack(),
       ]);
     }
+    this.activeCard.element.classList.add('correct');
+    card.element.classList.add('correct');
     this.activeCard = undefined;
     this.isAnimation = false;
   }

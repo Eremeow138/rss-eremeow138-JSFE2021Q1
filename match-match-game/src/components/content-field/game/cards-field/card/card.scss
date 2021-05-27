@@ -8,6 +8,12 @@
   &.flipped > .card {
     transform: rotateY(180deg);
   }
+  &.correct .card__front::before {
+    background-color: #0acf83;
+  }
+  &.wrong .card__front::before {
+    background-color: #f24e1e;
+  }
 }
 .card {
   position: relative;
@@ -33,13 +39,24 @@
   }
 
   &__front {
+    position: relative;
     background-color: crimson;
     background-position: center;
     background-size: cover;
   }
+  &__front::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0.3;
+  }
   &__back {
     background-color: gray;
-    background-image: url('../../../../../assets/card-back.png');
+    background-image: url("../../../../../assets/card-back.png");
     background-position: center;
     background-size: cover;
     transform: rotateY(180deg);

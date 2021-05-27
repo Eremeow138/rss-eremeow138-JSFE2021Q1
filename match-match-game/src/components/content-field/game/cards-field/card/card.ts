@@ -26,6 +26,7 @@ export class Card extends BaseComponent {
   }
 
   flipToFront(): Promise<void> {
+    this.element.classList.remove('correct');
     this.isFlipped = false;
     return this.flip();
   }
@@ -33,9 +34,16 @@ export class Card extends BaseComponent {
   private flip(isFront = false): Promise<void> {
     return new Promise(resolve => {
       this.element.classList.toggle(FLIP_CLASS, isFront);
-      this.element.addEventListener('transitionend', () => resolve(), {
-        once: true,
-      });
+      this.element.addEventListener(
+        'transitionend',
+        () => {
+          this.element.classList.remove('wrong');
+          resolve();
+        },
+        {
+          once: true,
+        },
+      );
     });
   }
 }
