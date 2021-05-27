@@ -34,7 +34,11 @@ export class HeaderContent extends BaseComponent {
         }).render(),
         new Button('Logout', () => {
           localStorage.removeItem('playerData');
-          this.routerService.reroute();
+          if (window.location.hash === '#/game') {
+            window.location.hash = '#/';
+          } else {
+            this.routerService.reroute();
+          }
         }).render(),
         new Avatar(avatar).render(),
       );
