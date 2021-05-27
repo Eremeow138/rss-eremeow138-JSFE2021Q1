@@ -23,14 +23,20 @@ export class App extends BaseComponent {
 
   private readonly modal: Modal;
 
+  private readonly registration: Registration;
+
   constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
     this.db = new IndexedDB('Eremeow138', 'players', 'key');
     this.modalService = new ModalServiceImplmentation();
     this.routerService = new RouterServiceImplmentation();
-    this.modal = new Modal(
-      new Registration(this.modalService, this.routerService).render(),
+    this.modal = new Modal();
+    this.registration = new Registration(
+      this.modalService,
+      this.modal,
+      this.routerService,
     );
+    this.modal.addChild(this.registration.render());
 
     this.router = new Router(this.root, [
       {

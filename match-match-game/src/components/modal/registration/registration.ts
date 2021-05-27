@@ -5,6 +5,9 @@ import avatar from '../../../assets/avatar-default.svg';
 import { Input } from './input/input';
 import { ModalService, RouterService } from '../../../app.api';
 import { Game } from '../../content-field/game/game';
+import { GamePage } from '../../page/gamePage';
+import { Modal } from '../modal';
+import { ModalServiceImplmentation } from '../../../modal-service';
 
 export class Registration extends BaseComponent {
   private arrOfInputs: Input[] = [];
@@ -16,7 +19,8 @@ export class Registration extends BaseComponent {
   emailInput: Input;
 
   constructor(
-    private readonly modalService: ModalService,
+    private readonly modalService: ModalServiceImplmentation,
+    private readonly modal: Modal,
     private readonly routerService: RouterService,
   ) {
     super('div', ['registration', 'invalid']);
@@ -133,7 +137,11 @@ export class Registration extends BaseComponent {
       this.routerService.reroute();
       this.routerService.addRoute({
         path: '/game',
-        component: new Game(),
+        component: new GamePage(
+          this.modalService,
+          this.modal,
+          this.routerService,
+        ),
       });
       this.modalService.callAll();
       // const responsePromise: Promise<string> = this.addRecord(fieldsData);
