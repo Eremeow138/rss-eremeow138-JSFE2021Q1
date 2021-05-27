@@ -3,6 +3,7 @@ import { BaseComponent } from './components/base-component';
 import { Game } from './components/content-field/game/game';
 import { Modal } from './components/modal/modal';
 import { Registration } from './components/modal/registration/registration';
+import { GamePage } from './components/page/gamePage';
 import { InstructionPage } from './components/page/instructionPage';
 import { ScorePage } from './components/page/scorePage';
 import { SettingsPage } from './components/page/settingsPage';
@@ -59,7 +60,14 @@ export class App extends BaseComponent {
     ]);
 
     if (localStorage.getItem('playerData')) {
-      this.router.addRoute({ path: '/game', component: new Game() });
+      this.router.addRoute({
+        path: '/game',
+        component: new GamePage(
+          this.modalService,
+          this.modal,
+          this.routerService,
+        ),
+      });
     }
 
     this.routerService.subscribeOnRouter(
