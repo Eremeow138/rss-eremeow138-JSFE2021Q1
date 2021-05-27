@@ -1,5 +1,6 @@
 import { RouterService } from './app.api';
 import { BaseComponent } from './components/base-component';
+import { Game } from './components/content-field/game/game';
 import { Modal } from './components/modal/modal';
 import { Registration } from './components/modal/registration/registration';
 import { InstructionPage } from './components/page/instructionPage';
@@ -33,17 +34,34 @@ export class App extends BaseComponent {
     this.router = new Router(this.root, [
       {
         path: '/',
-        component: new InstructionPage(this.modalService, this.modal),
+        component: new InstructionPage(
+          this.modalService,
+          this.modal,
+          this.routerService,
+        ),
       },
       {
         path: '/best-score',
-        component: new ScorePage(this.modalService, this.modal),
+        component: new ScorePage(
+          this.modalService,
+          this.modal,
+          this.routerService,
+        ),
       },
       {
         path: '/game-settings',
-        component: new SettingsPage(this.modalService, this.modal),
+        component: new SettingsPage(
+          this.modalService,
+          this.modal,
+          this.routerService,
+        ),
       },
     ]);
+
+    if (localStorage.getItem('playerData')) {
+      this.router.addRoute({ path: '/game', component: new Game() });
+    }
+
     this.routerService.subscribeOnRouter(
       'reroute',
       this.router.route.bind(this.router),

@@ -6,10 +6,13 @@ import { Logo } from '../header-item/logo/logo';
 import { Button } from '../../../shared/button/button';
 import { Avatar } from '../header-item/avatar/avatar';
 import avatar from '../../../assets/avatar-default.svg';
-import { ModalService } from '../../../app.api';
+import { ModalService, RouterService } from '../../../app.api';
 
 export class HeaderContent extends BaseComponent {
-  constructor(private readonly modalService: ModalService) {
+  constructor(
+    private readonly modalService: ModalService,
+    private readonly routerService: RouterService,
+  ) {
     super('header', ['header__content']);
   }
 
@@ -27,10 +30,11 @@ export class HeaderContent extends BaseComponent {
     if (localStorage.getItem('playerData')) {
       this.element.appendChild(new HeaderItem().render()).append(
         new Button('Start game', () => {
-          alert('start');
+          window.location.hash = '#/game';
         }).render(),
         new Button('Logout', () => {
-          alert('start');
+          localStorage.removeItem('playerData');
+          this.routerService.reroute();
         }).render(),
         new Avatar(avatar).render(),
       );

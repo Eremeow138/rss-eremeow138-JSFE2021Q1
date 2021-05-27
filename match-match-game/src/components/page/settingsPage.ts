@@ -1,3 +1,4 @@
+import { RouterService } from '../../app.api';
 import { ModalServiceImplmentation } from '../../modal-service';
 import { Settings } from '../content-field/settings/settings';
 import { Header } from '../header/header';
@@ -8,6 +9,7 @@ export class SettingsPage extends Page {
   constructor(
     readonly modalService: ModalServiceImplmentation,
     readonly modal: Modal,
+    readonly routerService: RouterService,
   ) {
     super();
   }
@@ -15,7 +17,9 @@ export class SettingsPage extends Page {
   render(): HTMLElement {
     this.element.innerHTML = '';
     this.contentField.element.innerHTML = '';
-    this.element.appendChild(new Header(this.modalService).render());
+    this.element.appendChild(
+      new Header(this.modalService, this.routerService).render(),
+    );
     this.contentField.element.appendChild(new Settings().render());
     this.element.appendChild(this.contentField.render());
 
