@@ -4,6 +4,7 @@ import { BaseComponent } from '../../base-component';
 import avatar from '../../../assets/avatar-default.svg';
 import { Input } from './input/input';
 import { ModalService, RouterService } from '../../../app.api';
+import { Game } from '../../content-field/game/game';
 
 export class Registration extends BaseComponent {
   private arrOfInputs: Input[] = [];
@@ -130,6 +131,10 @@ export class Registration extends BaseComponent {
       });
       localStorage.setItem('playerData', fieldsData);
       this.routerService.reroute();
+      this.routerService.addRoute({
+        path: '/game',
+        component: new Game(),
+      });
       this.modalService.callAll();
       // const responsePromise: Promise<string> = this.addRecord(fieldsData);
       // responsePromise.then(

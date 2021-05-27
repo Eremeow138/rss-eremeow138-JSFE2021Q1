@@ -1,4 +1,4 @@
-import { Callback, RouterService } from './app.api';
+import { Callback, RouteObject, RouterService } from './app.api';
 
 interface CallbackAndName {
   callbackName: string;
@@ -24,6 +24,16 @@ export class RouterServiceImplmentation implements RouterService {
     );
     if (callbackObj) {
       callbackObj.callback();
+    }
+    return undefined;
+  }
+
+  addRoute(route: RouteObject): void {
+    const callbackObj = this.callbacksAndNames.find(r =>
+      r.callbackName.match(/^addRoute$/),
+    );
+    if (callbackObj) {
+      callbackObj.callback(route);
     }
     return undefined;
   }

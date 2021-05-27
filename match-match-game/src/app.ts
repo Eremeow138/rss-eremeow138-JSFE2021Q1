@@ -48,6 +48,11 @@ export class App extends BaseComponent {
       'reroute',
       this.router.route.bind(this.router),
     );
+    this.routerService.subscribeOnRouter('addRoute', rout => {
+      if (rout) {
+        this.router.addRoute(rout);
+      }
+    });
   }
 
   render(): HTMLElement {

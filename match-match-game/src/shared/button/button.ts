@@ -19,7 +19,11 @@ export class Button extends BaseComponent {
 
     this.element.innerText = this.text;
     if (this.callback) {
-      this.element.addEventListener('click', this.callback);
+      this.element.addEventListener('click', () => {
+        if (this.callback) {
+          this.callback();
+        }
+      });
     }
 
     return this.element;
