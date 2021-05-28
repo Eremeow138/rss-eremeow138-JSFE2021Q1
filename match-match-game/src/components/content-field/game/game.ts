@@ -4,6 +4,7 @@ import { BaseComponent } from '../../base-component';
 import { Card } from './cards-field/card/card';
 import { CardsField } from './cards-field/cards-field';
 import { ImageCategoryModel } from '../../../models/image-category-model';
+import { Timer } from './timer/timer';
 
 const FLIP_DELAY = 2000;
 
@@ -14,14 +15,39 @@ export class Game extends BaseComponent {
 
   private isAnimation = false;
 
+  private readonly timer: Timer;
+
+  private score = 0;
+
+  private unresolvedPairs = 0;
+
+  private numberOfCorrectCompare = 0;
+
+  private numberOfIncorrectCompare = 0;
+
+  private readonly GAME_DELAY = 10;
+
   constructor() {
     super('div', ['game']);
+    this.timer = new Timer();
     this.cardsField = new CardsField();
+    this.element.appendChild(this.timer.render());
     this.element.appendChild(this.cardsField.render());
   }
 
-  newGame(images: string[]): void {
+  calcOfPoints(): number {
+    const score =
+      (this.numberOfCorrectCompare - this.numberOfIncorrectCompare) * 100 -
+      this.timer.getTimeInSec() * 10;
+    if (score > 0) {
+      return score;
+    }
+    return 0;
+  }
+
+  async newGame(images: string[]): Promise<void> {
     this.cardsField.clear();
+    this.unresolvedPairs = images.length;
     const cards = images
       .concat(images)
       .map(url => new Card(url))
@@ -30,6 +56,9 @@ export class Game extends BaseComponent {
       card.render().addEventListener('click', () => this.cardHandler(card));
     });
     this.cardsField.addCards(cards);
+    await this.timer.startTimer(this.GAME_DELAY);
+    this.timer.startStopwatch();
+    this.cardsField.flipToBack();
   }
 
   private async cardHandler(card: Card) {
@@ -51,11 +80,22 @@ export class Game extends BaseComponent {
         this.activeCard.flipToBack(),
         await card.flipToBack(),
       ]);
+      this.numberOfIncorrectCompare++;
     }
-    this.activeCard.element.classList.add('correct');
-    card.element.classList.add('correct');
+    if (this.activeCard.image === card.image) {
+      this.activeCard.element.classList.add('correct');
+      card.element.classList.add('correct');
+      this.unresolvedPairs -= 1;
+      this.numberOfCorrectCompare++;
+    }
+
     this.activeCard = undefined;
     this.isAnimation = false;
+    if (this.unresolvedPairs === 0) {
+      this.timer.stopTimer();
+      this.score = this.calcOfPoints();
+      alert(`score: ${this.score}`);
+    }
   }
 
   async start(): Promise<void> {
