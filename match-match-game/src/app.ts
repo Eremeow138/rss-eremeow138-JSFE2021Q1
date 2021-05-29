@@ -21,29 +21,32 @@ export class App extends BaseComponent {
 
   private readonly modalService: ModalServiceImplmentation;
 
-  private readonly modal: Modal;
+  private readonly modalReg: Modal;
 
   private readonly registration: Registration;
+
+  private readonly modalWin: Modal;
 
   constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
     this.db = new IndexedDB('Eremeow138', 'players', 'key');
     this.modalService = new ModalServiceImplmentation();
     this.routerService = new RouterServiceImplmentation();
-    this.modal = new Modal();
+    this.modalReg = new Modal();
+    this.modalWin = new Modal();
     this.registration = new Registration(
       this.modalService,
-      this.modal,
+      this.modalReg,
       this.routerService,
     );
-    this.modal.addChild(this.registration.render());
+    this.modalReg.addChild(this.registration.render());
 
     this.router = new Router(this.root, [
       {
         path: '/',
         component: new InstructionPage(
           this.modalService,
-          this.modal,
+          this.modalReg,
           this.routerService,
         ),
       },
@@ -51,7 +54,7 @@ export class App extends BaseComponent {
         path: '/best-score',
         component: new ScorePage(
           this.modalService,
-          this.modal,
+          this.modalReg,
           this.routerService,
         ),
       },
@@ -59,7 +62,7 @@ export class App extends BaseComponent {
         path: '/game-settings',
         component: new SettingsPage(
           this.modalService,
-          this.modal,
+          this.modalReg,
           this.routerService,
         ),
       },
@@ -70,7 +73,7 @@ export class App extends BaseComponent {
         path: '/game',
         component: new GamePage(
           this.modalService,
-          this.modal,
+          this.modalWin,
           this.routerService,
         ),
       });

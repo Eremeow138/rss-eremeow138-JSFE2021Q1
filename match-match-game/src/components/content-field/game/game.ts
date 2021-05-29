@@ -5,8 +5,9 @@ import { Card } from './cards-field/card/card';
 import { CardsField } from './cards-field/cards-field';
 import { ImageCategoryModel } from '../../../models/image-category-model';
 import { Timer } from './timer/timer';
+import { ModalService } from '../../../app.api';
 
-const FLIP_DELAY = 2000;
+const FLIP_DELAY = 500;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
@@ -27,7 +28,10 @@ export class Game extends BaseComponent {
 
   private readonly GAME_DELAY = 10;
 
-  constructor() {
+  constructor(
+    private readonly modalService: ModalService,
+    private readonly changeText: (str: string) => void,
+  ) {
     super('div', ['game']);
     this.timer = new Timer();
     this.cardsField = new CardsField();
@@ -94,7 +98,18 @@ export class Game extends BaseComponent {
     if (this.unresolvedPairs === 0) {
       this.timer.stopTimer();
       this.score = this.calcOfPoints();
-      alert(`score: ${this.score}`);
+      this.modalService.callAll();
+      let min = String(Math.trunc(this.timer.getTimeInSec() / 60));
+      let sec = String(Math.trunc(this.timer.getTimeInSec() % 60));
+      if (min.length === 1) {
+        min = `0${min}`;
+      }
+      if (sec.length === 1) {
+        sec = `0${sec}`;
+      }
+      this.changeText(
+        `Congratulations! You successfully found all matches on ${min}:${sec} minutes.`,
+      );
     }
   }
 
