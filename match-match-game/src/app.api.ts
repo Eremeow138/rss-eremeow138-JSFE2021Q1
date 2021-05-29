@@ -1,4 +1,3 @@
-import { Game } from './components/content-field/game/game';
 import { Page } from './components/page/page';
 
 export type RootElement = HTMLElement | null;
@@ -15,7 +14,7 @@ export interface ModalService {
 }
 export interface RouteObject {
   path: string;
-  component: Page | Game;
+  component: Page;
 }
 export interface RouterService {
   subscribeOnRouter(callbckName: string, callbck: Callback): void;
