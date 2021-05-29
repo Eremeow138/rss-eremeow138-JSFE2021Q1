@@ -1,6 +1,5 @@
 import { DataBaseService, RouterService } from './app.api';
 import { BaseComponent } from './components/base-component';
-import { Game } from './components/content-field/game/game';
 import { Modal } from './components/modal/modal';
 import { Registration } from './components/modal/registration/registration';
 import { GamePage } from './components/page/gamePage';
