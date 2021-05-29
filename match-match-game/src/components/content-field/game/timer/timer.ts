@@ -21,6 +21,7 @@ export class Timer extends BaseComponent {
   ): void {
     this.timeSec = startTimeInSec;
     this.timer = setInterval(() => {
+      this.timeSec += incriment;
       if (callback) {
         callback();
       }
@@ -33,7 +34,6 @@ export class Timer extends BaseComponent {
         sec = `0${sec}`;
       }
       this.timerShow.element.innerHTML = `${min}:${sec}`;
-      this.timeSec += incriment;
     }, intervalInMS);
   }
 
