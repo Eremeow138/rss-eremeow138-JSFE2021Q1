@@ -59,7 +59,7 @@ export class IndexedDB {
         if (transaction) {
           players = transaction.objectStore(this.storeName); // (2)
           const playerObj = JSON.parse(JSONStringData);
-          request = players.add(playerObj);
+          request = players.put(playerObj);
           request.onsuccess = () => {
             resolve('success');
           };
