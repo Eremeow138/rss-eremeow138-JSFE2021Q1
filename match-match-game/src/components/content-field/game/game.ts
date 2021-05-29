@@ -5,7 +5,8 @@ import { Card } from './cards-field/card/card';
 import { CardsField } from './cards-field/cards-field';
 import { ImageCategoryModel } from '../../../models/image-category-model';
 import { Timer } from './timer/timer';
-import { ModalService } from '../../../app.api';
+import { DataBaseService, ModalService, PlayerObject } from '../../../app.api';
+import { DBServiceImplmentation } from '../../../dataBaseService';
 
 const FLIP_DELAY = 500;
 
@@ -28,6 +29,8 @@ export class Game extends BaseComponent {
 
   private readonly GAME_DELAY = 10;
 
+  private readonly dbService: DataBaseService;
+
   constructor(
     private readonly modalService: ModalService,
     private readonly changeText: (str: string) => void,
@@ -37,6 +40,7 @@ export class Game extends BaseComponent {
     this.cardsField = new CardsField();
     this.element.appendChild(this.timer.render());
     this.element.appendChild(this.cardsField.render());
+    this.dbService = DBServiceImplmentation.getInstance();
   }
 
   calcOfPoints(): number {
@@ -98,18 +102,35 @@ export class Game extends BaseComponent {
     if (this.unresolvedPairs === 0) {
       this.timer.stopTimer();
       this.score = this.calcOfPoints();
-      this.modalService.callAll();
-      let min = String(Math.trunc(this.timer.getTimeInSec() / 60));
-      let sec = String(Math.trunc(this.timer.getTimeInSec() % 60));
-      if (min.length === 1) {
-        min = `0${min}`;
+
+      const lsData = localStorage.getItem('playerData');
+
+      if (lsData) {
+        const playerObj: PlayerObject = JSON.parse(lsData);
+        playerObj.score = this.score;
+        const prom: Promise<string> | void = this.dbService.addRecord(
+          JSON.stringify(playerObj),
+        );
+        prom.then(
+          () => {
+            this.modalService.callAll();
+            let min = String(Math.trunc(this.timer.getTimeInSec() / 60));
+            let sec = String(Math.trunc(this.timer.getTimeInSec() % 60));
+            if (min.length === 1) {
+              min = `0${min}`;
+            }
+            if (sec.length === 1) {
+              sec = `0${sec}`;
+            }
+            this.changeText(
+              `Congratulations! You successfully found all matches on ${min}:${sec} minutes.`,
+            );
+          },
+          () => {
+            console.log('err');
+          },
+        );
       }
-      if (sec.length === 1) {
-        sec = `0${sec}`;
-      }
-      this.changeText(
-        `Congratulations! You successfully found all matches on ${min}:${sec} minutes.`,
-      );
     }
   }
 

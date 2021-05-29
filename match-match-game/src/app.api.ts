@@ -21,8 +21,13 @@ export interface RouterService {
   addRoute(route: RouteObject): void;
   reroute(): void;
 }
+export interface DataBaseService {
+  subscribeOnDB(callbckName: string, callbck: () => void): void;
+  addRecord(jsonStringData: string): Promise<string>;
+}
 export interface PlayerObject {
   firstName: string;
   lastName: string;
   email: string;
+  score: number;
 }
