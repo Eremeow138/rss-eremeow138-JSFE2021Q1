@@ -10,6 +10,13 @@ export class Button extends BaseComponent {
   ) {
     super('button', ['button']);
     this.text = text;
+    if (this.callback) {
+      this.element.addEventListener('click', () => {
+        if (this.callback) {
+          this.callback();
+        }
+      });
+    }
   }
 
   render(): HTMLElement {
@@ -18,13 +25,6 @@ export class Button extends BaseComponent {
     }
 
     this.element.innerText = this.text;
-    if (this.callback) {
-      this.element.addEventListener('click', () => {
-        if (this.callback) {
-          this.callback();
-        }
-      });
-    }
 
     return this.element;
   }
