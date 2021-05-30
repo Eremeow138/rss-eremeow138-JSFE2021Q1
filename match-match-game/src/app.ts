@@ -1,4 +1,4 @@
-import { DataBaseService, RouterService } from './app.api';
+import { RouterService } from './app.api';
 import { BaseComponent } from './components/base-component';
 import { Modal } from './components/modal/modal';
 import { Registration } from './components/modal/registration/registration';
@@ -7,8 +7,6 @@ import { InstructionPage } from './components/page/instructionPage';
 import { ScorePage } from './components/page/scorePage';
 import { SettingsPage } from './components/page/settingsPage';
 import { Router } from './components/router/router';
-import { DBServiceImplmentation } from './dataBaseService';
-import { IndexedDB } from './indexed-db';
 import { ModalServiceImplmentation } from './modal-service';
 import { RouterServiceImplmentation } from './routerService';
 
@@ -16,8 +14,6 @@ export class App extends BaseComponent {
   private readonly router: Router;
 
   private readonly routerService: RouterService;
-
-  private readonly db: IndexedDB;
 
   private readonly modalService: ModalServiceImplmentation;
 
@@ -27,13 +23,9 @@ export class App extends BaseComponent {
 
   private readonly modalWin: Modal;
 
-  private readonly dbService: DataBaseService;
-
   constructor(private readonly root: HTMLElement) {
     super('div', ['application']);
-    this.db = new IndexedDB('Eremeow138', 'players', 'key');
-    this.dbService = DBServiceImplmentation.getInstance();
-    this.dbService.subscribeOnDB('addRecord', this.db.addRecord.bind(this.db));
+
     this.modalService = new ModalServiceImplmentation();
     this.routerService = new RouterServiceImplmentation();
     this.modalReg = new Modal();

@@ -1,8 +1,10 @@
-import { DataBaseService } from './app.api';
+import { DataBaseService, PlayerObject } from './app.api';
 
 interface CallbackAndName {
   callbackName: string;
-  callback: (jsonStringData?: string) => void & Promise<string>;
+  callback: (
+    jsonStringData?: string,
+  ) => void & Promise<string> & Promise<PlayerObject[]>;
 }
 export class DBServiceImplmentation implements DataBaseService {
   private callbacksAndNames: CallbackAndName[];
@@ -22,7 +24,9 @@ export class DBServiceImplmentation implements DataBaseService {
 
   subscribeOnDB(
     callbckName: string,
-    callbck: (jsonStringData?: string) => void & Promise<string>,
+    callbck: (
+      jsonStringData?: string,
+    ) => void & Promise<string> & Promise<PlayerObject[]>,
   ): void {
     this.callbacksAndNames.push({
       callbackName: callbckName,
@@ -39,6 +43,18 @@ export class DBServiceImplmentation implements DataBaseService {
     }
     return new Promise(reject => {
       reject('error');
+    });
+  }
+
+  getRecords(): Promise<PlayerObject[]> {
+    const callbackObj = this.callbacksAndNames.find(r =>
+      r.callbackName.match(/^getRecords$/),
+    );
+    if (callbackObj) {
+      return callbackObj.callback();
+    }
+    return new Promise(reject => {
+      reject([]);
     });
   }
 }
