@@ -14,6 +14,8 @@ export class ScorePage extends Page {
 
   arrOfPlayers: PlayerObject[] = [];
 
+  private readonly LIMITER = 10;
+
   constructor(
     readonly modalService: ModalServiceImplmentation,
     readonly modal: Modal,
@@ -31,7 +33,7 @@ export class ScorePage extends Page {
       new Header(this.modalService, this.routerService).render(),
     );
     this.dbService
-      .getRecords()
+      .getRecords(this.LIMITER)
       .then(arr => {
         this.arrOfPlayers = arr;
         this.arrOfPlayers.forEach(player => {

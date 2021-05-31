@@ -91,7 +91,7 @@ export class IndexedDB {
     });
   }
 
-  GetRecords(): Promise<PlayerObject[]> {
+  GetRecords(limit = 10000000): Promise<PlayerObject[]> {
     return new Promise((resolve, reject) => {
       const arrayOfObj: PlayerObject[] = [];
       let transaction;
@@ -104,10 +104,12 @@ export class IndexedDB {
       if (transaction) {
         players = transaction.objectStore(this.storeName); // (2)
         request = players.index('score').openCursor(null, 'prev');
+        let countOfRecords = 0;
         request.onsuccess = () => {
           const cursor = request.result;
-          if (cursor) {
+          if (cursor && countOfRecords < limit) {
             arrayOfObj.push(cursor.value);
+            countOfRecords++;
             cursor.continue();
           } else {
             resolve(arrayOfObj);

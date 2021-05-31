@@ -3,7 +3,7 @@ import { DataBaseService, PlayerObject } from './app.api';
 interface CallbackAndName {
   callbackName: string;
   callback: (
-    jsonStringData?: string,
+    arg?: string | number,
   ) => void & Promise<string> & Promise<PlayerObject[]>;
 }
 export class DBServiceImplmentation implements DataBaseService {
@@ -25,7 +25,7 @@ export class DBServiceImplmentation implements DataBaseService {
   subscribeOnDB(
     callbckName: string,
     callbck: (
-      jsonStringData?: string,
+      arg?: string | number,
     ) => void & Promise<string> & Promise<PlayerObject[]>,
   ): void {
     this.callbacksAndNames.push({
@@ -46,12 +46,12 @@ export class DBServiceImplmentation implements DataBaseService {
     });
   }
 
-  getRecords(): Promise<PlayerObject[]> {
+  getRecords(limit?: number): Promise<PlayerObject[]> {
     const callbackObj = this.callbacksAndNames.find(r =>
       r.callbackName.match(/^getRecords$/),
     );
     if (callbackObj) {
-      return callbackObj.callback();
+      return callbackObj.callback(limit);
     }
     return new Promise(reject => {
       reject([]);

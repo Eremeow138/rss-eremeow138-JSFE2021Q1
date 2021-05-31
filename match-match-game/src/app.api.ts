@@ -24,7 +24,7 @@ export interface RouterService {
 export interface DataBaseService {
   subscribeOnDB(callbckName: string, callbck: () => void): void;
   addRecord(jsonStringData: string): Promise<string>;
-  getRecords(): Promise<PlayerObject[]>;
+  getRecords(limit?: number): Promise<PlayerObject[]>;
 }
 export interface PlayerObject {
   firstName: string;
