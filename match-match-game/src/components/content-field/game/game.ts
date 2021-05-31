@@ -131,8 +131,8 @@ export class Game extends BaseComponent {
               `Congratulations! You successfully found all matches on ${min}:${sec} minutes.`,
             );
           },
-          () => {
-            console.log('err');
+          err => {
+            this.changeText(`Error ${err}`);
           },
         );
       }
