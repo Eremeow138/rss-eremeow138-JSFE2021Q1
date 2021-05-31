@@ -7,7 +7,6 @@ export class IndexedDB {
 
   private index: IDBIndex | null;
 
-  // TODO: remove all comments and replace console logs on some functions
   constructor(
     private readonly baseName: string,
     private readonly storeName: string,
@@ -20,17 +19,13 @@ export class IndexedDB {
   }
 
   initBase(): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       const openRequest = indexedDB.open(this.baseName, this.version);
       if (openRequest) {
         openRequest.onupgradeneeded = () => {
-          // срабатывает, если на клиенте нет базы данных
-          // ...выполнить инициализацию...
-
           this.db = openRequest.result;
-          // проверить существование указанной версии базы данных, обновить по мере необходимости:
+
           if (!this.db.objectStoreNames.contains(this.storeName)) {
-            // если хранилище "books" не существует
             this.players = this.db.createObjectStore(this.storeName, {
               keyPath: this.keyPath,
             });
@@ -39,25 +34,22 @@ export class IndexedDB {
         };
 
         openRequest.onerror = () => {
-          console.error('Error', openRequest.error);
+          reject(new Error(String(openRequest.error)));
         };
 
         openRequest.onsuccess = () => {
           this.db = openRequest.result;
-          // продолжить работу с базой данных, используя объект this.db
+
           this.db.onversionchange = () => {
             if (this.db) {
               this.db.close();
-              alert('База данных устарела, пожалуста, перезагрузите страницу.');
+              reject(new Error('DB is old, refresh page'));
             }
           };
           resolve();
         };
         openRequest.onblocked = () => {
-          // есть другое соединение к той же базе
-          // и оно не было закрыто после срабатывания на нём this.db.onversionchange
-          console.log('blocked');
-          // Такого не произойдёт, если мы закрываем соединение в this.db.onversionchange.
+          reject(new Error('There is another connection to the base'));
         };
       }
     });
@@ -71,11 +63,11 @@ export class IndexedDB {
         if (this.db) {
           transaction = this.db.transaction(this.storeName, 'readwrite'); // (1)
         }
-        // получить хранилище объектов для работы с ним
+
         let players;
         let request;
         if (transaction) {
-          players = transaction.objectStore(this.storeName); // (2)
+          players = transaction.objectStore(this.storeName);
           const playerObj = JSON.parse(JSONStringData);
           request = players.put(playerObj);
           request.onsuccess = () => {
@@ -96,13 +88,13 @@ export class IndexedDB {
       const arrayOfObj: PlayerObject[] = [];
       let transaction;
       if (this.db) {
-        transaction = this.db.transaction(this.storeName); // (1)
+        transaction = this.db.transaction(this.storeName);
       }
-      // получить хранилище объектов для работы с ним
+
       let players;
       let request: IDBRequest<IDBCursorWithValue | null>;
       if (transaction) {
-        players = transaction.objectStore(this.storeName); // (2)
+        players = transaction.objectStore(this.storeName);
         request = players.index('score').openCursor(null, 'prev');
         let countOfRecords = 0;
         request.onsuccess = () => {
@@ -116,7 +108,7 @@ export class IndexedDB {
           }
         };
         request.onerror = () => {
-          reject(console.log('request error'));
+          reject(new Error('Request error'));
         };
       }
     });
