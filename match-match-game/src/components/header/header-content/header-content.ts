@@ -28,20 +28,37 @@ export class HeaderContent extends BaseComponent {
       .appendChild(new Nav().render());
 
     if (localStorage.getItem('playerData')) {
-      this.element.appendChild(new HeaderItem().render()).append(
-        new Button('Start game', () => {
-          window.location.hash = '#/game';
-        }).render(),
-        new Button('Logout', () => {
-          localStorage.removeItem('playerData');
-          if (window.location.hash === '#/game') {
-            window.location.hash = '#/';
-          } else {
-            this.routerService.reroute();
-          }
-        }).render(),
-        new Avatar(avatar).render(),
-      );
+      if (window.location.hash === '#/game') {
+        this.element.appendChild(new HeaderItem().render()).append(
+          new Button('Stop game', () => {
+            window.location.hash = '/';
+          }).render(),
+          new Button('Logout', () => {
+            localStorage.removeItem('playerData');
+            if (window.location.hash === '#/game') {
+              window.location.hash = '#/';
+            } else {
+              this.routerService.reroute();
+            }
+          }).render(),
+          new Avatar(avatar).render(),
+        );
+      } else {
+        this.element.appendChild(new HeaderItem().render()).append(
+          new Button('Start game', () => {
+            window.location.hash = '#/game';
+          }).render(),
+          new Button('Logout', () => {
+            localStorage.removeItem('playerData');
+            if (window.location.hash === '#/game') {
+              window.location.hash = '#/';
+            } else {
+              this.routerService.reroute();
+            }
+          }).render(),
+          new Avatar(avatar).render(),
+        );
+      }
     } else {
       this.element
         .appendChild(new HeaderItem().render())
