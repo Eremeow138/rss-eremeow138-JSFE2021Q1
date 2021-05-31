@@ -152,16 +152,6 @@ export class Registration extends BaseComponent {
       this.arrOfInputs.forEach(input => input.clear());
       this.element.classList.add('invalid');
       this.modalService.callAll();
-      // const responsePromise: Promise<string> = this.addRecord(fieldsData);
-      // responsePromise.then(
-      //   () => {
-      //     this.showHideModal();
-      //     const refreshBtn = document.createElement('a');
-      //     refreshBtn.href = '#/';
-      //     refreshBtn.click();
-      //   },
-      //   error => alert(error),
-      // );
     });
     return this.element;
   }
