@@ -1,7 +1,6 @@
 import './registration.scss';
 import { Button } from '../../../shared/button/button';
 import { BaseComponent } from '../../base-component';
-import avatar from '../../../assets/avatar-default.svg';
 import { Input } from './input/input';
 import { RouterService } from '../../../app.api';
 import { GamePage } from '../../page/gamePage';

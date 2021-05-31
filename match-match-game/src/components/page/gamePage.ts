@@ -1,7 +1,6 @@
 import { RouterService } from '../../app.api';
 import { ModalServiceImplmentation } from '../../modal-service';
 import { Game } from '../content-field/game/game';
-import { Insruction } from '../content-field/instruction/instruction';
 import { Header } from '../header/header';
 import { Congratulation } from '../modal/congratulation/congratulation';
 import { Modal } from '../modal/modal';
