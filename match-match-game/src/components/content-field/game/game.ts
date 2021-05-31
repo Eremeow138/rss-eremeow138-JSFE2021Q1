@@ -27,6 +27,8 @@ export class Game extends BaseComponent {
 
   private numberOfIncorrectCompare = 0;
 
+  private numOfPairs = 8;
+
   private readonly GAME_DELAY = 10;
 
   private readonly dbService: DataBaseService;
@@ -41,6 +43,8 @@ export class Game extends BaseComponent {
     this.element.appendChild(this.timer.render());
     this.element.appendChild(this.cardsField.render());
     this.dbService = DBServiceImplmentation.getInstance();
+    this.numOfPairs =
+      Number(localStorage.getItem('difficultyLvl')?.slice(-1)) ** 2 / 2;
   }
 
   calcOfPoints(): number {
@@ -58,7 +62,7 @@ export class Game extends BaseComponent {
     this.unresolvedPairs = images.length;
     const cards = images
       .concat(images)
-      .map(url => new Card(url))
+      .map(url => new Card(url, Math.sqrt(this.numOfPairs * 2), 10))
       .sort(() => Math.random() - 0.5);
     cards.forEach(card => {
       card.render().addEventListener('click', () => this.cardHandler(card));
@@ -137,8 +141,20 @@ export class Game extends BaseComponent {
   async start(): Promise<void> {
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
-    const images = cat.images.map(name => `${cat.category}/${name}`);
+    let cat = categories.find(
+      item => item.category === localStorage.getItem('category'),
+    );
+    if (!cat) {
+      [cat] = categories;
+    }
+    if (!this.numOfPairs) {
+      this.numOfPairs = cat.images.length;
+    }
+    const images: string[] = [];
+
+    for (let i = 0; i < this.numOfPairs; i++) {
+      images.push(`${cat.category}/${cat.images[i]}`);
+    }
     this.newGame(images);
   }
 

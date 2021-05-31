@@ -5,7 +5,11 @@ const FLIP_CLASS = 'flipped';
 export class Card extends BaseComponent {
   isFlipped = false;
 
-  constructor(readonly image: string) {
+  constructor(
+    readonly image: string,
+    private readonly numCardPerRow: number,
+    private readonly marginInPX: number = 0,
+  ) {
     super('div', ['card-container']);
     this.image = image;
   }
@@ -17,6 +21,10 @@ export class Card extends BaseComponent {
         <div class="card__back"></div>
       </div>
       `;
+    const size = `${100 / this.numCardPerRow}%`;
+
+    this.element.style.width = `calc(${size} - ${this.marginInPX * 2}px)`;
+    this.element.style.height = `calc(${size} - ${this.marginInPX * 2}px)`;
     return this.element;
   }
 

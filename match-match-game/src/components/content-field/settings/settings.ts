@@ -10,18 +10,20 @@ export class Settings extends BaseComponent {
   render(): HTMLElement {
     this.element.innerHTML = '';
     this.element.appendChild(
-      new SettingsItem('Game cards', 'select game cards type', [
-        'Cats',
-        'Dogs',
-        'Cars',
-      ]).render(),
+      new SettingsItem(
+        'Game cards',
+        localStorage.getItem('category') || 'select game cards type',
+        ['cats', 'cars'],
+        'category',
+      ).render(),
     );
     this.element.appendChild(
-      new SettingsItem('Difficulty', 'select game type', [
-        '4x4',
-        '6x6',
-        '8x8',
-      ]).render(),
+      new SettingsItem(
+        'Difficulty',
+        localStorage.getItem('difficultyLvl') || 'select game type',
+        ['4x4', '6x6'],
+        'difficultyLvl',
+      ).render(),
     );
     return this.element;
   }

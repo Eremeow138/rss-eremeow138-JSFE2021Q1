@@ -7,6 +7,7 @@ export class SettingsItem extends BaseComponent {
     private readonly setting: string,
     private readonly placeholder: string,
     private readonly values: string[],
+    private readonly keyOfLS: string,
   ) {
     super('div', ['settings__item']);
     values.forEach(value => {
@@ -37,8 +38,9 @@ export class SettingsItem extends BaseComponent {
     if (sets && input && list) {
       sets.forEach(set =>
         set.addEventListener('click', () => {
-          if (set) {
+          if (set && set.textContent) {
             input.value = String(set.textContent);
+            localStorage.setItem(this.keyOfLS, set.textContent.toLowerCase());
             list.classList.toggle('settings__list_visible');
           }
         }),
