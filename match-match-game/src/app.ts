@@ -32,7 +32,7 @@ export class App extends BaseComponent {
     this.modalWin = new Modal();
     this.registration = new Registration(
       this.modalService,
-      this.modalReg,
+      this.modalWin,
       this.routerService,
     );
     this.modalReg.addChild(this.registration.render());
