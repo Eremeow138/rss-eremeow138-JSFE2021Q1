@@ -40,7 +40,7 @@ export class ScorePage extends Page {
           this.score.addPlayer(
             `${player.firstName} ${player.lastName}`,
             player.email,
-            `${avatar}`,
+            player.avatar || `${avatar}`,
             player.score,
           );
         });

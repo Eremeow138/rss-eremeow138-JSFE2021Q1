@@ -7,6 +7,7 @@ import { RouterService } from '../../../app.api';
 import { GamePage } from '../../page/gamePage';
 import { Modal } from '../modal';
 import { ModalServiceImplmentation } from '../../../modal-service';
+import { AvatarUploader } from './avatar-uploader/avatar-uploader';
 
 export class Registration extends BaseComponent {
   private arrOfInputs: Input[] = [];
@@ -17,13 +18,15 @@ export class Registration extends BaseComponent {
 
   emailInput: Input;
 
+  avatarUploader: AvatarUploader;
+
   constructor(
     private readonly modalService: ModalServiceImplmentation,
     private readonly modal: Modal,
     private readonly routerService: RouterService,
   ) {
     super('div', ['registration', 'invalid']);
-
+    this.avatarUploader = new AvatarUploader();
     this.firstNameInput = new Input(
       'firstName',
       'First Name',
@@ -85,12 +88,15 @@ export class Registration extends BaseComponent {
         <div class="registration__main">
           <div class="registration__input-box">
           </div>
-          <img class="registration__avatar" src="${avatar}"></img>
         </div>
         <div class="registration__footer">
         </div>
       </form>
     `;
+
+    this.element
+      .querySelector('.registration__main')
+      ?.appendChild(this.avatarUploader.render());
 
     this.element
       .querySelector('.registration__input-box')
@@ -129,7 +135,9 @@ export class Registration extends BaseComponent {
         if (index !== list.length - 1) {
           fieldsData += `"${elem.name}":"${elem.value}",`;
         } else {
-          fieldsData += `"${elem.name}":"${elem.value}","key":"${keyValue}"}`;
+          fieldsData += `"${elem.name}":"${
+            elem.value
+          }","key":"${keyValue}","avatar":"${this.avatarUploader.getAvatarSrc()}"}`;
         }
       });
       localStorage.setItem('playerData', fieldsData);

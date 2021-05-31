@@ -6,14 +6,30 @@ import { Logo } from '../header-item/logo/logo';
 import { Button } from '../../../shared/button/button';
 import { Avatar } from '../header-item/avatar/avatar';
 import avatar from '../../../assets/avatar-default.svg';
-import { ModalService, RouterService } from '../../../app.api';
+import { ModalService, PlayerObject, RouterService } from '../../../app.api';
 
 export class HeaderContent extends BaseComponent {
+  private playerStringData: string | null = null;
+
   constructor(
     private readonly modalService: ModalService,
     private readonly routerService: RouterService,
   ) {
     super('header', ['header__content']);
+  }
+
+  getAvatarFromLS(): string | null {
+    let playerObj: PlayerObject | null;
+    this.playerStringData = localStorage.getItem('playerData');
+    if (this.playerStringData) {
+      playerObj = JSON.parse(this.playerStringData);
+    } else {
+      playerObj = null;
+    }
+    if (playerObj) {
+      return playerObj.avatar;
+    }
+    return null;
   }
 
   render(): HTMLElement {
@@ -41,7 +57,7 @@ export class HeaderContent extends BaseComponent {
               this.routerService.reroute();
             }
           }).render(),
-          new Avatar(avatar).render(),
+          new Avatar(this.getAvatarFromLS() || avatar).render(),
         );
       } else {
         this.element.appendChild(new HeaderItem().render()).append(
@@ -56,7 +72,7 @@ export class HeaderContent extends BaseComponent {
               this.routerService.reroute();
             }
           }).render(),
-          new Avatar(avatar).render(),
+          new Avatar(this.getAvatarFromLS() || avatar).render(),
         );
       }
     } else {
@@ -66,7 +82,7 @@ export class HeaderContent extends BaseComponent {
           new Button('Register new player', () =>
             this.modalService.callAll(),
           ).render(),
-          new Avatar(avatar).render(),
+          new Avatar(this.getAvatarFromLS() || avatar).render(),
         );
     }
 

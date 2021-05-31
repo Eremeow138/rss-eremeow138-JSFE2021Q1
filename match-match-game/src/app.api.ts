@@ -31,4 +31,5 @@ export interface PlayerObject {
   lastName: string;
   email: string;
   score: number;
+  avatar: string;
 }
