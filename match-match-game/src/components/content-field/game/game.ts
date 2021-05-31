@@ -29,7 +29,7 @@ export class Game extends BaseComponent {
 
   private numOfPairs = 8;
 
-  private readonly GAME_DELAY = 10;
+  private readonly GAME_DELAY = 30;
 
   private readonly dbService: DataBaseService;
 
