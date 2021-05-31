@@ -32,20 +32,17 @@ export class ScorePage extends Page {
     this.element.appendChild(
       new Header(this.modalService, this.routerService).render(),
     );
-    this.dbService
-      .getRecords(this.LIMITER)
-      .then(arr => {
-        this.arrOfPlayers = arr;
-        this.arrOfPlayers.forEach(player => {
-          this.score.addPlayer(
-            `${player.firstName} ${player.lastName}`,
-            player.email,
-            player.avatar || `${avatar}`,
-            player.score,
-          );
-        });
-      })
-      .catch(err => console.log(err));
+    this.dbService.getRecords(this.LIMITER).then(arr => {
+      this.arrOfPlayers = arr;
+      this.arrOfPlayers.forEach(player => {
+        this.score.addPlayer(
+          `${player.firstName} ${player.lastName}`,
+          player.email,
+          player.avatar || `${avatar}`,
+          player.score,
+        );
+      });
+    });
 
     this.contentField.element.appendChild(this.score.render());
     this.element.appendChild(this.contentField.render());
