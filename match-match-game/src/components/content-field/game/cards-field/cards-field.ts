@@ -5,13 +5,16 @@ import { Card } from './card/card';
 export class CardsField extends BaseComponent {
   private cards: Card[] = [];
 
+  private readonly cardBox: BaseComponent;
+
   constructor() {
     super('div', ['cards-field']);
+    this.cardBox = new BaseComponent('div', ['card-box']);
   }
 
   clear(): void {
     this.cards = [];
-    this.element.innerHTML = '';
+    this.cardBox.element.innerHTML = '';
   }
 
   flipToBack(): void {
@@ -20,10 +23,11 @@ export class CardsField extends BaseComponent {
 
   addCards(cards: Card[]): void {
     this.cards = cards;
-    this.cards.forEach(card => this.element.appendChild(card.element));
+    this.cards.forEach(card => this.cardBox.element.appendChild(card.element));
   }
 
   render(): HTMLElement {
+    this.element.appendChild(this.cardBox.element);
     return this.element;
   }
 }

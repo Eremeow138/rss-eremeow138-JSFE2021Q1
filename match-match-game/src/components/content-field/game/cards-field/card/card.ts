@@ -25,6 +25,7 @@ export class Card extends BaseComponent {
 
     this.element.style.width = `calc(${size} - ${this.marginInPX * 2}px)`;
     this.element.style.height = `calc(${size} - ${this.marginInPX * 2}px)`;
+    this.element.style.margin = `${this.marginInPX}px`;
     return this.element;
   }
 

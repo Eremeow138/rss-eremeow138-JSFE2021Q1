@@ -60,9 +60,10 @@ export class Game extends BaseComponent {
   async newGame(images: string[]): Promise<void> {
     this.cardsField.clear();
     this.unresolvedPairs = images.length;
+    const cardsMargin = 2;
     const cards = images
       .concat(images)
-      .map(url => new Card(url, Math.sqrt(this.numOfPairs * 2), 10))
+      .map(url => new Card(url, Math.sqrt(this.numOfPairs * 2), cardsMargin))
       .sort(() => Math.random() - 0.5);
     cards.forEach(card => {
       card.render().addEventListener('click', () => this.cardHandler(card));
