@@ -6,10 +6,9 @@
   flex-wrap: wrap;
   width: calc(100vmin - 150px);
   position: relative;
-
 }
-.cards-field::before{
-  content: "";
+.cards-field::before {
+  content: '';
   display: block;
   padding-top: 100%;
 }
