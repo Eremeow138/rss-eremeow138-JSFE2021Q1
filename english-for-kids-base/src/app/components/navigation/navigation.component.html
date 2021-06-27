@@ -1,0 +1,18 @@
+<nav class="navigation" [ngClass]="{open: isOpen }">
+  <button class="navigation__toggle" (click)="toggleMenu()"></button>
+  <ul class="navigation__bar" >
+    <li class="navigation__item">
+      <a class="navigation__link" routerLink="/main" routerLinkActive="active"
+        >Main page</a
+      >
+    </li>
+    <li class="navigation__item" *ngFor="let category of categories">
+      <a
+        class="navigation__link"
+        routerLink="/{{ category.id }}"
+        routerLinkActive="active"
+        >{{ category.name }}</a
+      >
+    </li>
+  </ul>
+</nav>

@@ -77,4 +77,9 @@
 }
 html {
   font-family: "Roboto";
+  box-sizing: border-box;
+}
+button {
+  outline: none;
+  border: none;
 }
