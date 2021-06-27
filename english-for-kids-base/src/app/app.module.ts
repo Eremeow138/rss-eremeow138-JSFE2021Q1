@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { InMemoryDataService } from './services';
+import { CardDataService, InMemoryDataService } from './services';
+import { CategoryCardsComponent } from './components';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CategoryCardsComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -18,7 +19,7 @@ import { InMemoryDataService } from './services';
       dataEncapsulation: false,
     }),
   ],
-  providers: [],
+  providers: [CardDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
