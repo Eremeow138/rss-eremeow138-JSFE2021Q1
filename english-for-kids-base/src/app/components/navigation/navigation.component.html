@@ -9,7 +9,7 @@
     <li class="navigation__item" *ngFor="let category of categories">
       <a
         class="navigation__link"
-        routerLink="/{{ category.id }}"
+        routerLink="categories/{{ category.id }}"
         routerLinkActive="active"
         >{{ category.name }}</a
       >
