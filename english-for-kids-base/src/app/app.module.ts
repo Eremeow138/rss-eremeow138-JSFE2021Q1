@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CardDataService, InMemoryDataService } from './services';
+import { CardDataService, GameService, InMemoryDataService } from './services';
 import { CategoryCardsComponent, NavigationComponent } from './components';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CategoryCardsComponent, NavigationComponent } from './components';
       dataEncapsulation: false,
     }),
   ],
-  providers: [CardDataService],
+  providers: [CardDataService, GameService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
