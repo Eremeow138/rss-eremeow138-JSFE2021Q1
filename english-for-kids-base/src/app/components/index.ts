@@ -1,3 +1,7 @@
+export { HeaderComponent } from './header/header.component';
+
+export { ModeSwitchComponent } from './mode-switch/mode-switch.component';
+
 export { ContainerComponent } from './container/container.component';
 
 export { WordCardComponent } from './word-card/word-card.component';

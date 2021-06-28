@@ -13,6 +13,8 @@ import {
   WordsCardsComponent,
   WordCardComponent,
   ContainerComponent,
+  ModeSwitchComponent,
+  HeaderComponent,
 } from './components';
 
 @NgModule({
@@ -23,6 +25,8 @@ import {
     WordsCardsComponent,
     WordCardComponent,
     ContainerComponent,
+    ModeSwitchComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
