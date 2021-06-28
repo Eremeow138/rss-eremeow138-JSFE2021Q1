@@ -5,7 +5,7 @@
   width: 80px;
   height: 30px;
   border-radius: 190px;
-  background: linear-gradient(40deg, #ffd86f, #fc6262);
+  background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
   cursor: pointer;
   box-sizing: border-box;
   &__checkbox {
@@ -46,7 +46,7 @@
   }
 }
 .mode-switch.checked {
-  background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+  background: linear-gradient(40deg, #ffd86f, #fc6262);
 }
 .mode-switch.checked > .mode-switch__circle {
   margin-left: 53px;
