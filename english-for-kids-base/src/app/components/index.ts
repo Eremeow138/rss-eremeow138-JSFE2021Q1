@@ -1,3 +1,5 @@
+export { ContainerComponent } from './container/container.component';
+
 export { WordCardComponent } from './word-card/word-card.component';
 
 export { WordsCardsComponent } from './words-cards/words-cards.component';
