@@ -1,5 +1,4 @@
 .navigation {
-
   &__toggle {
     position: fixed;
     cursor: pointer;
@@ -13,7 +12,6 @@
     background-color: transparent;
     transition-property: transform;
     transition-duration: 0.5s;
-
 
     &::after {
       content: "";
@@ -47,7 +45,7 @@
     position: fixed;
     top: 0;
     left: -20rem;
-    background: linear-gradient(180deg, #0099AE 0%, #00BF82 100%);
+    background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
     list-style: none;
     transition-property: transform;
     transition-duration: 0.6s;
@@ -74,8 +72,10 @@
   border-color: transparent;
   &::before {
     transform: rotate(-45deg);
+    border-top: 4px solid white;
   }
   &::after {
     transform: rotate(45deg);
+    border-top: 4px solid white;
   }
 }
