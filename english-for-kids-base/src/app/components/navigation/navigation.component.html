@@ -1,8 +1,16 @@
-<nav class="navigation" [ngClass]="{open: isOpen }">
+<nav
+  class="navigation"
+  [ngClass]="{ open: isOpen }"
+  (clickOutside)="closeMenu()"
+>
   <button class="navigation__toggle" (click)="toggleMenu()"></button>
-  <ul class="navigation__bar" >
+  <ul class="navigation__bar">
     <li class="navigation__item">
-      <a class="navigation__link" routerLink="/main" routerLinkActive="active"
+      <a
+        class="navigation__link"
+        routerLink="/main"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
         >Main page</a
       >
     </li>
@@ -11,6 +19,7 @@
         class="navigation__link"
         routerLink="categories/{{ category.id }}"
         routerLinkActive="active"
+        (click)="toggleMenu()"
         >{{ category.name }}</a
       >
     </li>
