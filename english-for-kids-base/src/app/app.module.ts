@@ -6,10 +6,21 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CardDataService, GameService, InMemoryDataService } from './services';
-import { CategoryCardsComponent, NavigationComponent } from './components';
+import {
+  CategoryCardsComponent,
+  NavigationComponent,
+  WordsCardsComponent,
+  WordCardComponent,
+} from './components';
 
 @NgModule({
-  declarations: [AppComponent, CategoryCardsComponent, NavigationComponent],
+  declarations: [
+    AppComponent,
+    CategoryCardsComponent,
+    NavigationComponent,
+    WordsCardsComponent,
+    WordCardComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,

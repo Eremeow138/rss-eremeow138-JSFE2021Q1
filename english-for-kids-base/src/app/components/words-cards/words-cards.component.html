@@ -1,0 +1,7 @@
+<div class="category" *ngIf="category">
+  <h2 class="category__title">{{ category.name }}</h2>
+  <div class="category__list">
+    <app-word-card *ngFor="let word of category.words" [word]="word"></app-word-card>
+  </div>
+</div>
+
