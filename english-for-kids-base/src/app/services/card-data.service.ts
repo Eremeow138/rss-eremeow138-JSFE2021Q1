@@ -16,13 +16,20 @@ function handleError<T>(operation = 'operation', result?: T) {
   providedIn: 'root',
 })
 export class CardDataService {
-  private cardsUrl = 'api/categories';
+  private categoryUrl = 'api/categories';
 
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
     return this.http
-      .get<Category[]>(this.cardsUrl)
+      .get<Category[]>(this.categoryUrl)
       .pipe(catchError(handleError<Category[]>('getCategories', [])));
+  }
+
+  getCategory(id: number): Observable<Category | undefined> {
+    const url = `${this.categoryUrl}/${id}`;
+    return this.http
+      .get<Category>(url)
+      .pipe(catchError(handleError<Category>(`getCategory id=${id}`)));
   }
 }
