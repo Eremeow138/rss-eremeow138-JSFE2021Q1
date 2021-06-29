@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Word } from 'src/app/models';
 import { GameService } from 'src/app/services';
 
@@ -7,27 +7,41 @@ import { GameService } from 'src/app/services';
   templateUrl: './word-card.component.html',
   styleUrls: ['./word-card.component.scss'],
 })
-export class WordCardComponent {
+export class WordCardComponent implements OnInit {
   constructor(private readonly gameService: GameService) {}
+
+  ngOnInit(): void {
+    this.gameService.getMode().subscribe(mode => {
+      this.isGameMode = mode;
+      this.isGuessed = false;
+    });
+    this.gameService.getGuessedWord().subscribe(word => {
+      if (word === this.word?.word) {
+        this.isGuessed = true;
+      }
+    });
+  }
 
   @Input() word?: Word;
 
+  isGameMode = false;
+
   isFlipped = false;
 
-  flip() {
+  isGuessed = false;
+
+  flip(): void {
     this.isFlipped = true;
   }
 
-  flipBack() {
+  flipBack(): void {
     this.isFlipped = false;
   }
 
-  playWord(event: MouseEvent) {
+  clickOnCard(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    const src = this.word?.audioSrc;
-
-    if (src && !target.classList.contains('card__flip-button')) {
-      this.gameService.play(src);
+    if (!target.classList.contains('card__flip-button') && this.word) {
+      this.gameService.clickCard(this.word);
     }
   }
 }

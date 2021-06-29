@@ -10,6 +10,9 @@
   &.flipped > .card {
     transform: rotateY(180deg);
   }
+  &.guessed .card__image {
+    filter: sepia(100%) contrast(50%) saturate(500%) hue-rotate(423deg);
+  }
 }
 .card__front,
 .card__back {
@@ -56,6 +59,11 @@
     position: relative;
     border-top: 1px solid black;
   }
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
   &__flip-button {
     cursor: pointer;
     position: absolute;
@@ -63,6 +71,5 @@
     right: 0;
     top: 0;
     height: 100%;
-
   }
 }

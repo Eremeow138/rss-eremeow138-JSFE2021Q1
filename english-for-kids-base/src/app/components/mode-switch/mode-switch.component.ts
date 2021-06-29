@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from 'src/app/services';
 
 @Component({
   selector: 'app-mode-switch',
@@ -10,7 +11,10 @@ export class ModeSwitchComponent {
 
   text = 'train';
 
+  constructor(private readonly gameService: GameService) {}
+
   check(): void {
+    this.gameService.switchMode();
     this.isCheck = !this.isCheck;
     if (this.text === 'train') {
       this.text = 'play';
