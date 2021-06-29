@@ -8,9 +8,8 @@ describe('ModeSwitchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModeSwitchComponent ]
-    })
-    .compileComponents();
+      declarations: [ModeSwitchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

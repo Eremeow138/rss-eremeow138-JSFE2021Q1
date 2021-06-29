@@ -17,7 +17,7 @@ export class CategoryCardsComponent implements OnInit {
     private gameService: GameService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getCategories();
     this.gameService.getMode().subscribe(mode => {
       this.isGameMode = mode;

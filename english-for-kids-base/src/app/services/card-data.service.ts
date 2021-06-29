@@ -5,9 +5,9 @@ import { catchError } from 'rxjs/operators';
 import { Category } from '../models';
 
 function handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
+  return (error: Response): Observable<T> => {
     // TODO: better job of transforming error for user consumption
-    console.error(`${operation} failed: ${error.message}`);
+    console.error(`${operation} failed: ${error.status}`);
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };
