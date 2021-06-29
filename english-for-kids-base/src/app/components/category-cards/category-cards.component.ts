@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
-import { CardDataService } from 'src/app/services';
+import { CardDataService, GameService } from 'src/app/services';
 
 @Component({
   selector: 'app-category-cards',
@@ -10,10 +10,18 @@ import { CardDataService } from 'src/app/services';
 export class CategoryCardsComponent implements OnInit {
   categories: Category[] = [];
 
-  constructor(private readonly cardDataService: CardDataService) {}
+  isGameMode = false;
+
+  constructor(
+    private readonly cardDataService: CardDataService,
+    private gameService: GameService,
+  ) {}
 
   ngOnInit() {
     this.getCategories();
+    this.gameService.getMode().subscribe(mode => {
+      this.isGameMode = mode;
+    });
   }
 
   getCategories(): void {

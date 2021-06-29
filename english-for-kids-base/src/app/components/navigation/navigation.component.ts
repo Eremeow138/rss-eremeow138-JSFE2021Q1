@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models';
-import { CardDataService } from 'src/app/services';
+import { CardDataService, GameService } from 'src/app/services';
 
 @Component({
   selector: 'app-navigation',
@@ -12,10 +12,18 @@ export class NavigationComponent implements OnInit {
 
   isOpen = false;
 
-  constructor(private readonly cardDataService: CardDataService) {}
+  isGameMode = false;
+
+  constructor(
+    private readonly cardDataService: CardDataService,
+    private readonly gameService: GameService,
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
+    this.gameService.getMode().subscribe(mode => {
+      this.isGameMode = mode;
+    });
   }
 
   getCategories(): void {

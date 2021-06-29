@@ -17,9 +17,6 @@
 
   &__card {
     display: block;
-    &_green {
-      background: linear-gradient(180deg, #0099ae, #00bf82 40%, #fff 0, #fff);
-    }
   }
 
   &__link {
@@ -38,16 +35,7 @@
     font-weight: 400;
     text-align: center;
     text-decoration: none;
-    background: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(#fd6a63),
-      color-stop(40%, #feb46b),
-      color-stop(40%, #fff),
-      to(#fff)
-    );
-    background: linear-gradient(180deg, #0099AE 0%, #00BF82 100%);
+    background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
     margin: 1.25em 1.56em;
     cursor: pointer;
     -webkit-transition: 0.3s;
@@ -61,4 +49,7 @@
     border: 0.6em solid #fff;
     object-fit: cover;
   }
+}
+.game .categories__link {
+  background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }
