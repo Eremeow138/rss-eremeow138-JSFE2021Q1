@@ -40,7 +40,11 @@ export class WordCardComponent implements OnInit {
 
   clickOnCard(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    if (!target.classList.contains('card__flip-button') && this.word) {
+    if (
+      !target.classList.contains('card__flip-button') &&
+      this.word &&
+      !this.isFlipped
+    ) {
       this.gameService.clickCard(this.word);
     }
   }
