@@ -24,11 +24,13 @@ export class WordsCardsComponent {
   ) {
     this.activateRoute.params.subscribe(params => {
       this.getCategory(params.id);
-      this.resetGame();
     });
     this.gameService.getMode().subscribe(mode => {
       this.isGameMode = mode;
-      this.resetGame();
+    });
+    this.gameService.getStatusOfStartGame().subscribe(status => {
+      this.isStartedGame = status;
+      this.buttonText = status ? 'Repeat' : 'Start game';
     });
   }
 
@@ -49,13 +51,6 @@ export class WordsCardsComponent {
   startGame(): void {
     if (this.category) {
       this.gameService.startGame(this.category);
-      this.buttonText = 'Repeat';
-      this.isStartedGame = true;
     }
-  }
-
-  resetGame(): void {
-    this.isStartedGame = false;
-    this.buttonText = 'Start game';
   }
 }

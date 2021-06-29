@@ -26,6 +26,8 @@ export class GameService {
 
   private guessedWord: Subject<string>;
 
+  private readonly isGameStarted: BehaviorSubject<boolean>;
+
   constructor(
     private readonly location: Location,
     private readonly router: Router,
@@ -33,9 +35,18 @@ export class GameService {
     this.audio = new Audio();
     this.isGameMode = new BehaviorSubject<boolean>(false);
     this.guessedWord = new Subject<string>();
+    this.isGameStarted = new BehaviorSubject<boolean>(false);
     this.location.onUrlChange(() => {
-      this.currentWord = undefined;
+      this.setStatusOfStartGame(false);
     });
+  }
+
+  getStatusOfStartGame(): Observable<boolean> {
+    return this.isGameStarted.asObservable();
+  }
+
+  setStatusOfStartGame(status: boolean): void {
+    this.isGameStarted.next(status);
   }
 
   play(src: string | undefined): Promise<void> {
@@ -64,6 +75,7 @@ export class GameService {
   }
 
   startGame(category: Category): void {
+    this.setStatusOfStartGame(true);
     this.wordsForGame = shuffle(category.words);
     this.nextWord();
     this.playCurrentWord();
@@ -75,17 +87,19 @@ export class GameService {
 
   clickCard(word: Word): void {
     if (this.isGameMode.getValue()) {
-      if (word.word === this.currentWord?.word) {
-        this.success();
-      } else {
-        this.wrong();
+      if (this.isGameStarted.getValue()) {
+        if (word.word === this.currentWord?.word) {
+          this.successAnswer();
+        } else {
+          this.wrongAnswer();
+        }
       }
     } else {
       this.play(word.audioSrc);
     }
   }
 
-  success(): void {
+  successAnswer(): void {
     this.guessedWord.next(this.currentWord?.word);
     console.log('star');
     this.play('assets/audio/correct.mp3').then(() => {
@@ -100,8 +114,8 @@ export class GameService {
     });
   }
 
-  wrong(): void {
-    console.log('wrong');
+  wrongAnswer(): void {
+    console.log('wrongAnswer');
     this.play('assets/audio/error.mp3');
   }
 
