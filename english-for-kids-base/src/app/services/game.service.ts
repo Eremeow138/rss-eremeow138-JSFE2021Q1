@@ -43,6 +43,12 @@ export class GameService {
       this.setStatusOfStartGame(false);
       this.cleanStarLinks();
     });
+
+    this.getMode().subscribe(mode => {
+      if (mode === false) {
+        this.cleanStarLinks();
+      }
+    });
   }
 
   getStatusOfStartGame(): Observable<boolean> {
