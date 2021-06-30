@@ -28,6 +28,8 @@ export class GameService {
 
   private readonly isGameStarted: BehaviorSubject<boolean>;
 
+  private readonly starLinks: BehaviorSubject<string[]>;
+
   constructor(
     private readonly location: Location,
     private readonly router: Router,
@@ -36,8 +38,10 @@ export class GameService {
     this.isGameMode = new BehaviorSubject<boolean>(false);
     this.guessedWord = new Subject<string>();
     this.isGameStarted = new BehaviorSubject<boolean>(false);
+    this.starLinks = new BehaviorSubject<string[]>([]);
     this.location.onUrlChange(() => {
       this.setStatusOfStartGame(false);
+      this.cleanStarLinks();
     });
   }
 
@@ -47,6 +51,19 @@ export class GameService {
 
   setStatusOfStartGame(status: boolean): void {
     this.isGameStarted.next(status);
+  }
+
+  getStarLinks(): Observable<string[]> {
+    return this.starLinks.asObservable();
+  }
+
+  addStarLink(link: string): void {
+    const currentStarLinks = this.starLinks.getValue();
+    this.starLinks.next([...currentStarLinks, link]);
+  }
+
+  cleanStarLinks(): void {
+    this.starLinks.next([]);
   }
 
   play(src: string | undefined): Promise<void> {
@@ -101,7 +118,7 @@ export class GameService {
 
   successAnswer(): void {
     this.guessedWord.next(this.currentWord?.word);
-    console.log('star');
+    this.addStarLink('assets/img/star-win.svg');
     this.play('assets/audio/correct.mp3').then(() => {
       setTimeout(() => {
         if (this.wordsForGame.length > 0) {
@@ -115,12 +132,13 @@ export class GameService {
   }
 
   wrongAnswer(): void {
-    console.log('wrongAnswer');
+    this.addStarLink('assets/img/star.svg');
     this.play('assets/audio/error.mp3');
   }
 
   gameOver(): void {
     console.log('eOver');
+    this.cleanStarLinks();
     this.router.navigateByUrl('main');
   }
 }

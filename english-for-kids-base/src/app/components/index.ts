@@ -1,3 +1,5 @@
+export { StarFieldComponent } from './star-field/star-field.component';
+
 export { HeaderComponent } from './header/header.component';
 
 export { ModeSwitchComponent } from './mode-switch/mode-switch.component';

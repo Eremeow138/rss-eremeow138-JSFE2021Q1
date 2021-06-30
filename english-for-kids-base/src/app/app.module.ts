@@ -15,6 +15,7 @@ import {
   ContainerComponent,
   ModeSwitchComponent,
   HeaderComponent,
+  StarFieldComponent,
 } from './components';
 
 @NgModule({
@@ -27,6 +28,7 @@ import {
     ContainerComponent,
     ModeSwitchComponent,
     HeaderComponent,
+    StarFieldComponent,
   ],
   imports: [
     BrowserModule,
