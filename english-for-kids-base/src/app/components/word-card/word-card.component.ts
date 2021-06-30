@@ -43,7 +43,8 @@ export class WordCardComponent implements OnInit {
     if (
       !target.classList.contains('card__flip-button') &&
       this.word &&
-      !this.isFlipped
+      !this.isFlipped &&
+      !this.isGuessed
     ) {
       this.gameService.clickCard(this.word);
     }
