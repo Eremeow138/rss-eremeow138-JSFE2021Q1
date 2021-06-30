@@ -6,9 +6,10 @@ const routes: Routes = [
   { path: 'main', component: CategoryCardsComponent },
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'categories/:id', component: WordsCardsComponent },
+  { path: '**', redirectTo: 'main' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
