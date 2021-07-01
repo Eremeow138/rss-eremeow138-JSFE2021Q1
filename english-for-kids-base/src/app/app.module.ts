@@ -6,7 +6,12 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CardDataService, GameService, InMemoryDataService } from './services';
+import {
+  CardDataService,
+  GameService,
+  InMemoryDataService,
+  ModalService,
+} from './services';
 import {
   CategoryCardsComponent,
   NavigationComponent,
@@ -16,6 +21,7 @@ import {
   ModeSwitchComponent,
   HeaderComponent,
   StarFieldComponent,
+  ModalComponent,
 } from './components';
 
 @NgModule({
@@ -29,6 +35,7 @@ import {
     ModeSwitchComponent,
     HeaderComponent,
     StarFieldComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,7 @@ import {
     }),
     ClickOutsideModule,
   ],
-  providers: [CardDataService, GameService],
+  providers: [CardDataService, GameService, ModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

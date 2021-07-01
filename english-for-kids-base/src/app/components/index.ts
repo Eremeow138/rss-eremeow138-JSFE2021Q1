@@ -1,3 +1,5 @@
+export { ModalComponent } from './modal/modal.component';
+
 export { StarFieldComponent } from './star-field/star-field.component';
 
 export { HeaderComponent } from './header/header.component';

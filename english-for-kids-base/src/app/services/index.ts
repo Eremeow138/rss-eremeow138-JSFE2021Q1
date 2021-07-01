@@ -1,3 +1,5 @@
+export { ModalService } from './modal.service';
+
 export { GameService } from './game.service';
 
 export { CardDataService } from './card-data.service';
