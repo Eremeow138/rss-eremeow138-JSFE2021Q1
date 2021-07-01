@@ -11,3 +11,9 @@
     {{ buttonText }}
   </button>
 </div>
+<app-modal id="{{ gameResultModalId }}" *ngIf="gameResult">
+  <h1>Game over</h1>
+  <img src="{{ gameResult.image }}" alt="" />
+  <p *ngIf="gameResult.numberOfErrors > 0">Number of errors: {{ gameResult.numberOfErrors }}</p>
+  <button (click)="closeModalAfterGame(gameResultModalId)">Ok</button>
+</app-modal>

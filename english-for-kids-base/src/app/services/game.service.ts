@@ -1,8 +1,7 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Category, Word } from '../models';
+import { Category, GameResult, Word } from '../models';
 
 function shuffle(initialArray: Word[]): Word[] {
   const array = initialArray.slice();
@@ -30,15 +29,21 @@ export class GameService {
 
   private readonly starLinks: BehaviorSubject<string[]>;
 
-  constructor(
-    private readonly location: Location,
-    private readonly router: Router,
-  ) {
+  private numberOfErrors = 0;
+
+  private readonly errorImage = 'assets/img/failure.jpg';
+
+  private readonly successImage = 'assets/img/success.jpg';
+
+  private readonly gameResult: Subject<GameResult>;
+
+  constructor(private readonly location: Location) {
     this.audio = new Audio();
     this.isGameMode = new BehaviorSubject<boolean>(false);
     this.guessedWord = new Subject<string>();
     this.isGameStarted = new BehaviorSubject<boolean>(false);
     this.starLinks = new BehaviorSubject<string[]>([]);
+    this.gameResult = new Subject<GameResult>();
     this.location.onUrlChange(() => {
       this.setStatusOfStartGame(false);
       this.cleanStarLinks();
@@ -61,6 +66,10 @@ export class GameService {
 
   getStarLinks(): Observable<string[]> {
     return this.starLinks.asObservable();
+  }
+
+  getGameResult(): Observable<GameResult> {
+    return this.gameResult.asObservable();
   }
 
   addStarLink(link: string): void {
@@ -138,13 +147,16 @@ export class GameService {
   }
 
   wrongAnswer(): void {
+    this.numberOfErrors++;
     this.addStarLink('assets/img/star.svg');
     this.play('assets/audio/error.mp3');
   }
 
   gameOver(): void {
-    console.log('eOver');
+    const { numberOfErrors } = this;
+    const image = numberOfErrors > 0 ? this.errorImage : this.successImage;
+    this.gameResult.next({ numberOfErrors, image });
+    this.numberOfErrors = 0;
     this.cleanStarLinks();
-    this.router.navigateByUrl('main');
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CardDataService, GameService } from 'src/app/services';
-import { Category } from 'src/app/models';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CardDataService, GameService, ModalService } from 'src/app/services';
+import { Category, GameResult } from 'src/app/models';
 
 @Component({
   selector: 'app-words-cards',
@@ -17,10 +17,16 @@ export class WordsCardsComponent {
 
   buttonText = 'Start game';
 
+  gameResult?: GameResult;
+
+  gameResultModalId = 'game-over-modal';
+
   constructor(
     private activateRoute: ActivatedRoute,
     private cardDataService: CardDataService,
     private readonly gameService: GameService,
+    private readonly modalService: ModalService,
+    private readonly router: Router,
   ) {
     this.activateRoute.params.subscribe(params => {
       this.getCategory(params.id);
@@ -31,6 +37,15 @@ export class WordsCardsComponent {
     this.gameService.getStatusOfStartGame().subscribe(status => {
       this.isStartedGame = status;
       this.buttonText = status ? 'Repeat' : 'Start game';
+    });
+    this.gameService.getGameResult().subscribe(gameResult => {
+      this.gameResult = gameResult;
+      this.openModal(this.gameResultModalId);
+    });
+    this.modalService.modalHasBeenClosed().subscribe(modalId => {
+      if (modalId === this.gameResultModalId) {
+        this.router.navigateByUrl('main');
+      }
     });
   }
 
@@ -52,5 +67,13 @@ export class WordsCardsComponent {
     if (this.category) {
       this.gameService.startGame(this.category);
     }
+  }
+
+  openModal(id: string): void {
+    this.modalService.open(id);
+  }
+
+  closeModalAfterGame(id: string): void {
+    this.modalService.close(id);
   }
 }
