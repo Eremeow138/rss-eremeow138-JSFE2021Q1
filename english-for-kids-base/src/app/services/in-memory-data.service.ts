@@ -329,6 +329,114 @@ export class InMemoryDataService {
         },
       ],
     },
+    {
+      id: 7,
+      name: 'IT terms',
+      cards: [
+        {
+          word: 'developer',
+          translation: 'разработчик',
+          image: 'assets/img/developer.jpg',
+          audioSrc: 'assets/audio/developer.mp3',
+        },
+        {
+          word: 'deadline',
+          translation: 'срок',
+          image: 'assets/img/deadline.jpg',
+          audioSrc: 'assets/audio/deadline.mp3',
+        },
+        {
+          word: 'fix',
+          translation: 'исправить',
+          image: 'assets/img/fix.jpg',
+          audioSrc: 'assets/audio/fix.mp3',
+        },
+        {
+          word: 'user experience',
+          translation: 'пользовательский опыт',
+          image: 'assets/img/user-experience.jpg',
+          audioSrc: 'assets/audio/user-experience.mp3',
+        },
+        {
+          word: 'digital',
+          translation: 'цифровой',
+          image: 'assets/img/digital.jpg',
+          audioSrc: 'assets/audio/digital.mp3',
+        },
+        {
+          word: 'cookies',
+          translation: 'печенье',
+          image: 'assets/img/cookies.jpg',
+          audioSrc: 'assets/audio/cookies.mp3',
+        },
+        {
+          word: 'comments',
+          translation: 'комментарии',
+          image: 'assets/img/comments.jpg',
+          audioSrc: 'assets/audio/comments.mp3',
+        },
+        {
+          word: 'implimentation',
+          translation: 'реализация',
+          image: 'assets/img/implimentation.jpg',
+          audioSrc: 'assets/audio/implimentation.mp3',
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: 'Beach',
+      cards: [
+        {
+          word: 'shark',
+          translation: 'акула',
+          image: 'assets/img/shark.jpg',
+          audioSrc: 'assets/audio/shark.mp3',
+        },
+        {
+          word: 'catamaran',
+          translation: 'катамаран',
+          image: 'assets/img/catamaran.jpg',
+          audioSrc: 'assets/audio/catamaran.mp3',
+        },
+        {
+          word: 'crab',
+          translation: 'краб',
+          image: 'assets/img/crab.jpg',
+          audioSrc: 'assets/audio/crab.mp3',
+        },
+        {
+          word: 'palm',
+          translation: 'пальма',
+          image: 'assets/img/palm.jpg',
+          audioSrc: 'assets/audio/palm.mp3',
+        },
+        {
+          word: 'wave',
+          translation: 'волна',
+          image: 'assets/img/wave.jpg',
+          audioSrc: 'assets/audio/wave.mp3',
+        },
+        {
+          word: 'gull',
+          translation: 'чайка',
+          image: 'assets/img/gull.jpg',
+          audioSrc: 'assets/audio/gull.mp3',
+        },
+        {
+          word: 'lifeguard',
+          translation: 'спасатель',
+          image: 'assets/img/lifeguard.jpg',
+          audioSrc: 'assets/audio/lifeguard.mp3',
+        },
+        {
+          word: 'sand',
+          translation: 'песок',
+          image: 'assets/img/sand.jpg',
+          audioSrc: 'assets/audio/sand.mp3',
+        },
+      ],
+    },
   ];
 
   createDb() {
