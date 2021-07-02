@@ -8,7 +8,7 @@ export class InMemoryDataService {
     {
       id: 1,
       name: 'Action (set A)',
-      words: [
+      cards: [
         {
           word: 'cry',
           translation: 'плакать',
@@ -62,7 +62,7 @@ export class InMemoryDataService {
     {
       id: 2,
       name: 'Action (set B)',
-      words: [
+      cards: [
         {
           word: 'open',
           translation: 'открывать',
@@ -116,7 +116,7 @@ export class InMemoryDataService {
     {
       id: 3,
       name: 'Animal (set A)',
-      words: [
+      cards: [
         {
           word: 'cat',
           translation: 'кот',
@@ -170,7 +170,7 @@ export class InMemoryDataService {
     {
       id: 4,
       name: 'Animal (set B)',
-      words: [
+      cards: [
         {
           word: 'bird',
           translation: 'птица',
@@ -224,7 +224,7 @@ export class InMemoryDataService {
     {
       id: 5,
       name: 'Clothes',
-      words: [
+      cards: [
         {
           word: 'skirt',
           translation: 'юбка',
@@ -278,7 +278,7 @@ export class InMemoryDataService {
     {
       id: 6,
       name: 'Emotions',
-      words: [
+      cards: [
         {
           word: 'sad',
           translation: 'грустный',

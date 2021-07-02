@@ -1,7 +1,7 @@
-import { Word } from './word';
+import { CardData } from './card-data';
 
 export interface Category {
   id: number;
   name: string;
-  words: Word[];
+  cards: CardData[];
 }

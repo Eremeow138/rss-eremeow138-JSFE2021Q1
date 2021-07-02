@@ -4,11 +4,11 @@ import { CardDataService, GameService, ModalService } from 'src/app/services';
 import { Category, GameResult } from 'src/app/models';
 
 @Component({
-  selector: 'app-words-cards',
-  templateUrl: './words-cards.component.html',
-  styleUrls: ['./words-cards.component.scss'],
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss'],
 })
-export class WordsCardsComponent {
+export class CardsListComponent {
   category?: Category;
 
   isGameMode = false;
@@ -57,7 +57,7 @@ export class WordsCardsComponent {
 
   buttonClick(): void {
     if (this.isStartedGame) {
-      this.gameService.playCurrentWord();
+      this.gameService.playWordOfCurrentCard();
     } else {
       this.startGame();
     }

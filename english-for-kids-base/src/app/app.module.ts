@@ -13,10 +13,10 @@ import {
   ModalService,
 } from './services';
 import {
-  CategoryCardsComponent,
+  CategoriesComponent,
   NavigationComponent,
-  WordsCardsComponent,
-  WordCardComponent,
+  CardsListComponent,
+  CardComponent,
   ContainerComponent,
   ModeSwitchComponent,
   HeaderComponent,
@@ -27,10 +27,10 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryCardsComponent,
+    CategoriesComponent,
     NavigationComponent,
-    WordsCardsComponent,
-    WordCardComponent,
+    CardsListComponent,
+    CardComponent,
     ContainerComponent,
     ModeSwitchComponent,
     HeaderComponent,

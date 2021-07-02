@@ -3,11 +3,11 @@ import { Category } from 'src/app/models/category';
 import { CardDataService, GameService } from 'src/app/services';
 
 @Component({
-  selector: 'app-category-cards',
-  templateUrl: './category-cards.component.html',
-  styleUrls: ['./category-cards.component.scss'],
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss'],
 })
-export class CategoryCardsComponent implements OnInit {
+export class CategoriesComponent implements OnInit {
   categories: Category[] = [];
 
   isGameMode = false;

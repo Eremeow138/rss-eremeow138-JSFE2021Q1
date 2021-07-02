@@ -1,3 +1,3 @@
 export { Category } from './category';
-export { Word } from './word';
+export { CardData } from './card-data';
 export { GameResult } from './game-result';

@@ -1,9 +1,9 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Category, GameResult, Word } from '../models';
+import { Category, GameResult, CardData } from '../models';
 
-function shuffle(initialArray: Word[]): Word[] {
+function shuffle(initialArray: CardData[]): CardData[] {
   const array = initialArray.slice();
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -19,9 +19,9 @@ export class GameService {
 
   private readonly audio: HTMLAudioElement;
 
-  private wordsForGame: Word[] = [];
+  private cardsForGame: CardData[] = [];
 
-  private currentWord: Word | undefined = undefined;
+  private currentCard: CardData | undefined = undefined;
 
   private guessedWord: Subject<string>;
 
@@ -92,8 +92,8 @@ export class GameService {
     return new Promise<void>(() => {});
   }
 
-  playCurrentWord(): void {
-    this.play(this.currentWord?.audioSrc);
+  playWordOfCurrentCard(): void {
+    this.play(this.currentCard?.audioSrc);
   }
 
   getMode(): Observable<boolean> {
@@ -110,37 +110,37 @@ export class GameService {
 
   startGame(category: Category): void {
     this.setStatusOfStartGame(true);
-    this.wordsForGame = shuffle(category.words);
-    this.nextWord();
-    this.playCurrentWord();
+    this.cardsForGame = shuffle(category.cards);
+    this.nextCard();
+    this.playWordOfCurrentCard();
   }
 
-  nextWord(): void {
-    this.currentWord = this.wordsForGame.pop();
+  nextCard(): void {
+    this.currentCard = this.cardsForGame.pop();
   }
 
-  clickCard(word: Word): void {
+  clickCard(card: CardData): void {
     if (this.isGameMode.getValue()) {
       if (this.isGameStarted.getValue()) {
-        if (word.word === this.currentWord?.word) {
+        if (card.word === this.currentCard?.word) {
           this.successAnswer();
         } else {
           this.wrongAnswer();
         }
       }
     } else {
-      this.play(word.audioSrc);
+      this.play(card.audioSrc);
     }
   }
 
   successAnswer(): void {
-    this.guessedWord.next(this.currentWord?.word);
+    this.guessedWord.next(this.currentCard?.word);
     this.addStarLink('assets/img/star-win.svg');
     this.play('assets/audio/correct.mp3').then(() => {
       setTimeout(() => {
-        if (this.wordsForGame.length > 0) {
-          this.nextWord();
-          this.playCurrentWord();
+        if (this.cardsForGame.length > 0) {
+          this.nextCard();
+          this.playWordOfCurrentCard();
         } else {
           this.gameOver();
         }

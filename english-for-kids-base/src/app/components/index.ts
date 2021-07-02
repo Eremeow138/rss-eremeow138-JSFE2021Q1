@@ -8,10 +8,10 @@ export { ModeSwitchComponent } from './mode-switch/mode-switch.component';
 
 export { ContainerComponent } from './container/container.component';
 
-export { WordCardComponent } from './word-card/word-card.component';
+export { CardComponent } from './card/card.component';
 
-export { WordsCardsComponent } from './words-cards/words-cards.component';
+export { CardsListComponent } from './category/category.component';
 
 export { NavigationComponent } from './navigation/navigation.component';
 
-export { CategoryCardsComponent } from './category-cards/category-cards.component';
+export { CategoriesComponent } from './categories/categories.component';

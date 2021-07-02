@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Word } from 'src/app/models';
+import { CardData } from 'src/app/models';
 import { GameService } from 'src/app/services';
 
 @Component({
-  selector: 'app-word-card',
-  templateUrl: './word-card.component.html',
-  styleUrls: ['./word-card.component.scss'],
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
-export class WordCardComponent implements OnInit {
+export class CardComponent implements OnInit {
   constructor(private readonly gameService: GameService) {}
 
   ngOnInit(): void {
@@ -16,13 +16,13 @@ export class WordCardComponent implements OnInit {
       this.isGuessed = false;
     });
     this.gameService.getGuessedWord().subscribe(word => {
-      if (word === this.word?.word) {
+      if (word === this.cardData?.word) {
         this.isGuessed = true;
       }
     });
   }
 
-  @Input() word?: Word;
+  @Input() cardData?: CardData;
 
   isGameMode = false;
 
@@ -42,11 +42,11 @@ export class WordCardComponent implements OnInit {
     const target = event.target as HTMLElement;
     if (
       !target.classList.contains('card__flip-button') &&
-      this.word &&
+      this.cardData &&
       !this.isFlipped &&
       !this.isGuessed
     ) {
-      this.gameService.clickCard(this.word);
+      this.gameService.clickCard(this.cardData);
     }
   }
 }

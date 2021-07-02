@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryCardsComponent, WordsCardsComponent } from './components';
+import { CategoriesComponent, CardsListComponent } from './components';
 
 const routes: Routes = [
-  { path: 'main', component: CategoryCardsComponent },
+  { path: 'main', component: CategoriesComponent },
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'categories/:id', component: WordsCardsComponent },
+  { path: 'categories/:id', component: CardsListComponent },
   { path: '**', redirectTo: 'main' },
 ];
 @NgModule({

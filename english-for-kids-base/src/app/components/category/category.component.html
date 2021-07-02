@@ -2,10 +2,10 @@
   <h2 class="category__title">{{ category.name }}</h2>
   <app-star-field></app-star-field>
   <div class="category__list">
-    <app-word-card
-      *ngFor="let word of category.words"
-      [word]="word"
-    ></app-word-card>
+    <app-card
+      *ngFor="let cardData of category.cards"
+      [cardData]="cardData"
+    ></app-card>
   </div>
   <button class="button" *ngIf="isGameMode" (click)="buttonClick()">
     {{ buttonText }}
@@ -17,7 +17,7 @@
       class="game-modal__title"
       *ngIf="gameResult.numberOfErrors > 0; else failure"
     >
-    Failure
+      Failure
     </h2>
     <ng-template #failure>
       <h2 class="game-modal__title">Success</h2>
