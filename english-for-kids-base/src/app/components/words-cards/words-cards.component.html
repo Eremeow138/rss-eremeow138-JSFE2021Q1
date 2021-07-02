@@ -7,13 +7,28 @@
       [word]="word"
     ></app-word-card>
   </div>
-  <button class="category__button" *ngIf="isGameMode" (click)="buttonClick()">
+  <button class="button" *ngIf="isGameMode" (click)="buttonClick()">
     {{ buttonText }}
   </button>
 </div>
 <app-modal id="{{ gameResultModalId }}" *ngIf="gameResult">
-  <h1>Game over</h1>
-  <img src="{{ gameResult.image }}" alt="" />
-  <p *ngIf="gameResult.numberOfErrors > 0">Number of errors: {{ gameResult.numberOfErrors }}</p>
-  <button (click)="closeModalAfterGame(gameResultModalId)">Ok</button>
+  <div class="game-modal">
+    <h2
+      class="game-modal__title"
+      *ngIf="gameResult.numberOfErrors > 0; else failure"
+    >
+    Failure
+    </h2>
+    <ng-template #failure>
+      <h2 class="game-modal__title">Success</h2>
+    </ng-template>
+
+    <img class="game-modal__image" src="{{ gameResult.image }}" alt="" />
+    <p class="game-modal__text" *ngIf="gameResult.numberOfErrors > 0">
+      Number of errors: {{ gameResult.numberOfErrors }}
+    </p>
+    <button class="button" (click)="closeModalAfterGame(gameResultModalId)">
+      Ok
+    </button>
+  </div>
 </app-modal>

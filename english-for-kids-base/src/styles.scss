@@ -83,3 +83,18 @@ button {
   outline: none;
   border: none;
 }
+.button {
+  width: 11rem;
+  padding: 1rem;
+  color: white;
+  background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
+  text-align: center;
+  border-radius: 11.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button:active {
+  transform: scale(0.9);
+}
