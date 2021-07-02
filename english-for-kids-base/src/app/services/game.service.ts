@@ -52,6 +52,8 @@ export class GameService {
     this.getMode().subscribe(mode => {
       if (mode === false) {
         this.cleanStarLinks();
+        this.isGameStarted.next(false);
+        this.numberOfErrors = 0;
       }
     });
   }
