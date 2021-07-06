@@ -36,6 +36,10 @@ export class GameService {
 
   private readonly successImage = 'assets/img/success.jpg';
 
+  private readonly successAudio = 'assets/audio/success.mp3';
+
+  private readonly failureAudio = 'assets/audio/failure.mp3';
+
   private readonly gameResult: Subject<GameResult>;
 
   private gameStatisticsForCurrentGame: WordStatistics[] = [];
@@ -174,7 +178,9 @@ export class GameService {
     );
     const { numberOfErrors } = this;
     const image = numberOfErrors > 0 ? this.errorImage : this.successImage;
+    const audioSrc = numberOfErrors > 0 ? this.failureAudio : this.successAudio;
     this.gameResult.next({ numberOfErrors, image });
+    this.play(audioSrc);
     this.numberOfErrors = 0;
     this.cleanStarLinks();
   }
