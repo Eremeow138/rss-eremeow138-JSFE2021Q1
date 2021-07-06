@@ -40,6 +40,14 @@ export class GameService {
 
   private readonly failureAudio = 'assets/audio/failure.mp3';
 
+  private readonly rightAnswerImage = 'assets/img/star-win.svg';
+
+  private readonly rightAnswerAudio = 'assets/audio/correct.mp3';
+
+  private readonly wrongAnswerAudio = 'assets/audio/error.mp3';
+
+  private readonly wrongAnswerImage = 'assets/img/star.svg';
+
   private readonly gameResult: Subject<GameResult>;
 
   private gameStatisticsForCurrentGame: WordStatistics[] = [];
@@ -150,8 +158,8 @@ export class GameService {
       this.addRightClickToGameStatisticsForCurrentGame(this.currentCard.id);
     }
 
-    this.addStarLink('assets/img/star-win.svg');
-    this.play('assets/audio/correct.mp3').then(() => {
+    this.addStarLink(this.rightAnswerImage);
+    this.play(this.rightAnswerAudio).then(() => {
       setTimeout(() => {
         if (this.cardsForGame.length > 0) {
           this.nextCard();
@@ -168,8 +176,8 @@ export class GameService {
     if (this.currentCard) {
       this.addWrongClickToGameStatisticsForCurrentGame(this.currentCard.id);
     }
-    this.addStarLink('assets/img/star.svg');
-    this.play('assets/audio/error.mp3');
+    this.addStarLink(this.wrongAnswerImage);
+    this.play(this.wrongAnswerAudio);
   }
 
   gameOver(): void {
