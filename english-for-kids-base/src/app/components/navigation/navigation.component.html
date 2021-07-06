@@ -23,5 +23,14 @@
         >{{ category.name }}</a
       >
     </li>
+    <li class="navigation__item">
+      <a
+        class="navigation__link"
+        routerLink="/statistics"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >Statistics</a
+      >
+    </li>
   </ul>
 </nav>

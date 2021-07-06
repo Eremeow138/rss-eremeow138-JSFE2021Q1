@@ -1,0 +1,30 @@
+<div class="statistics">
+  <table class="statistics__table">
+    <caption class="statistics__caption">
+      Word statistics
+    </caption>
+    <tr class="statistics__row">
+      <th class="statistics__cell">№</th>
+      <th class="statistics__cell">Category</th>
+      <th class="statistics__cell">Word</th>
+      <th class="statistics__cell">Translate</th>
+      <th class="statistics__cell">Train clicks</th>
+      <th class="statistics__cell">Was guessed</th>
+      <th class="statistics__cell">Errors</th>
+      <th class="statistics__cell">Right answers (%)</th>
+    </tr>
+    <tr
+      class="statistics__row"
+      *ngFor="let wordStatistics of statisticsOfAllWords; index as number"
+    >
+      <td class="statistics__cell">{{ number }}</td>
+      <td class="statistics__cell">{{ wordStatistics.category }}</td>
+      <td class="statistics__cell">{{ wordStatistics.word }}</td>
+      <td class="statistics__cell">{{ wordStatistics.translation }}</td>
+      <td class="statistics__cell">{{ wordStatistics.trainClicks }}</td>
+      <td class="statistics__cell">{{ wordStatistics.wasGuessed }}</td>
+      <td class="statistics__cell">{{ wordStatistics.errors }}</td>
+      <td class="statistics__cell">{{ wordStatistics.rightAnswers }}</td>
+    </tr>
+  </table>
+</div>

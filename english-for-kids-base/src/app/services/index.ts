@@ -1,3 +1,5 @@
+export { StatisticsDataService } from './statistics-data.service';
+
 export { ModalService } from './modal.service';
 
 export { GameService } from './game.service';

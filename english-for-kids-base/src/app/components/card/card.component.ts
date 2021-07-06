@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CardData } from 'src/app/models';
-import { GameService } from 'src/app/services';
+import { GameService, StatisticsDataService } from 'src/app/services';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +8,10 @@ import { GameService } from 'src/app/services';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  constructor(private readonly gameService: GameService) {}
+  constructor(
+    private readonly gameService: GameService,
+    private readonly statisticDataService: StatisticsDataService,
+  ) {}
 
   ngOnInit(): void {
     this.gameService.getMode().subscribe(mode => {
@@ -20,6 +23,9 @@ export class CardComponent implements OnInit {
         this.isGuessed = true;
       }
     });
+    this.statisticDataService.getStatistics().subscribe(() => {
+      this.isDisable = false;
+    });
   }
 
   @Input() cardData?: CardData;
@@ -29,6 +35,8 @@ export class CardComponent implements OnInit {
   isFlipped = false;
 
   isGuessed = false;
+
+  isDisable = false;
 
   flip(): void {
     this.isFlipped = true;
@@ -44,8 +52,12 @@ export class CardComponent implements OnInit {
       !target.classList.contains('card__flip-button') &&
       this.cardData &&
       !this.isFlipped &&
-      !this.isGuessed
+      !this.isGuessed &&
+      !this.isDisable
     ) {
+      if (!this.isGameMode) {
+        this.isDisable = true;
+      }
       this.gameService.clickCard(this.cardData);
     }
   }

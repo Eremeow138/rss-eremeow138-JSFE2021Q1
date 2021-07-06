@@ -1,7 +1,8 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Category, GameResult, CardData } from '../models';
+import { Category, GameResult, CardData, WordStatistics } from '../models';
+import { StatisticsDataService } from './statistics-data.service';
 
 function shuffle(initialArray: CardData[]): CardData[] {
   const array = initialArray.slice();
@@ -37,7 +38,12 @@ export class GameService {
 
   private readonly gameResult: Subject<GameResult>;
 
-  constructor(private readonly location: Location) {
+  private gameStatisticsForCurrentGame: WordStatistics[] = [];
+
+  constructor(
+    private readonly location: Location,
+    private readonly statisticsDataService: StatisticsDataService,
+  ) {
     this.audio = new Audio();
     this.isGameMode = new BehaviorSubject<boolean>(false);
     this.guessedWord = new Subject<string>();
@@ -48,7 +54,6 @@ export class GameService {
       this.setStatusOfStartGame(false);
       this.cleanStarLinks();
     });
-
     this.getMode().subscribe(mode => {
       if (mode === false) {
         this.cleanStarLinks();
@@ -111,6 +116,7 @@ export class GameService {
   startGame(category: Category): void {
     this.setStatusOfStartGame(true);
     this.cardsForGame = shuffle(category.cards);
+    this.initialGameStatisticsForCurrentGame(this.cardsForGame);
     this.nextCard();
     this.playWordOfCurrentCard();
   }
@@ -129,12 +135,17 @@ export class GameService {
         }
       }
     } else {
+      this.statisticsDataService.updateTrainClickById(card.id);
       this.play(card.audioSrc);
     }
   }
 
   successAnswer(): void {
-    this.guessedWord.next(this.currentCard?.word);
+    if (this.currentCard) {
+      this.guessedWord.next(this.currentCard.word);
+      this.addRightClickToGameStatisticsForCurrentGame(this.currentCard.id);
+    }
+
     this.addStarLink('assets/img/star-win.svg');
     this.play('assets/audio/correct.mp3').then(() => {
       setTimeout(() => {
@@ -150,15 +161,54 @@ export class GameService {
 
   wrongAnswer(): void {
     this.numberOfErrors++;
+    if (this.currentCard) {
+      this.addWrongClickToGameStatisticsForCurrentGame(this.currentCard.id);
+    }
     this.addStarLink('assets/img/star.svg');
     this.play('assets/audio/error.mp3');
   }
 
   gameOver(): void {
+    this.statisticsDataService.updateStatisticAfterGame(
+      this.gameStatisticsForCurrentGame,
+    );
     const { numberOfErrors } = this;
     const image = numberOfErrors > 0 ? this.errorImage : this.successImage;
     this.gameResult.next({ numberOfErrors, image });
     this.numberOfErrors = 0;
     this.cleanStarLinks();
+  }
+
+  initialGameStatisticsForCurrentGame(cardData: CardData[]): void {
+    this.gameStatisticsForCurrentGame = cardData.map(item => {
+      return {
+        id: item.id,
+        trainClicks: 0,
+        wasGuessed: 0,
+        errors: 0,
+      };
+    });
+  }
+
+  addWrongClickToGameStatisticsForCurrentGame(targetId: string): void {
+    const currentStatistic = this.gameStatisticsForCurrentGame.slice(0);
+    this.gameStatisticsForCurrentGame = currentStatistic.map(item => {
+      const { id, trainClicks, wasGuessed, errors } = item;
+      const updatedErrors = errors + 1;
+      return id === targetId
+        ? { id, trainClicks, wasGuessed, errors: updatedErrors }
+        : item;
+    });
+  }
+
+  addRightClickToGameStatisticsForCurrentGame(targetId: string): void {
+    const currentStatistic = this.gameStatisticsForCurrentGame.slice(0);
+    this.gameStatisticsForCurrentGame = currentStatistic.map(item => {
+      const { id, trainClicks, wasGuessed, errors } = item;
+      const updatedWasGuessed = wasGuessed + 1;
+      return id === targetId
+        ? { id, trainClicks, wasGuessed: updatedWasGuessed, errors }
+        : item;
+    });
   }
 }

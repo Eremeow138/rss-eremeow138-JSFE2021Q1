@@ -11,6 +11,7 @@ import {
   GameService,
   InMemoryDataService,
   ModalService,
+  StatisticsDataService,
 } from './services';
 import {
   CategoriesComponent,
@@ -22,6 +23,7 @@ import {
   HeaderComponent,
   StarFieldComponent,
   ModalComponent,
+  StatisticsComponent,
 } from './components';
 
 @NgModule({
@@ -36,6 +38,7 @@ import {
     HeaderComponent,
     StarFieldComponent,
     ModalComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,12 @@ import {
     }),
     ClickOutsideModule,
   ],
-  providers: [CardDataService, GameService, ModalService],
+  providers: [
+    CardDataService,
+    StatisticsDataService,
+    GameService,
+    ModalService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,3 +1,5 @@
+export { StatisticsComponent } from './statistics/statistics.component';
+
 export { ModalComponent } from './modal/modal.component';
 
 export { StarFieldComponent } from './star-field/star-field.component';
