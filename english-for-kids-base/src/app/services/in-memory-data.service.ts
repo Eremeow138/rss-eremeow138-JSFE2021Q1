@@ -504,7 +504,7 @@ export class InMemoryDataService {
   ];
 
   private readonly statistics = [
-    { id: 1, trainClicks: 0, wasGuessed: 10, errors: 5 },
+    { id: 1, trainClicks: 0, wasGuessed: 0, errors: 0 },
     { id: 2, trainClicks: 0, wasGuessed: 0, errors: 0 },
     { id: 3, trainClicks: 0, wasGuessed: 0, errors: 0 },
     { id: 4, trainClicks: 0, wasGuessed: 0, errors: 0 },
