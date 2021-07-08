@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, forkJoin, Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { WordStatisticsForTable } from '../models';
+import { catchError, map } from 'rxjs/operators';
+import { MethodAndField, WordStatisticsForTable } from '../models';
 import { WordStatistics } from '../models/word-statistics';
 import { CardDataService } from './card-data.service';
 
@@ -22,6 +22,10 @@ export class StatisticsDataService {
 
   private readonly statistics: BehaviorSubject<WordStatistics[]>;
 
+  private readonly statisticsForTable: BehaviorSubject<
+    WordStatisticsForTable[]
+  >;
+
   private readonly keyForLocalStorage = 'statistics';
 
   constructor(
@@ -29,6 +33,8 @@ export class StatisticsDataService {
     private readonly cardDataService: CardDataService,
   ) {
     this.statistics = new BehaviorSubject<WordStatistics[]>([]);
+
+    this.statisticsForTable = new BehaviorSubject<WordStatisticsForTable[]>([]);
 
     const statisticsFromLocalStorage = localStorage.getItem(
       this.keyForLocalStorage,
@@ -58,7 +64,7 @@ export class StatisticsDataService {
       .pipe(catchError(handleError<WordStatistics[]>('getStatistics', [])));
   }
 
-  getStatistisForTable(): Observable<WordStatisticsForTable[]> {
+  calculateStatistisForTable(): Observable<WordStatisticsForTable[]> {
     // const statistics = this.getStatistics();
     const statistics = of(this.statistics.getValue());
     const categories = this.cardDataService.getCategories();
@@ -90,6 +96,25 @@ export class StatisticsDataService {
       });
     });
     return of(statisticToTable);
+    // this.statisticsForTable.next(statisticToTable);
+  }
+
+  sortTable(
+    sortMethodAndField: MethodAndField,
+  ): Observable<WordStatisticsForTable[]> {
+    return this.calculateStatistisForTable().pipe(
+      map(arr =>
+        arr.sort((a, b) => {
+          return a[sortMethodAndField.field] > b[sortMethodAndField.field]
+            ? -1
+            : 1;
+        }),
+      ),
+    );
+  }
+
+  getStatisticForTable(): Observable<WordStatisticsForTable[]> {
+    return this.statisticsForTable.asObservable();
   }
 
   updateTrainClickById(targetId: string): void {

@@ -26,5 +26,18 @@
   &__cell {
     background: #00d6e757;
     padding: 10px;
+    &_head {
+      cursor: pointer;
+      user-select: none;
+    }
+    &_head::after {
+      color: red;
+    }
   }
+}
+.up::after {
+  content: "\2BC6";
+}
+.down::after {
+  content: "\2BC5";
 }

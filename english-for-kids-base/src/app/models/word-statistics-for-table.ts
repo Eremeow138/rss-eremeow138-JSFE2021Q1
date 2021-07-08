@@ -8,3 +8,9 @@ export interface WordStatisticsForTable {
   errors: number;
   rightAnswers: number;
 }
+export type KeyOfWordStatisticsForTable = keyof WordStatisticsForTable;
+
+export interface MethodAndField {
+  method: string;
+  field: KeyOfWordStatisticsForTable;
+}

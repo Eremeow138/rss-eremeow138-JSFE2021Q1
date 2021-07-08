@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { WordStatisticsForTable } from 'src/app/models';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import {
+  KeyOfWordStatisticsForTable,
+  MethodAndField,
+  WordStatisticsForTable,
+} from 'src/app/models';
 import { StatisticsDataService } from 'src/app/services';
 
 @Component({
@@ -8,17 +14,40 @@ import { StatisticsDataService } from 'src/app/services';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent implements OnInit {
-  statisticsOfAllWords: WordStatisticsForTable[] = [];
+  statisticsOfAllWords$!: Observable<WordStatisticsForTable[]>;
+
+  private methodAndField = new BehaviorSubject<MethodAndField>({
+    method: 'asс',
+    field: 'category',
+  });
 
   constructor(private readonly statisticsDataService: StatisticsDataService) {}
 
-  ngOnInit(): void {
-    this.getStatistics();
+  clickForSort(event: Event): void {
+    const target = event.target as HTMLElement;
+    const field = target.dataset.field as KeyOfWordStatisticsForTable;
+    const method =
+      this.methodAndField.getValue().method === 'asc' ? 'desc' : 'asc';
+    this.methodAndField.next({ method, field });
   }
 
-  getStatistics(): void {
-    this.statisticsDataService.getStatistisForTable().subscribe(statistics => {
-      this.statisticsOfAllWords = statistics;
-    });
+  ngOnInit(): void {
+    this.statisticsOfAllWords$ = this.methodAndField.pipe(
+      switchMap((methodAndField: MethodAndField) =>
+        this.sortTable(methodAndField),
+      ),
+    );
+  }
+
+  sortTable(
+    methodAndField: MethodAndField,
+  ): Observable<WordStatisticsForTable[]> {
+    return this.statisticsDataService.calculateStatistisForTable().pipe(
+      map(arr =>
+        arr.sort((a, b) => {
+          return a[methodAndField.field] > b[methodAndField.field] ? 1 : -1;
+        }),
+      ),
+    );
   }
 }

@@ -3,19 +3,45 @@
     <caption class="statistics__caption">
       Word statistics
     </caption>
-    <tr class="statistics__row">
-      <th class="statistics__cell">№</th>
-      <th class="statistics__cell">Category</th>
-      <th class="statistics__cell">Word</th>
-      <th class="statistics__cell">Translate</th>
-      <th class="statistics__cell">Train clicks</th>
-      <th class="statistics__cell">Was guessed</th>
-      <th class="statistics__cell">Errors</th>
-      <th class="statistics__cell">Right answers (%)</th>
+    <tr class="statistics__row" (click)="clickForSort($event)">
+      <th class="statistics__cell statistics__cell_head">№</th>
+      <th class="statistics__cell statistics__cell_head" data-field="category">
+        Category
+      </th>
+      <th class="statistics__cell statistics__cell_head" data-field="word">
+        Word
+      </th>
+      <th
+        class="statistics__cell statistics__cell_head"
+        data-field="translation"
+      >
+        Translate
+      </th>
+      <th
+        class="statistics__cell statistics__cell_head"
+        data-field="trainClicks"
+      >
+        Train clicks
+      </th>
+      <th
+        class="statistics__cell statistics__cell_head"
+        data-field="wasGuessed"
+      >
+        Was guessed
+      </th>
+      <th class="statistics__cell statistics__cell_head" data-field="errors">
+        Errors
+      </th>
+      <th
+        class="statistics__cell statistics__cell_head"
+        data-field="rightAnswers"
+      >
+        Right answers (%)
+      </th>
     </tr>
     <tr
       class="statistics__row"
-      *ngFor="let wordStatistics of statisticsOfAllWords; index as number"
+      *ngFor="let wordStatistics of statisticsOfAllWords$ | async; index as number"
     >
       <td class="statistics__cell">{{ number }}</td>
       <td class="statistics__cell">{{ wordStatistics.category }}</td>
