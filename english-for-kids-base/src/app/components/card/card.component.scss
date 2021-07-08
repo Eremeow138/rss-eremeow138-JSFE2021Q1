@@ -13,6 +13,10 @@
   &.guessed .card__image {
     filter: sepia(100%) contrast(50%) saturate(500%) hue-rotate(423deg);
   }
+  @media (max-width: 768px) {
+    width: 14.75em;
+    height: 13.625em;
+  }
 }
 .card__front,
 .card__back {

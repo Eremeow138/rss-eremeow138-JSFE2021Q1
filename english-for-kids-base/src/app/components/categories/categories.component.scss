@@ -40,6 +40,11 @@
     cursor: pointer;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+    @media (max-width: 768px) {
+      width: 10.5em;
+      height: 10.6em;
+      margin: 1em 0.3em;
+    }
   }
 
   &__image {
