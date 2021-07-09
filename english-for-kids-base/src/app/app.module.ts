@@ -24,6 +24,7 @@ import {
   StarFieldComponent,
   ModalComponent,
   StatisticsComponent,
+  FooterComponent,
 } from './components';
 
 @NgModule({
@@ -39,6 +40,7 @@ import {
     StarFieldComponent,
     ModalComponent,
     StatisticsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

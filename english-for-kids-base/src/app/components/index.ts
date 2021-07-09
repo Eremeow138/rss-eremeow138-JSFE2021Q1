@@ -1,3 +1,5 @@
+export { FooterComponent } from './footer/footer.component';
+
 export { StatisticsComponent } from './statistics/statistics.component';
 
 export { ModalComponent } from './modal/modal.component';

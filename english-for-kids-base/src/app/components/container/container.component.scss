@@ -1,7 +1,9 @@
 .container {
+  font-size: 1rem;
   max-width: 1410px;
   padding: 0 15px;
   margin: 0 auto;
+  min-height: calc(100vh - 3.75em);
   @media (max-width: 425px) {
     padding: 0 5px;
   }

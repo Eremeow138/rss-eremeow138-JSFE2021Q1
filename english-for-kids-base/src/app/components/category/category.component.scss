@@ -9,6 +9,9 @@
     padding: 0;
     margin: 0 auto;
   }
+  &__title {
+    margin: 0.5em 0;
+  }
 }
 .game-modal {
   display: flex;
