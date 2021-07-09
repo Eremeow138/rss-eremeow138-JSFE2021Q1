@@ -41,7 +41,7 @@
     </tr>
     <tr
       class="statistics__row"
-      *ngFor="let wordStatistics of statisticsOfAllWords$ | async; index as number"
+      *ngFor="let wordStatistics of table$ | async; index as number"
     >
       <td class="statistics__cell">{{ number }}</td>
       <td class="statistics__cell">{{ wordStatistics.category }}</td>
