@@ -40,4 +40,13 @@
     max-width: 100%;
     margin-bottom: 0.5em;
   }
+  &__text {
+    font-weight: bold;
+    @media (max-width: 768px) {
+      font-size: 0.8em;
+    }
+    @media (max-width: 425px) {
+      font-size: 0.6em;
+    }
+  }
 }
