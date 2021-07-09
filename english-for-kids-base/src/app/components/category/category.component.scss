@@ -12,6 +12,23 @@
   &__title {
     margin: 0.5em 0;
   }
+  &__button {
+    margin-top: 0.7em;
+    width: 100%;
+    max-width: 20em;
+    height: 0;
+    transition: all 0.5s;
+    font-size: 1.5rem;
+    opacity: 0;
+    &_game {
+      opacity: 1;
+      height: 0;
+      height: 3em;
+    }
+    &_started {
+      width: 6em;
+    }
+  }
 }
 .game-modal {
   display: flex;

@@ -7,7 +7,14 @@
       [cardData]="cardData"
     ></app-card>
   </div>
-  <button class="button" *ngIf="isGameMode" (click)="buttonClick()">
+  <button
+    class="button category__button"
+    [ngClass]="{
+      category__button_started: isStartedGame,
+      category__button_game: isGameMode
+    }"
+    (click)="buttonClick()"
+  >
     {{ buttonText }}
   </button>
 </div>
