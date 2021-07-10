@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CardDataService, GameService, ModalService } from 'src/app/services';
+import {
+  CardDataService,
+  GameService,
+  ModalService,
+  SortTableService,
+} from 'src/app/services';
 import { Category, GameResult } from 'src/app/models';
 
 @Component({
@@ -27,9 +32,11 @@ export class CardsListComponent {
     private readonly gameService: GameService,
     private readonly modalService: ModalService,
     private readonly router: Router,
+    private readonly sortTableService: SortTableService,
   ) {
     this.activateRoute.params.subscribe(params => {
-      this.getCategory(params.id);
+      const id = +params.id;
+      this.getCategory(id);
     });
     this.gameService.getMode().subscribe(mode => {
       this.isGameMode = mode;
@@ -50,9 +57,15 @@ export class CardsListComponent {
   }
 
   getCategory(id: number): void {
-    this.cardDataService.getCategory(id).subscribe(category => {
-      this.category = category;
-    });
+    if (id === 0) {
+      this.sortTableService.getDifficultWords().subscribe(category => {
+        this.category = category;
+      });
+    } else {
+      this.cardDataService.getCategory(id).subscribe(category => {
+        this.category = category;
+      });
+    }
   }
 
   buttonClick(): void {

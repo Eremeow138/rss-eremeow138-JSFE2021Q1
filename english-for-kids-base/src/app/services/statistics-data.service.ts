@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, forkJoin, Observable, of } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { MethodAndField, WordStatisticsForTable } from '../models';
+import { WordStatisticsForTable } from '../models';
 import { WordStatistics } from '../models/word-statistics';
 import { CardDataService } from './card-data.service';
 
@@ -22,10 +22,6 @@ export class StatisticsDataService {
 
   private readonly statistics: BehaviorSubject<WordStatistics[]>;
 
-  private readonly statisticsForTable: BehaviorSubject<
-    WordStatisticsForTable[]
-  >;
-
   private readonly keyForLocalStorage = 'statistics';
 
   constructor(
@@ -33,8 +29,6 @@ export class StatisticsDataService {
     private readonly cardDataService: CardDataService,
   ) {
     this.statistics = new BehaviorSubject<WordStatistics[]>([]);
-
-    this.statisticsForTable = new BehaviorSubject<WordStatisticsForTable[]>([]);
 
     const statisticsFromLocalStorage = localStorage.getItem(
       this.keyForLocalStorage,
@@ -65,56 +59,39 @@ export class StatisticsDataService {
   }
 
   calculateStatistisForTable(): Observable<WordStatisticsForTable[]> {
-    // const statistics = this.getStatistics();
-    const statistics = of(this.statistics.getValue());
-    const categories = this.cardDataService.getCategories();
-    const statisticToTable: WordStatisticsForTable[] = [];
+    const statistics$ = this.statistics;
 
-    forkJoin([categories, statistics]).subscribe(results => {
-      results[0].forEach(category => {
-        category.cards.forEach(card => {
-          const stat = results[1].find(item => item.id === card.id);
+    const categories$ = this.cardDataService.getCategories();
 
-          if (stat) {
-            const { wasGuessed, errors } = stat;
-            const rightAnswers =
-              wasGuessed !== 0
-                ? +((wasGuessed / (wasGuessed + errors)) * 100).toFixed(2)
-                : 0;
-            statisticToTable.push({
-              id: card.id,
-              category: category.name,
-              word: card.word,
-              translation: card.translation,
-              trainClicks: stat.trainClicks,
-              wasGuessed,
-              errors,
-              rightAnswers,
-            });
-          }
+    return combineLatest([categories$, statistics$]).pipe(
+      map(([categories, statistics]) => {
+        const statisticToTable: WordStatisticsForTable[] = [];
+        categories.forEach(category => {
+          category.cards.forEach(card => {
+            const stat = statistics.find(item => item.id === card.id);
+
+            if (stat) {
+              const { wasGuessed, errors } = stat;
+              const rightAnswers =
+                wasGuessed !== 0
+                  ? +((wasGuessed / (wasGuessed + errors)) * 100).toFixed(2)
+                  : 0;
+              statisticToTable.push({
+                id: card.id,
+                category: category.name,
+                word: card.word,
+                translation: card.translation,
+                trainClicks: stat.trainClicks,
+                wasGuessed,
+                errors,
+                rightAnswers,
+              });
+            }
+          });
         });
-      });
-    });
-    return of(statisticToTable);
-    // this.statisticsForTable.next(statisticToTable);
-  }
-
-  sortTable(
-    sortMethodAndField: MethodAndField,
-  ): Observable<WordStatisticsForTable[]> {
-    return this.calculateStatistisForTable().pipe(
-      map(arr =>
-        arr.sort((a, b) => {
-          return a[sortMethodAndField.field] > b[sortMethodAndField.field]
-            ? -1
-            : 1;
-        }),
-      ),
+        return statisticToTable;
+      }),
     );
-  }
-
-  getStatisticForTable(): Observable<WordStatisticsForTable[]> {
-    return this.statisticsForTable.asObservable();
   }
 
   updateTrainClickById(targetId: string): void {
@@ -144,6 +121,14 @@ export class StatisticsDataService {
       statistics[index].errors += wordStatistics.errors;
       statistics[index].wasGuessed += wordStatistics.wasGuessed;
     });
+    this.statistics.next(statistics);
+  }
+
+  resetStatistic(): void {
+    const statistics = this.statistics.getValue().map(item => {
+      return { id: item.id, trainClicks: 0, wasGuessed: 0, errors: 0 };
+    });
+
     this.statistics.next(statistics);
   }
 }

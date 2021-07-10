@@ -11,6 +11,7 @@ import {
   GameService,
   InMemoryDataService,
   ModalService,
+  SortTableService,
   StatisticsDataService,
 } from './services';
 import {
@@ -57,6 +58,7 @@ import {
     StatisticsDataService,
     GameService,
     ModalService,
+    SortTableService,
   ],
   bootstrap: [AppComponent],
 })
