@@ -1,0 +1,65 @@
+.statistics {
+  &__button{
+    margin: 1em;
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+      padding: 0.7em;
+      width: 11em;
+    }
+  }
+
+  &__table {
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 2px;
+    background: #ece9e0;
+    color: #656665;
+    border: 1em solid #ece9e0;
+    border-radius: 1.25em;
+    width: 100%;
+    @media (max-width: 1024px) {
+      font-size: 0.8rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 0.5rem;
+      border-spacing: 1px;
+      border: 0.4em solid #ece9e0;
+    }
+  }
+
+  &__caption {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    margin: 1em;
+  }
+
+  &__row {
+    border: 1px solid grey;
+    &:nth-child(2n) {
+      background: white;
+    }
+  }
+
+  &__cell {
+    background: #00d6e757;
+    padding: 0.625em;
+    @media (max-width: 425px) {
+      padding: 0.1em;
+      text-align: center;
+    }
+    &_head {
+      cursor: pointer;
+      user-select: none;
+    }
+    &_head::after {
+      color: red;
+    }
+  }
+}
+.asc::after {
+  content: "\2BC6";
+}
+.desc::after {
+  content: "\2BC5";
+}

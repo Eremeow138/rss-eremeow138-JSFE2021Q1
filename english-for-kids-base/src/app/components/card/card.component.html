@@ -1,0 +1,22 @@
+<div
+  class="card-container"
+  *ngIf="cardData"
+  [ngClass]="{ flipped: isFlipped, guessed: isGuessed }"
+  (mouseleave)="flipBack()"
+>
+  <div class="card">
+    <div class="card__front" (click)="clickOnCard($event)">
+      <img class="card__image" src="{{ cardData.image }}" alt="" />
+      <div class="card__footer" [ngClass]="{card__footer_hidden: isGameMode}">
+        <div class="card__word">{{ cardData.word }}</div>
+        <button class="card__flip-button" (click)="flip()">Flip</button>
+      </div>
+    </div>
+    <div class="card__back">
+      <img class="card__image" src="{{ cardData.image }}" alt="" />
+      <div class="card__footer" *ngIf="!isGameMode">
+        <div class="card__word">{{ cardData.translation }}</div>
+      </div>
+    </div>
+  </div>
+</div>

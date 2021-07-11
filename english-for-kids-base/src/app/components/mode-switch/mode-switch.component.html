@@ -1,0 +1,7 @@
+<label class="mode-switch" [ngClass]="{ checked: isCheck }">
+  <input class="mode-switch__checkbox" type="checkbox" (change)="check()" />
+  <span class="mode-switch__text-container">
+    <span class="mode-switch__text">{{text}}</span>
+  </span>
+  <span class="mode-switch__circle"></span>
+</label>

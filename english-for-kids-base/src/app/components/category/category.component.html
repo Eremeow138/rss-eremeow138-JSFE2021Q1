@@ -1,0 +1,41 @@
+<div class="category" *ngIf="category">
+  <h2 class="category__title">{{ category.name }}</h2>
+  <app-star-field></app-star-field>
+  <div class="category__list">
+    <app-card
+      *ngFor="let cardData of category.cards"
+      [cardData]="cardData"
+    ></app-card>
+  </div>
+  <button
+    class="button category__button"
+    [ngClass]="{
+      category__button_started: isStartedGame,
+      category__button_game: isGameMode
+    }"
+    (click)="buttonClick()"
+  >
+    {{ buttonText }}
+  </button>
+</div>
+<app-modal id="{{ gameResultModalId }}" *ngIf="gameResult">
+  <div class="game-modal">
+    <h2
+      class="game-modal__title"
+      *ngIf="gameResult.numberOfErrors > 0; else failure"
+    >
+      Failure
+    </h2>
+    <ng-template #failure>
+      <h2 class="game-modal__title">Success</h2>
+    </ng-template>
+
+    <img class="game-modal__image" src="{{ gameResult.image }}" alt="" />
+    <p class="game-modal__text" *ngIf="gameResult.numberOfErrors > 0">
+      Number of errors: {{ gameResult.numberOfErrors }}
+    </p>
+    <button class="button" (click)="closeModalAfterGame(gameResultModalId)">
+      Ok
+    </button>
+  </div>
+</app-modal>
