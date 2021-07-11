@@ -6,11 +6,12 @@
   left: 0;
   z-index: 1000;
   overflow: auto;
+  font-size: 1rem;
 
   .modal__body {
-    padding: 20px;
+    padding: 1.25em;
     background: #fff;
-    margin: 40px;
+    margin: 2.5em;
   }
 }
 

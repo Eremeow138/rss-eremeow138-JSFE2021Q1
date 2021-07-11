@@ -1,12 +1,13 @@
 .navigation {
+  font-size: 1rem;
   &__toggle {
     position: fixed;
     cursor: pointer;
     z-index: 3;
-    left: 10px;
-    top: 10px;
-    width: 40px;
-    height: 30px;
+    left: 0.625em;
+    top: 0.625em;
+    width: 2.5em;
+    height: 1.9em;
     border-top: 4px solid gray;
     border-bottom: 4px solid gray;
     background-color: transparent;
@@ -53,8 +54,8 @@
   }
 
   &__item {
-    padding: 10px 0;
-    font-size: 22px;
+    padding: 0.625em 0;
+    font-size: 1.4em;
     .active {
       text-decoration: underline;
     }

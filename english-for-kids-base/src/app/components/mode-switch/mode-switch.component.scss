@@ -2,9 +2,9 @@
   display: block;
   position: relative;
   font-size: 1rem;
-  width: 80px;
-  height: 30px;
-  border-radius: 190px;
+  width: 5em;
+  height: 1.875em;
+  border-radius: 1.875em;
   background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
   cursor: pointer;
   box-sizing: border-box;
@@ -19,13 +19,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0 5px;
+    padding: 0 0.3em;
     box-sizing: border-box;
   }
   &__text {
     position: absolute;
-    top: 6px;
-    right: 5px;
+    top: 0.375em;;
+    right: 0.3em;
     text-transform: uppercase;
     user-select: none;
     transition: 0.3s;
@@ -35,22 +35,22 @@
 
   &__circle {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 25px;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1.5em;
     background: #fff;
     box-shadow: 2px 4px 15px rgb(6 12 70 / 15%);
     display: block;
     transition: 0.3s;
-    margin: 3px;
+    margin: 0.2em;
   }
 }
 .mode-switch.checked {
   background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }
 .mode-switch.checked > .mode-switch__circle {
-  margin-left: 53px;
+  margin-left: 3.3em;
 }
 .mode-switch.checked .mode-switch__text {
-  right: 30px;
+  right: 1.875em;
 }
