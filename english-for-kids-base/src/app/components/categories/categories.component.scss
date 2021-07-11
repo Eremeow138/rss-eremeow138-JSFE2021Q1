@@ -36,7 +36,7 @@
     font-weight: 400;
     text-align: center;
     text-decoration: none;
-    background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+    background: var(--base-grad);
     margin: 1.25em 1.56em;
     cursor: pointer;
     -webkit-transition: 0.3s;
@@ -55,7 +55,4 @@
     border: 0.6em solid #fff;
     object-fit: cover;
   }
-}
-.game .categories__link {
-  background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }

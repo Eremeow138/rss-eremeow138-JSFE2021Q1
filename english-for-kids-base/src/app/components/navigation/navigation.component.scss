@@ -46,7 +46,7 @@
     position: fixed;
     top: 0;
     left: -20rem;
-    background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+    background: var(--base-grad);
     list-style: none;
     transition-property: transform;
     transition-duration: 0.6s;
@@ -79,7 +79,4 @@
     transform: rotate(45deg);
     border-top: 4px solid white;
   }
-}
-.game > .navigation__bar {
-  background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }

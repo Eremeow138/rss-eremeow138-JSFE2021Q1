@@ -12,18 +12,10 @@ export class NavigationComponent implements OnInit {
 
   isOpen = false;
 
-  isGameMode = false;
-
-  constructor(
-    private readonly cardDataService: CardDataService,
-    private readonly gameService: GameService,
-  ) {}
+  constructor(private readonly cardDataService: CardDataService) {}
 
   ngOnInit(): void {
     this.getCategories();
-    this.gameService.getMode().subscribe(mode => {
-      this.isGameMode = mode;
-    });
   }
 
   getCategories(): void {

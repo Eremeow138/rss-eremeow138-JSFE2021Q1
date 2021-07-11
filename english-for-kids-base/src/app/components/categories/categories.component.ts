@@ -10,18 +10,10 @@ import { CardDataService, GameService } from 'src/app/services';
 export class CategoriesComponent implements OnInit {
   categories: Category[] = [];
 
-  isGameMode = false;
-
-  constructor(
-    private readonly cardDataService: CardDataService,
-    private gameService: GameService,
-  ) {}
+  constructor(private readonly cardDataService: CardDataService) {}
 
   ngOnInit(): void {
     this.getCategories();
-    this.gameService.getMode().subscribe(mode => {
-      this.isGameMode = mode;
-    });
   }
 
   getCategories(): void {

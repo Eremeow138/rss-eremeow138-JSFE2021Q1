@@ -75,9 +75,15 @@
   font-style: normal;
   font-display: swap;
 }
+:root {
+  --base-grad: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+}
 * {
   font-family: "Roboto";
   box-sizing: border-box;
+}
+.game {
+  --base-grad: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }
 button {
   outline: none;
@@ -87,7 +93,7 @@ button {
   width: 11rem;
   padding: 1rem;
   color: white;
-  background: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
+  background: var(--base-grad);
   text-align: center;
   border-radius: 11.8rem;
   text-transform: uppercase;

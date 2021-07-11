@@ -80,7 +80,7 @@
     right: 0;
     top: 0;
     height: 100%;
-    background: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+    background: var(--base-grad);
     color: white;
     font-weight: bold;
   }

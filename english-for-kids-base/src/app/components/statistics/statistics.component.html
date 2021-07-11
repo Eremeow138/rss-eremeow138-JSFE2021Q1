@@ -1,6 +1,16 @@
 <div class="statistics">
-  <button class="button" routerLink="/categories/0">Difficult words</button>
-  <button class="button" (click)="resetStatistics()">Reset statistics</button>
+  <button
+    class="statistics__button button"
+    routerLink="/categories/0"
+  >
+    Difficult words
+  </button>
+  <button
+    class="statistics__button button"
+    (click)="resetStatistics()"
+  >
+    Reset statistics
+  </button>
   <table class="statistics__table">
     <caption class="statistics__caption">
       Word statistics
