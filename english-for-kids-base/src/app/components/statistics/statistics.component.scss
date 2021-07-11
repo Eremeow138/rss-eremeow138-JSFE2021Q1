@@ -1,4 +1,13 @@
 .statistics {
+  &__button{
+    margin: 1em;
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+      padding: 0.7em;
+      width: 11em;
+    }
+  }
+
   &__table {
     text-align: left;
     border-collapse: separate;
@@ -22,6 +31,7 @@
     font-size: 1.5rem;
     color: black;
     font-weight: bold;
+    margin: 1em;
   }
 
   &__row {
