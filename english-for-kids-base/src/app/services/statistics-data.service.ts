@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { WordStatisticsForTable } from '../models';
 import { WordStatistics } from '../models/word-statistics';
 import { CardDataService } from './card-data.service';
@@ -18,33 +18,21 @@ function handleError<T>(operation = 'operation', result?: T) {
   providedIn: 'root',
 })
 export class StatisticsDataService {
-  private readonly statisticUrl = 'api/statistics';
+  private readonly statisticUrl = 'http://localhost:3000/api/statistics';
+
+  private readonly httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   private readonly statistics: BehaviorSubject<WordStatistics[]>;
-
-  private readonly keyForLocalStorage = 'statistics';
 
   constructor(
     private readonly http: HttpClient,
     private readonly cardDataService: CardDataService,
   ) {
     this.statistics = new BehaviorSubject<WordStatistics[]>([]);
-
-    const statisticsFromLocalStorage = localStorage.getItem(
-      this.keyForLocalStorage,
-    );
-
-    if (!statisticsFromLocalStorage) {
-      this.getStatisticsFromServer().subscribe(statistics => {
-        this.statistics.next(statistics);
-        this.updateLocalStorage(statistics);
-      });
-    } else {
-      this.statistics.next(JSON.parse(statisticsFromLocalStorage));
-    }
-
-    this.statistics.subscribe(statistics => {
-      this.updateLocalStorage(statistics);
+    this.getStatisticsFromServer().subscribe(statistics => {
+      this.statistics.next(statistics);
     });
   }
 
@@ -56,6 +44,17 @@ export class StatisticsDataService {
     return this.http
       .get<WordStatistics[]>(this.statisticUrl)
       .pipe(catchError(handleError<WordStatistics[]>('getStatistics', [])));
+  }
+
+  private updateStatisticsForWords(
+    statistics: WordStatistics[],
+  ): Observable<WordStatistics[]> {
+    return this.http
+      .put<WordStatistics[]>(this.statisticUrl, statistics, this.httpOptions)
+      .pipe(
+        tap(_ => console.log(`updated statistics`)),
+        catchError(handleError<WordStatistics[]>('updatestatistics')),
+      );
   }
 
   calculateStatistisForTable(): Observable<WordStatisticsForTable[]> {
@@ -95,22 +94,17 @@ export class StatisticsDataService {
   }
 
   updateTrainClickById(targetId: string): void {
-    const currentStatistics = this.statistics.getValue();
-    const freshStatistcs = currentStatistics.map(item => {
-      const { id, trainClicks, wasGuessed, errors } = item;
-      const updatedTrainClicks = trainClicks + 1;
-      return id === targetId
-        ? { id, trainClicks: updatedTrainClicks, wasGuessed, errors }
-        : item;
+    const updatedTrainClicks: WordStatistics[] = [
+      {
+        id: targetId,
+        trainClicks: 1,
+        wasGuessed: 0,
+        errors: 0,
+      },
+    ];
+    this.updateStatisticsForWords(updatedTrainClicks).subscribe(statistics => {
+      this.statistics.next(statistics);
     });
-    this.statistics.next(freshStatistcs);
-  }
-
-  private updateLocalStorage(freshStatistics: WordStatistics[]): void {
-    localStorage.setItem(
-      this.keyForLocalStorage,
-      JSON.stringify(freshStatistics),
-    );
   }
 
   updateStatisticAfterGame(freshStatisticData: WordStatistics[]): void {

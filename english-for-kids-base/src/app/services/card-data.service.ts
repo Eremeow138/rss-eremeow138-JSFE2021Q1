@@ -16,7 +16,7 @@ function handleError<T>(operation = 'operation', result?: T) {
   providedIn: 'root',
 })
 export class CardDataService {
-  private categoryUrl = 'api/categories';
+  private categoryUrl = 'http://localhost:3000/api/categories';
 
   constructor(private http: HttpClient) {}
 
