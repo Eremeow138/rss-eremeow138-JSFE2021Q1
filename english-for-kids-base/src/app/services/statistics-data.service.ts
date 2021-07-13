@@ -108,14 +108,9 @@ export class StatisticsDataService {
   }
 
   updateStatisticAfterGame(freshStatisticData: WordStatistics[]): void {
-    const statistics = this.statistics.getValue().slice(0);
-
-    freshStatisticData.forEach(wordStatistics => {
-      const index = statistics.findIndex(item => item.id === wordStatistics.id);
-      statistics[index].errors += wordStatistics.errors;
-      statistics[index].wasGuessed += wordStatistics.wasGuessed;
+    this.updateStatisticsForWords(freshStatisticData).subscribe(statistics => {
+      this.statistics.next(statistics);
     });
-    this.statistics.next(statistics);
   }
 
   resetStatistic(): void {
