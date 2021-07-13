@@ -57,6 +57,13 @@ export class StatisticsDataService {
       );
   }
 
+  private resetStatisticsForWords(): Observable<WordStatistics[]> {
+    return this.http.delete<WordStatistics[]>(this.statisticUrl).pipe(
+      tap(_ => console.log(`reset statistics`)),
+      catchError(handleError<WordStatistics[]>('resetStatistics')),
+    );
+  }
+
   calculateStatistisForTable(): Observable<WordStatisticsForTable[]> {
     const statistics$ = this.statistics;
 
@@ -114,10 +121,8 @@ export class StatisticsDataService {
   }
 
   resetStatistic(): void {
-    const statistics = this.statistics.getValue().map(item => {
-      return { id: item.id, trainClicks: 0, wasGuessed: 0, errors: 0 };
+    this.resetStatisticsForWords().subscribe(statistics => {
+      this.statistics.next(statistics);
     });
-
-    this.statistics.next(statistics);
   }
 }

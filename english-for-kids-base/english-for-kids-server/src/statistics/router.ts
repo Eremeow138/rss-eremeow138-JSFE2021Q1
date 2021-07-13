@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { StatusCodes } from '../common';
-import { getStatistics, updateStatistic } from './repository';
+import { getStatistics, resetStatistic, updateStatistic } from './repository';
 import { WordStatistics } from './staistics';
 
 const router = Router();
@@ -8,6 +8,10 @@ const router = Router();
 // Get all categoriesnpm
 router.get('/', async (req, res) => {
   const allStatistics = await getStatistics();
+  return res.json(allStatistics);
+});
+router.delete('/', async (req, res) => {
+  const allStatistics = await resetStatistic();
   return res.json(allStatistics);
 });
 

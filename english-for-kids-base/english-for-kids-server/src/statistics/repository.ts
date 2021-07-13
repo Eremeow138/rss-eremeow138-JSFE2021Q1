@@ -97,19 +97,12 @@ export function updateStatistic(
   }
   return Promise.resolve(statistics);
 }
-// export function updateStatistic(
-//   wordStatistics: WordStatistics,
-// ): Promise<WordStatistics> {
-//   const wordIndex = statistics.findIndex(word => word.id === wordStatistics.id);
-//   if (wordIndex < 0) {
-//     return Promise.reject(new Error('Statistics for this word does not found'));
-//   }
-//   const existsItem = statistics.splice(wordIndex, 1)[0];
 
-//   const newStatistics: WordStatistics = {
-//     ...existsItem,
-//     ...wordStatistics,
-//   };
-//   statistics.push(newStatistics);
-//   return Promise.resolve(newStatistics);
-// }
+export function resetStatistic(): Promise<WordStatistics[]> {
+  statistics.forEach(wordStatistics => {
+    wordStatistics.errors = 0;
+    wordStatistics.trainClicks = 0;
+    wordStatistics.wasGuessed = 0;
+  });
+  return Promise.resolve(statistics);
+}
