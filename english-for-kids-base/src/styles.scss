@@ -104,3 +104,20 @@ button {
 .button:active {
   transform: scale(0.9);
 }
+
+.admin-button {
+  margin: 1em;
+  border: 2px solid #00bf82;
+  padding: 1em;
+  border-radius: 5px;
+  color: #00bf82;
+  background-color: transparent;
+  cursor: pointer;
+  &_small {
+    padding: 0 0.1em;
+  }
+  &_red {
+    border: 2px solid #E53935;
+    color: #E53935;
+  }
+}

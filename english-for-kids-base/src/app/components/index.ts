@@ -1,3 +1,11 @@
+export { AdminCategoriesListComponent } from './admin-categories-list/admin-categories-list.component';
+
+export { AdminCategoryCardComponent } from './admin-category-card/admin-category-card.component';
+
+export { AdminWordCardComponent } from './admin-word-card/admin-word-card.component';
+
+export { AdminWordsListComponent } from './admin-words-list/admin-words-list.component';
+
 export { UserPageComponent } from './user-page/user-page.component';
 
 export { AdminHeaderComponent } from './admin-header/admin-header.component';

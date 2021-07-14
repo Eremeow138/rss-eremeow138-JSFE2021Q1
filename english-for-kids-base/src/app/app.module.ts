@@ -27,6 +27,10 @@ import {
   AdminPageComponent,
   AdminHeaderComponent,
   UserPageComponent,
+  AdminCategoryCardComponent,
+  AdminWordsListComponent,
+  AdminWordCardComponent,
+  AdminCategoriesListComponent,
 } from './components';
 
 @NgModule({
@@ -46,6 +50,10 @@ import {
     AdminPageComponent,
     AdminHeaderComponent,
     UserPageComponent,
+    AdminCategoryCardComponent,
+    AdminWordsListComponent,
+    AdminWordCardComponent,
+    AdminCategoriesListComponent,
   ],
   imports: [
     BrowserModule,

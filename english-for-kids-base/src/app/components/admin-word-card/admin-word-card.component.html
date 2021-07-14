@@ -1,0 +1,80 @@
+<div
+  class="admin-word-card-container"
+  *ngIf="cardData"
+  [ngClass]="{ flipped: isFlipped }"
+>
+  <div class="admin-word-card">
+    <div class="admin-word-card__front">
+      <div class="admin-word-card__item">
+        <p class="admin-word-card__paragraph">
+          <span class="admin-word-card__bold">Word: </span>{{ cardData.word }}
+        </p>
+        <p class="admin-word-card__paragraph">
+          <span class="admin-word-card__bold">Translation: </span
+          >{{ cardData.translation }}
+        </p>
+        <p class="admin-word-card__paragraph">
+          <span class="admin-word-card__bold">Sound file: </span
+          >{{ cardData.audioSrc.split("/").reverse()[0] }}
+        </p>
+        <p class="admin-word-card__paragraph">
+          <span class="admin-word-card__bold">Image: </span>
+        </p>
+      </div>
+      <div class="admin-word-card__item">
+        <img class="admin-word-card__image" src="{{ cardData.image }}" alt="" />
+      </div>
+      <div class="admin-word-card__item admin-word-card__item_text-center">
+        <button class="admin-word-card__button admin-button" (click)="flip()">
+          Change
+        </button>
+      </div>
+    </div>
+    <div class="admin-word-card__back">
+      <form class="admin-word-card__form" action="">
+        <p class="admin-word-card__legend">
+          Word:
+          <input
+            class="admin-word-card__input"
+            type="text"
+            placeholder="Word"
+            value="{{ cardData.word }}"
+          />
+        </p>
+
+        <p class="admin-word-card__legend">
+          Translation:
+          <input
+            class="admin-word-card__input"
+            type="text"
+            placeholder="Translation"
+            value="{{ cardData.translation }}"
+          />
+        </p>
+        <label class="admin-word-card__button admin-button admin-button_small"> Add sound
+          <input class="admin-word-card__input admin-word-card__input_display-none" type="file" />
+        </label>
+        <label class="admin-word-card__button admin-button admin-button_small"> Add image
+          <input class="admin-word-card__input admin-word-card__input_display-none" type="file" />
+        </label>
+        <div class="admin-word-card__footer">
+          <button
+            class="
+              admin-word-card__button
+              admin-button admin-button_small admin-button_red
+            "
+            (click)="flipBack()"
+          >
+            Canel
+          </button>
+          <button
+            class="admin-word-card__button admin-button admin-button_small"
+            (click)="flipBack()"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

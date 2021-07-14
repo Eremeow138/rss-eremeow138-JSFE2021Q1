@@ -1,1 +1,19 @@
-<p>admin-header works!</p>
+<header class="admin-header">
+  <div class="admin-header__container">
+    <nav class="admin-navigation">
+      <a
+        class="admin-navigation__link"
+        routerLink="categories"
+        routerLinkActive="admin-navigation__link_active"
+        >Categories</a
+      >
+      <a
+        class="admin-navigation__link admin-navigation__link_disabled"
+        routerLink="category"
+        routerLinkActive="admin-navigation__link_active"
+        >Words</a
+      >
+    </nav>
+    <button class="admin-header__button">Log out</button>
+  </div>
+</header>

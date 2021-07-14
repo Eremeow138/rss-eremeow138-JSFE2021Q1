@@ -6,6 +6,8 @@ import {
   StatisticsComponent,
   UserPageComponent,
   AdminPageComponent,
+  AdminCategoriesListComponent,
+  AdminWordsListComponent,
 } from './components';
 
 const userRoutes: Routes = [
@@ -14,13 +16,17 @@ const userRoutes: Routes = [
   { path: 'categories/:id', component: CardsListComponent },
 ];
 
-const adminRoutes: Routes = [];
+const adminRoutes: Routes = [
+  { path: 'categories', component: AdminCategoriesListComponent },
+  { path: 'category/:id', component: AdminWordsListComponent },
+  { path: '', redirectTo: 'categories', pathMatch: 'full' },
+  { path: '**', redirectTo: 'categories' },
+];
 
 const appRoutes: Routes = [
   { path: 'user', component: UserPageComponent, children: userRoutes },
   { path: 'admin', component: AdminPageComponent, children: adminRoutes },
   { path: '', redirectTo: 'user/main', pathMatch: 'full' },
-
   { path: '**', redirectTo: 'user/main' },
 ];
 
