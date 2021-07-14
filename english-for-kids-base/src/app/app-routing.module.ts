@@ -4,17 +4,28 @@ import {
   CategoriesComponent,
   CardsListComponent,
   StatisticsComponent,
+  UserPageComponent,
+  AdminPageComponent,
 } from './components';
 
-const routes: Routes = [
+const userRoutes: Routes = [
   { path: 'main', component: CategoriesComponent },
   { path: 'statistics', component: StatisticsComponent },
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'categories/:id', component: CardsListComponent },
-  { path: '**', redirectTo: 'main' },
 ];
+
+const adminRoutes: Routes = [];
+
+const appRoutes: Routes = [
+  { path: 'user', component: UserPageComponent, children: userRoutes },
+  { path: 'admin', component: AdminPageComponent, children: adminRoutes },
+  { path: '', redirectTo: 'user/main', pathMatch: 'full' },
+
+  { path: '**', redirectTo: 'user/main' },
+];
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,3 +1,9 @@
+export { UserPageComponent } from './user-page/user-page.component';
+
+export { AdminHeaderComponent } from './admin-header/admin-header.component';
+
+export { AdminPageComponent } from './admin-page/admin-page.component';
+
 export { FooterComponent } from './footer/footer.component';
 
 export { StatisticsComponent } from './statistics/statistics.component';

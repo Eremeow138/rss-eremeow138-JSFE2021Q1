@@ -8,7 +8,7 @@
     <li class="navigation__item">
       <a
         class="navigation__link"
-        routerLink="/main"
+        routerLink="/user/main"
         routerLinkActive="active"
         (click)="toggleMenu()"
         >Main page</a
@@ -26,10 +26,19 @@
     <li class="navigation__item">
       <a
         class="navigation__link"
-        routerLink="/statistics"
+        routerLink="statistics"
         routerLinkActive="active"
         (click)="toggleMenu()"
         >Statistics</a
+      >
+    </li>
+    <li class="navigation__item">
+      <a
+        class="navigation__link"
+        routerLink="/admin"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >Admin page</a
       >
     </li>
   </ul>

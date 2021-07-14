@@ -24,6 +24,9 @@ import {
   ModalComponent,
   StatisticsComponent,
   FooterComponent,
+  AdminPageComponent,
+  AdminHeaderComponent,
+  UserPageComponent,
 } from './components';
 
 @NgModule({
@@ -40,6 +43,9 @@ import {
     ModalComponent,
     StatisticsComponent,
     FooterComponent,
+    AdminPageComponent,
+    AdminHeaderComponent,
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,
