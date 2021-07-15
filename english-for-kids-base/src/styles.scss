@@ -82,6 +82,9 @@
   font-family: "Roboto";
   box-sizing: border-box;
 }
+app-modal {
+  display: none;
+}
 .game {
   --base-grad: linear-gradient(180deg, #e901eb 0%, #6011e1 50%, #2de9e4 100%);
 }

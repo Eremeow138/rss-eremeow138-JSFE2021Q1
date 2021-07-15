@@ -18,8 +18,8 @@
     {{ buttonText }}
   </button>
 </div>
-<app-modal id="{{ gameResultModalId }}" *ngIf="gameResult">
-  <div class="game-modal">
+<app-modal id="{{ gameResultModalId }}">
+  <div class="game-modal" *ngIf="gameResult">
     <h2
       class="game-modal__title"
       *ngIf="gameResult.numberOfErrors > 0; else failure"
