@@ -12,6 +12,12 @@ export class AppComponent {
 
   public isLoginModalOpen = false;
 
+  public loginModalMessage = 'Login: admin, Password: admin';
+
+  public _login = '';
+
+  public _password = '';
+
   constructor(
     private readonly gameService: GameService,
     private readonly modalService: ModalService,
@@ -30,7 +36,7 @@ export class AppComponent {
         this.closeModal(this.loginModalId);
         this.router.navigateByUrl('/admin/categories');
       } else {
-        console.log('неверный пароль');
+        this.loginModalMessage = 'Incorrect login or password';
       }
     });
   }
