@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 import express, { json, urlencoded } from 'express';
+
 import cors from 'cors';
 import path from 'path';
 import categories from './category/router';
 import statistics from './statistics/router';
+import users from './users/router';
 
 const app = express();
 app.use(urlencoded({ extended: false }));
@@ -16,5 +18,7 @@ app.use(/^(?!\/api\/)/, express.static(publicPath));
 
 app.use('/api/categories', categories);
 app.use('/api/statistics', statistics);
+
+app.use('/api/login', users);
 
 app.listen(3000, () => console.log('Server started on http://localhost:3000'));
