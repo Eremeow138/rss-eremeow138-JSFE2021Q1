@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './admin.guard';
 import {
   CategoriesComponent,
   CardsListComponent,
@@ -25,7 +26,12 @@ const adminRoutes: Routes = [
 
 const appRoutes: Routes = [
   { path: 'user', component: UserPageComponent, children: userRoutes },
-  { path: 'admin', component: AdminPageComponent, children: adminRoutes },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    children: adminRoutes,
+    canActivate: [AdminGuard],
+  },
   { path: '', redirectTo: 'user/main', pathMatch: 'full' },
   { path: '**', redirectTo: 'user/main' },
 ];

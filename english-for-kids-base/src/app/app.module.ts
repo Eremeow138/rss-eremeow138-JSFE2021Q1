@@ -32,6 +32,7 @@ import {
   AdminWordCardComponent,
   AdminCategoriesListComponent,
 } from './components';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {
     GameService,
     ModalService,
     SortTableService,
+    AdminGuard,
   ],
   bootstrap: [AppComponent],
 })
