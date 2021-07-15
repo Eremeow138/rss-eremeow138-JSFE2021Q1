@@ -1,6 +1,6 @@
 <nav
   class="navigation"
-  [ngClass]="{ open: isOpen}"
+  [ngClass]="{ open: isOpen }"
   (clickOutside)="closeMenu()"
 >
   <button class="navigation__toggle" (click)="toggleMenu()"></button>
@@ -17,7 +17,7 @@
     <li class="navigation__item" *ngFor="let category of categories">
       <a
         class="navigation__link"
-        routerLink="categories/{{ category.id }}"
+        routerLink="/user/categories/{{ category.id }}"
         routerLinkActive="active"
         (click)="toggleMenu()"
         >{{ category.name }}</a
@@ -26,13 +26,13 @@
     <li class="navigation__item">
       <a
         class="navigation__link"
-        routerLink="statistics"
+        routerLink="/user/statistics"
         routerLinkActive="active"
         (click)="toggleMenu()"
         >Statistics</a
       >
     </li>
-    <li class="navigation__item">
+    <li class="navigation__item" *ngIf="isLogin; else login">
       <a
         class="navigation__link"
         routerLink="/admin"
@@ -41,5 +41,16 @@
         >Admin page</a
       >
     </li>
+    <ng-template #login>
+      <li class="navigation__item">
+        <button
+          class="navigation__link"
+          (click)="toggleMenu()"
+          (click)="openLoginModal(loginModalId)"
+        >
+          Login
+        </button>
+      </li>
+    </ng-template>
   </ul>
 </nav>

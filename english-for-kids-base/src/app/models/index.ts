@@ -5,3 +5,4 @@ export { WordStatistics } from './word-statistics';
 export { WordStatisticsForTable } from './word-statistics-for-table';
 export { KeyOfWordStatisticsForTable } from './word-statistics-for-table';
 export { MethodAndField } from './word-statistics-for-table';
+export { AuthenticationData } from './authentication-data';
