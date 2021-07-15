@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services';
 
 @Component({
@@ -7,9 +8,13 @@ import { AuthenticationService } from 'src/app/services';
   styleUrls: ['./admin-header.component.scss'],
 })
 export class AdminHeaderComponent {
-  constructor(private readonly authenticationService: AuthenticationService) {}
+  constructor(
+    private readonly authenticationService: AuthenticationService,
+    private readonly router: Router,
+  ) {}
 
   logout(): void {
     this.authenticationService.logout();
+    this.router.navigateByUrl('/user/categories');
   }
 }
