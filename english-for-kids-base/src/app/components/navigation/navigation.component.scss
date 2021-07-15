@@ -65,6 +65,15 @@
     text-decoration: none;
     color: white;
   }
+  &__button {
+    background: transparent;
+    border: 3px solid white;
+    color: white;
+    width: 100%;
+    padding: 1em 0;
+    border-radius: 10%;
+    cursor: pointer;
+  }
 }
 .open > .navigation__bar {
   transform: translateX(20rem);
