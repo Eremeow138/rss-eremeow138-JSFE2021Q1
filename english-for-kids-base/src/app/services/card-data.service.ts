@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -18,6 +18,13 @@ function handleError<T>(operation = 'operation', result?: T) {
 export class CardDataService {
   private categoryUrl = 'http://localhost:3000/api/categories';
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+    }),
+  };
+
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
@@ -31,5 +38,14 @@ export class CardDataService {
     return this.http
       .get<Category>(url)
       .pipe(catchError(handleError<Category>(`getCategory id=${id}`)));
+  }
+
+  updateCategoryName(
+    newName: string,
+    category: Category,
+  ): Observable<Category> {
+    const url = `${this.categoryUrl}/update`;
+    category.name = newName;
+    return this.http.put<Category>(url, category, this.httpOptions);
   }
 }

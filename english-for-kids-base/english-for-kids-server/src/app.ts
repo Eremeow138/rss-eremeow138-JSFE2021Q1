@@ -17,6 +17,7 @@ const publicPath = path.resolve(__dirname, '../public');
 app.use(/^(?!\/api\/)/, express.static(publicPath));
 
 app.use('/api/categories', categories);
+app.use('/api/categories/update', categories);
 app.use('/api/statistics', statistics);
 
 app.use('/api/login', users);

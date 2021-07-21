@@ -5,8 +5,10 @@ import {
   getCategoryById,
   createCategory,
   deleteCategory,
+  updateCategory,
 } from './repository';
 import { Category } from './category';
+import { authenticateJWT } from '../authentication';
 
 const router = Router();
 
@@ -55,4 +57,13 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+router.put('/', authenticateJWT, async (req, res) => {
+  const category = req.body as Category;
+  try {
+    const freshCategory = await updateCategory(category);
+    return res.json(freshCategory);
+  } catch (e) {
+    return res.status(StatusCodes.NotFound).send(e);
+  }
+});
 export default router;

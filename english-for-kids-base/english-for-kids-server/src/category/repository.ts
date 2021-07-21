@@ -538,3 +538,14 @@ export function deleteCategory(id: number): Promise<void> {
   categories.splice(index, 1);
   return Promise.resolve();
 }
+
+export function updateCategory(freshCategory: Category): Promise<Category> {
+  const index = categories.findIndex(
+    category => category.id === freshCategory.id,
+  );
+  if (index < 0) {
+    Promise.reject(new Error('Category not found'));
+  }
+  categories[index] = freshCategory;
+  return Promise.resolve(categories[index]);
+}
