@@ -18,6 +18,8 @@ export class AppComponent {
 
   public _password = '';
 
+  public title = 'English for kids';
+
   constructor(
     private readonly gameService: GameService,
     private readonly modalService: ModalService,
@@ -40,8 +42,6 @@ export class AppComponent {
       }
     });
   }
-
-  public title = 'English for kids';
 
   closeModal(modalId: string): void {
     this.modalService.close(modalId);
