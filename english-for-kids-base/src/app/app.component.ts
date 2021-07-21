@@ -34,7 +34,7 @@ export class AppComponent {
       }
     });
     this.authenticationService.getToken().subscribe(token => {
-      if (token !== '') {
+      if (token) {
         this.closeModal(this.loginModalId);
         this.router.navigateByUrl('/admin/categories');
       } else {
