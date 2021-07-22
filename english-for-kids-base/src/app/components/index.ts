@@ -1,3 +1,5 @@
+export { AdminNewCategoryCardComponent } from './admin-new-category-card/admin-new-category-card.component';
+
 export { AdminCategoriesListComponent } from './admin-categories-list/admin-categories-list.component';
 
 export { AdminCategoryCardComponent } from './admin-category-card/admin-category-card.component';

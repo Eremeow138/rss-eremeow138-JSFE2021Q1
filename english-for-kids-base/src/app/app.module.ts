@@ -31,6 +31,7 @@ import {
   AdminWordsListComponent,
   AdminWordCardComponent,
   AdminCategoriesListComponent,
+  AdminNewCategoryCardComponent,
 } from './components';
 import { AdminGuard } from './admin.guard';
 
@@ -55,6 +56,7 @@ import { AdminGuard } from './admin.guard';
     AdminWordsListComponent,
     AdminWordCardComponent,
     AdminCategoriesListComponent,
+    AdminNewCategoryCardComponent,
   ],
   imports: [
     BrowserModule,

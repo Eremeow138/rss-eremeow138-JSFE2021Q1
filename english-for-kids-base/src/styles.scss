@@ -124,3 +124,27 @@ button {
     color: #e53935;
   }
 }
+
+.plus {
+  font-size: 1rem;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  border: 0.5em solid gray;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: gray;
+    width: 2em;
+    height: 0.3em;
+    left: calc(50% - 1em);
+    top: calc(50% - 0.15em);
+  }
+
+  &::after {
+    transform: rotate(90deg);
+  }
+}
