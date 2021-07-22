@@ -2,7 +2,7 @@
   <h2 class="categories__title">List of categories</h2>
   <ul class="categories__list">
     <li class="categories__card" *ngFor="let category of categories">
-      <a class="categories__link" routerLink="/categories/{{ category.id }}">
+      <a class="categories__link" routerLink="/user/categories/{{ category.id }}">
         <img
           class="categories__image"
           src="{{ category.cards[0].image }}"
