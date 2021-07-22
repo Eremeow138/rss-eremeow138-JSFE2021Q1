@@ -48,4 +48,9 @@ export class CardDataService {
     category.name = newName;
     return this.http.put<Category>(url, category, this.httpOptions);
   }
+
+  createCategory(name: string): Observable<Category> {
+    const url = `${this.categoryUrl}/create`;
+    return this.http.put<Category>(url, name, this.httpOptions);
+  }
 }
