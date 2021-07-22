@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { WordStatisticsForTable } from '../models';
 import { WordStatistics } from '../models/word-statistics';
 import { CardDataService } from './card-data.service';
@@ -51,17 +51,13 @@ export class StatisticsDataService {
   ): Observable<WordStatistics[]> {
     return this.http
       .put<WordStatistics[]>(this.statisticUrl, statistics, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`updated statistics`)),
-        catchError(handleError<WordStatistics[]>('updatestatistics')),
-      );
+      .pipe(catchError(handleError<WordStatistics[]>('updatestatistics')));
   }
 
   private resetStatisticsForWords(): Observable<WordStatistics[]> {
-    return this.http.delete<WordStatistics[]>(this.statisticUrl).pipe(
-      tap(_ => console.log(`reset statistics`)),
-      catchError(handleError<WordStatistics[]>('resetStatistics')),
-    );
+    return this.http
+      .delete<WordStatistics[]>(this.statisticUrl)
+      .pipe(catchError(handleError<WordStatistics[]>('resetStatistics')));
   }
 
   calculateStatistisForTable(): Observable<WordStatisticsForTable[]> {
