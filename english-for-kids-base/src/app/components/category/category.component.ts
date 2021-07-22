@@ -14,17 +14,17 @@ import { Category, GameResult } from 'src/app/models';
   styleUrls: ['./category.component.scss'],
 })
 export class CardsListComponent {
-  category?: Category;
+  public category?: Category;
 
-  isGameMode = false;
+  public isGameMode = false;
 
-  isStartedGame = false;
+  public isStartedGame = false;
 
-  buttonText = 'Start game';
+  public buttonText = 'Start game';
 
-  gameResult?: GameResult;
+  public gameResult?: GameResult;
 
-  gameResultModalId = 'game-over-modal';
+  readonly gameResultModalId = 'game-over-modal';
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -56,7 +56,19 @@ export class CardsListComponent {
     });
   }
 
-  getCategory(id: number): void {
+  closeModalAfterGame(id: string): void {
+    this.modalService.close(id);
+  }
+
+  buttonClick(): void {
+    if (this.isStartedGame) {
+      this.gameService.playWordOfCurrentCard();
+    } else {
+      this.startGame();
+    }
+  }
+
+  private getCategory(id: number): void {
     if (id === 0) {
       this.sortTableService.getDifficultWords().subscribe(category => {
         this.category = category;
@@ -68,25 +80,13 @@ export class CardsListComponent {
     }
   }
 
-  buttonClick(): void {
-    if (this.isStartedGame) {
-      this.gameService.playWordOfCurrentCard();
-    } else {
-      this.startGame();
-    }
-  }
-
-  startGame(): void {
+  private startGame(): void {
     if (this.category) {
       this.gameService.startGame(this.category);
     }
   }
 
-  openModal(id: string): void {
+  private openModal(id: string): void {
     this.modalService.open(id);
-  }
-
-  closeModalAfterGame(id: string): void {
-    this.modalService.close(id);
   }
 }

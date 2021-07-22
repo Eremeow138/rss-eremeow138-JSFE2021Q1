@@ -6,13 +6,13 @@ import { ModalComponent } from '../components';
   providedIn: 'root',
 })
 export class ModalService {
+  private modals: ModalComponent[] = [];
+
   private readonly idSubject: Subject<string>;
 
   constructor() {
     this.idSubject = new Subject<string>();
   }
-
-  private modals: ModalComponent[] = [];
 
   add(modal: ModalComponent): void {
     // add modal to array of active modals

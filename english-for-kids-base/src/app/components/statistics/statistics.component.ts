@@ -11,7 +11,7 @@ import { SortTableService, StatisticsDataService } from 'src/app/services';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent {
-  table: WordStatisticsForTable[] = [];
+  public table: WordStatisticsForTable[] = [];
 
   constructor(
     private readonly sortTableService: SortTableService,

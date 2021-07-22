@@ -10,7 +10,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   @Input()
   id!: string;
 
-  element: HTMLElement;
+  private readonly element: HTMLElement;
 
   constructor(private modalService: ModalService, private el: ElementRef) {
     this.element = el.nativeElement as HTMLElement;

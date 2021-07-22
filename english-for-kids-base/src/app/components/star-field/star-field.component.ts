@@ -9,7 +9,7 @@ import { GameService } from 'src/app/services';
 export class StarFieldComponent implements OnInit {
   constructor(private readonly gameService: GameService) {}
 
-  starLinks: string[] = [];
+  public starLinks: string[] = [];
 
   ngOnInit(): void {
     this.gameService.getStarLinks().subscribe(freshStarLinks => {

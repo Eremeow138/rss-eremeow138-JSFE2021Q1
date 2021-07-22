@@ -37,12 +37,6 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  getCategories(): void {
-    this.cardDataService.getCategories().subscribe(categories => {
-      this.categories = categories;
-    });
-  }
-
   toggleMenu(): void {
     this.isOpen = !this.isOpen;
   }
@@ -55,5 +49,11 @@ export class NavigationComponent implements OnInit {
 
   openLoginModal(modalId: string): void {
     this.modalService.open(modalId);
+  }
+
+  private getCategories(): void {
+    this.cardDataService.getCategories().subscribe(categories => {
+      this.categories = categories;
+    });
   }
 }

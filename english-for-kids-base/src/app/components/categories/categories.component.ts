@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
-import { CardDataService, GameService } from 'src/app/services';
+import { CardDataService } from 'src/app/services';
 
 @Component({
   selector: 'app-categories',
@@ -8,7 +8,7 @@ import { CardDataService, GameService } from 'src/app/services';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-  categories: Category[] = [];
+  public categories: Category[] = [];
 
   constructor(private readonly cardDataService: CardDataService) {}
 
@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
     this.getCategories();
   }
 
-  getCategories(): void {
+  private getCategories(): void {
     this.cardDataService.getCategories().subscribe(categories => {
       this.categories = categories;
     });

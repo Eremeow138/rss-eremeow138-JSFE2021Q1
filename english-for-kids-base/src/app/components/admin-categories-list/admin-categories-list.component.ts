@@ -8,7 +8,7 @@ import { CardDataService } from 'src/app/services';
   styleUrls: ['./admin-categories-list.component.scss'],
 })
 export class AdminCategoriesListComponent implements OnInit {
-  categories: Category[] = [];
+  public categories: Category[] = [];
 
   constructor(private readonly cardDataService: CardDataService) {}
 
@@ -16,7 +16,7 @@ export class AdminCategoriesListComponent implements OnInit {
     this.getCategories();
   }
 
-  getCategories(): void {
+  private getCategories(): void {
     this.cardDataService.getCategories().subscribe(categories => {
       this.categories = categories;
     });

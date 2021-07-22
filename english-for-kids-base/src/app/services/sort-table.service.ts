@@ -38,15 +38,15 @@ interface SortConfig {
   providedIn: 'root',
 })
 export class SortTableService {
-  table$: Observable<WordStatisticsForTable[]>;
+  private table$: Observable<WordStatisticsForTable[]>;
 
-  sortableColumn$ = new BehaviorSubject<KeyOfWordStatisticsForTable>(
+  private sortableColumn$ = new BehaviorSubject<KeyOfWordStatisticsForTable>(
     'category',
   );
 
-  sortConfig = {} as SortConfig;
+  private sortConfig = {} as SortConfig;
 
-  sortDirection$ = this.sortableColumn$.pipe(
+  private sortDirection$ = this.sortableColumn$.pipe(
     scan<KeyOfWordStatisticsForTable, SortConfig>(
       (config, column) => {
         return config.column === column

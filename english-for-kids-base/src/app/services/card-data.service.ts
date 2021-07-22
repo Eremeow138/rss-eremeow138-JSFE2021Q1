@@ -16,16 +16,16 @@ function handleError<T>(operation = 'operation', result?: T) {
   providedIn: 'root',
 })
 export class CardDataService {
-  private categoryUrl = 'http://localhost:3000/api/categories';
+  private readonly categoryUrl = 'http://localhost:3000/api/categories';
 
-  private httpOptions = {
+  private readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
     return this.http

@@ -7,9 +7,9 @@ import { GameService } from 'src/app/services';
   styleUrls: ['./mode-switch.component.scss'],
 })
 export class ModeSwitchComponent {
-  isCheck = false;
+  public isCheck = false;
 
-  text = 'train';
+  public text = 'train';
 
   constructor(private readonly gameService: GameService) {}
 

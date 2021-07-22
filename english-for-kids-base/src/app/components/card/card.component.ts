@@ -8,6 +8,16 @@ import { GameService, StatisticsDataService } from 'src/app/services';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
+  @Input() cardData?: CardData;
+
+  public isGameMode = false;
+
+  public isFlipped = false;
+
+  public isGuessed = false;
+
+  public isDisable = false;
+
   constructor(
     private readonly gameService: GameService,
     private readonly statisticDataService: StatisticsDataService,
@@ -27,16 +37,6 @@ export class CardComponent implements OnInit {
       this.isDisable = false;
     });
   }
-
-  @Input() cardData?: CardData;
-
-  isGameMode = false;
-
-  isFlipped = false;
-
-  isGuessed = false;
-
-  isDisable = false;
 
   flip(): void {
     this.isFlipped = true;

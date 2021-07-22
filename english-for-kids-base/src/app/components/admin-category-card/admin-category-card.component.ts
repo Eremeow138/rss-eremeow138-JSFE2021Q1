@@ -12,6 +12,8 @@ export class AdminCategoryCardComponent implements OnInit {
 
   public categoryName = 'Name not found';
 
+  public isFlipped = false;
+
   constructor(private readonly cardDataService: CardDataService) {}
 
   ngOnInit(): void {
@@ -19,8 +21,6 @@ export class AdminCategoryCardComponent implements OnInit {
       this.categoryName = this.categoryData.name;
     }
   }
-
-  public isFlipped = false;
 
   flip(): void {
     this.isFlipped = true;

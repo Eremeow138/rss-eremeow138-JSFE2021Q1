@@ -16,9 +16,9 @@ function shuffle(initialArray: CardData[]): CardData[] {
   providedIn: 'root',
 })
 export class GameService {
-  private isGameMode: BehaviorSubject<boolean>;
+  private gameStatisticsForCurrentGame: WordStatistics[] = [];
 
-  private readonly audio: HTMLAudioElement;
+  private isGameMode: BehaviorSubject<boolean>;
 
   private cardsForGame: CardData[] = [];
 
@@ -26,11 +26,13 @@ export class GameService {
 
   private guessedWord: Subject<string>;
 
+  private numberOfErrors = 0;
+
+  private readonly audio: HTMLAudioElement;
+
   private readonly isGameStarted: BehaviorSubject<boolean>;
 
   private readonly starLinks: BehaviorSubject<string[]>;
-
-  private numberOfErrors = 0;
 
   private readonly errorImage = 'assets/img/failure.jpg';
 
@@ -49,8 +51,6 @@ export class GameService {
   private readonly wrongAnswerImage = 'assets/img/star.svg';
 
   private readonly gameResult: Subject<GameResult>;
-
-  private gameStatisticsForCurrentGame: WordStatistics[] = [];
 
   constructor(
     private readonly location: Location,
