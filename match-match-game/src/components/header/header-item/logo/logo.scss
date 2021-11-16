@@ -1,0 +1,13 @@
+.logo {
+  &__item {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 11px;
+    padding: 5px 10px;
+    letter-spacing: 1.25px;
+    &_fill {
+      color: #2196f3;
+      background-color: white;
+    }
+  }
+}

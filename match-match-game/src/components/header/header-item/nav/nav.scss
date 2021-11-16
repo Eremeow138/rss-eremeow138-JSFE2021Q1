@@ -1,0 +1,39 @@
+.nav {
+  height: 100%;
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.4px;
+  margin-left: 150px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    &_active {
+      background-color: #1e88e5;
+    }
+  }
+  &__item:hover {
+    background-color: #1e88e5;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    margin-bottom: 9px;
+    &_inverse {
+      background: transparent;
+      padding: 0px;
+    }
+  }
+}

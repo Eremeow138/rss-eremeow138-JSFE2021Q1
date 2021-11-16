@@ -1,0 +1,60 @@
+.registration {
+  background-color: #fff;
+  padding: 21px;
+  &__title {
+    color: black;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__input-box {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+
+  &__input-field {
+    margin-bottom: 30px;
+    position: relative;
+    display: block;
+  }
+  &__input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  &__input-field.valid {
+    .registration__input {
+      background-color: rgba(0, 255, 0, 0.3);
+    }
+  }
+  &__input-field.invalid {
+    .registration__input {
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+    .registration__message {
+      opacity: 1;
+    }
+  }
+  &__message {
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s;
+    color: red;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.registration.invalid {
+  .button[type='submit'] {
+    background-color: gray;
+    color: white;
+    pointer-events: none;
+  }
+}

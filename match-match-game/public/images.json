@@ -1,0 +1,50 @@
+[
+  {
+    "category": "cats",
+    "images": [
+      "cat.jpg",
+      "egypt-cat.jpg",
+      "cat3.jpg",
+      "cat4.jpg",
+      "barsik.jpg",
+      "covid-cat.jpg",
+      "1.jpg",
+      "2.jpg",
+      "3.jpg",
+      "4.jpg",
+      "5.jpg",
+      "6.jpg",
+      "7.jpg",
+      "8.jpg",
+      "9.jpg",
+      "10.jpg",
+      "11.jpg",
+      "12.jpg"
+
+    ]
+  },
+  {
+    "category": "cars",
+    "images": [
+      "aqua.jpg",
+      "cyber.jpg",
+      "honda.jpg",
+      "kia.jpg",
+      "leaf.jpg",
+      "mirai.jpg",
+      "move.jpg",
+      "vw.jpg",
+      "lambo.jpg",
+      "1.jpg",
+      "2.jpg",
+      "3.jpg",
+      "4.jpg",
+      "5.jpg",
+      "6.jpg",
+      "7.jpg",
+      "8.jpg",
+      "9.jpg"
+
+    ]
+  }
+]

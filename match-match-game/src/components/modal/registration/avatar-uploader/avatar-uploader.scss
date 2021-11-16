@@ -1,0 +1,13 @@
+.avatar-uploader {
+  margin: 10px;
+  &__avatar {
+    cursor: pointer;
+    width: 198px;
+    height: 198px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  &__input {
+    display: none;
+  }
+}
