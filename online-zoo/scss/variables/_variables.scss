@@ -1,0 +1,42 @@
+/* Global variables */
+/* ======================================================================== */
+// Переменная для задания основоного шрифта на сайте
+$main_font_family: "Roboto";
+// Основной цвет текста на сайте
+$light_theme_color: #4f4f4f;
+// Основной line height
+$main_line_height: 1.2;
+// Основной размер шрифта
+$main_font_size: 14px;
+// Ширина для container_center
+$container_width: 1240px;
+// Высота подвала (если не нужна, можно поставит в auto)
+$footer_height: auto;
+// Набор основных цветов для сайта, можно просто перенести в Avocode
+$color_primary: #7b8287;
+$color_success: #36a566;
+$color_info: #03a9f4;
+$color_warning: #fca33e;
+$color_danger: #ff1a1a;
+$color_white: #ffffff;
+// Благодаря такому набору можно создавать цветовые модификаторы для элементив
+:root {
+  --base-grad: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  --bg-color-header: #fff;
+  --logo-filter-one: invert(8%) sepia(77%) saturate(0%) hue-rotate(295deg)
+    brightness(88%) contrast(71%);
+  --logo-filter-two: invert(100%) sepia(100%) saturate(0%) hue-rotate(51deg)
+    brightness(102%) contrast(105%);
+  --bg-color-one: #fff;
+  --bg-color-two: #f2f2f2;
+  --bg-color-three: #fefefe;
+  --bg-color-four: #fbfbfb;
+  --bg-color-five: #fbfbfb;
+  --bg-color-tooltip: #fefefe;
+  --main-dark-color: #333;
+  --text-dark-color: #4f4f4f;
+  --arrow-filter-one: invert(16%) sepia(0%) saturate(0%) hue-rotate(161deg)
+    brightness(102%) contrast(88%);
+  --bg-color-map: #333333;
+  --bg-color-map-active: #dadada;
+}

@@ -1,0 +1,466 @@
+//  ==========================
+//  Eremin Alexey
+//  Email: eremeow138@yandex.ru
+//  GitHub: https://github.com/Eremeow138
+//  ==========================
+// Файл с переменными
+@import "../../../scss/variables/variables";
+// Подключение примесей
+@import "../../../scss/mixins/mixin";
+// Пример подключение шрифта через google fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// Пример подключение шрифта через mixin
+// 4 параметра: 1. Название шрифта; 2. Путь к шрифту; 3. Толщина шрифта(font-weight); 4. Стиль шрифта(font-style)
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Bold",
+  bold,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Black",
+  900,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Light",
+  300,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Thin",
+  100,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Medium",
+  500,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Regular",
+  normal,
+  normal
+);
+
+// Подключение отдельных фалов стилей в общий css
+
+// Файл со стилями сброса. Используется подправленный normalize.css
+@import "../../../scss/core/reset";
+// Файл с основными стилями каркаса страницы
+@import "../../../scss/core/template";
+// Стили для шапки
+@import "../../../scss/core/header";
+// Стили для подвала
+@import "../../../scss/core/footer";
+// Иконочный шрифт
+$icomoon-font-path: "../../../assets/fonts/icomoon";
+@import "../../../scss/core/icon-fonts";
+.wrapper {
+  overflow: initial;
+}
+.main {
+  @media (max-width: 640px) {
+    padding-top: 94px;
+    margin-top: 0;
+  }
+}
+.zoos {
+  position: relative;
+  background-color: var(--bg-color-five);
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  @media (max-width: 768px) {
+    .title {
+      margin-left: 10px;
+    }
+  }
+  @media (max-width: 639px) {
+    .title {
+      font-size: 24px;
+      margin-left: 6px;
+      margin-bottom: 21px;
+    }
+  }
+  &__aside {
+    margin-right: 157px;
+    margin-left: 26px;
+    @media (max-width: 1440px) {
+      margin-right: 44px;
+      margin-left: 16px;
+    }
+    @media (max-width: 768px) {
+      margin-right: 6px;
+      margin-left: 7px;
+    }
+    @media (max-width: 639px) {
+      margin-right: 15px;
+      margin-left: 5px;
+    }
+  }
+  &__content {
+    padding: 30px 0 100px;
+    @media (max-width: 768px) {
+      padding: 30px 0 79px;
+    }
+    @media (max-width: 639px) {
+      padding: 3px 0 59px;
+    }
+  }
+  &__box {
+    display: flex;
+    margin-top: 42px;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+    @media (max-width: 768px) {
+      margin-top: 36px;
+    }
+    @media (max-width: 639px) {
+      margin-top: 0px;
+    }
+  }
+  &__video {
+    width: 100%;
+    max-width: 790px;
+    flex-shrink: 0;
+    @media (max-width: 1440px) {
+      max-width: 527px;
+    }
+    @media (max-width: 768px) {
+      max-width: 497px;
+    }
+    @media (max-width: 639px) {
+      max-width: 205px;
+    }
+  }
+  &__iframe {
+    border-radius: 5px;
+    width: 100%;
+    height: 442px;
+    @media (max-width: 1440px) {
+      height: 297px;
+    }
+    @media (max-width: 768px) {
+      height: 280px;
+    }
+    @media (max-width: 639px) {
+      height: 116px;
+    }
+    &_small {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+  &__description {
+    margin-left: 30px;
+    @media (max-width: 1440px) {
+      margin-left: 20px;
+      max-width: 253px;
+      .button {
+        margin-top: 19px;
+        max-width: 185px;
+      }
+    }
+    @media (max-width: 768px) {
+      margin-left: 0px;
+      margin-top: 50px;
+      max-width: initial;
+      .button {
+        margin-top: 29px;
+      }
+    }
+    @media (max-width: 639px) {
+      margin-top: 32px;
+      max-width: 205px;
+      .button {
+        margin-top: 0;
+      }
+    }
+  }
+  &__video-slider {
+    position: relative;
+    margin: 25px -13px 0;
+    overflow: hidden;
+    @media (max-width: 1440px) {
+      margin: 22px -9px 0;
+    }
+    @media (max-width: 768px) {
+      margin: 11px -8px 0;
+    }
+    @media (max-width: 639px) {
+      margin: 6px -9px 0;
+    }
+  }
+  &__plate {
+    position: relative;
+    background-color: transparent;
+    flex-shrink: 0;
+    width: calc(33.333% - 26px);
+    height: 141px;
+    margin: 0 13px;
+    cursor: pointer;
+    @media (max-width: 1440px) {
+      height: 94px;
+      width: calc(33.333% - 18px);
+      margin: 0 9px;
+    }
+    @media (max-width: 768px) {
+      height: 89px;
+      width: calc(33.333% - 16px);
+      margin: 0 8px;
+    }
+    @media (max-width: 639px) {
+      height: 56px;
+      width: calc(50% - 18px);
+      margin: 0 9px;
+    }
+  }
+  &__plug {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+  &__video-slide {
+    width: 100%;
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: left 0.4s;
+  }
+  &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    @media (max-width: 639px) {
+      margin-top: 20px;
+    }
+  }
+  &__dot {
+    width: 8px;
+    height: 8px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    margin: 0 2.5px;
+    cursor: pointer;
+    &_active {
+      width: 11px;
+      height: 11px;
+      background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+    }
+  }
+
+  &__subtitle {
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    @media (max-width: 639px) {
+      font-size: 14px;
+    }
+  }
+
+  &__text {
+    margin: 0 0 13px 0;
+    font-size: 14px;
+    @media (max-width: 1440px) {
+      margin: 0 0 16px 0;
+    }
+    @media (max-width: 768px) {
+      margin: 0 0 13px 0;
+    }
+    @media (max-width: 639px) {
+      font-size: 12px;
+      margin: 0 0 17px 0;
+      line-height: 14px;
+    }
+  }
+}
+.page-slider {
+  position: sticky;
+  top: 10px;
+  padding: 40px 0 50px;
+  margin-top: 58px;
+  transition: all 0.3s;
+  @media (max-width: 640px) {
+    top: 100px;
+  }
+  @media (max-width: 639px) {
+    margin-top: 21px;
+  }
+  &__arrow {
+    position: absolute;
+    cursor: pointer;
+    left: calc(50% - 11px);
+    filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
+      brightness(110%) contrast(84%);
+    &_up {
+      top: 6px;
+      @media (max-width: 639px) {
+        top: 16px;
+      }
+    }
+    &_down {
+      bottom: 16px;
+      transform: rotate(180deg);
+      @media (max-width: 639px) {
+        bottom: 23px;
+      }
+    }
+    &_empty {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%);
+    }
+    &_empty:hover {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%) !important;
+    }
+  }
+  &__arrow:hover {
+    filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg)
+      brightness(97%) contrast(89%);
+  }
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    @media (max-width: 1200px) {
+      width: 106px;
+      height: 106px;
+    }
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
+    @media (max-width: 639px) {
+      width: 44px;
+      height: 44px;
+    }
+    &_active {
+      width: 157px;
+      height: 157px;
+      background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+      user-select: none;
+      cursor: default;
+      margin: 5px 0;
+      @media (max-width: 1200px) {
+        width: 120px;
+        height: 120px;
+      }
+      @media (max-width: 768px) {
+        width: 90px;
+        height: 90px;
+      }
+      @media (max-width: 639px) {
+        width: 65px;
+        height: 65px;
+      }
+    }
+    &_active > .page-slider__img {
+      width: 150px;
+      height: 150px;
+      border: 7px solid var(--bg-color-five);
+      @media (max-width: 1200px) {
+        width: 114px;
+        height: 114px;
+        border: 5px solid var(--bg-color-five);
+      }
+      @media (max-width: 768px) {
+        width: 84px;
+        height: 84px;
+        border: 3px solid var(--bg-color-five);
+      }
+      @media (max-width: 639px) {
+        width: 59px;
+        height: 59px;
+        border: 2px solid var(--bg-color-five);
+      }
+    }
+  }
+  &__item:hover {
+    width: 157px;
+    height: 157px;
+    background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+    margin: 5px 0;
+    @media (max-width: 1200px) {
+      width: 120px;
+      height: 120px;
+    }
+    @media (max-width: 768px) {
+      width: 90px;
+      height: 90px;
+    }
+    @media (max-width: 639px) {
+      width: 65px;
+      height: 65px;
+    }
+  }
+  &__item:hover > .page-slider__img {
+    width: 150px;
+    height: 150px;
+    border: 7px solid var(--bg-color-five);
+    @media (max-width: 1200px) {
+      width: 114px;
+      height: 114px;
+      border: 5px solid var(--bg-color-five);
+    }
+    @media (max-width: 768px) {
+      width: 84px;
+      height: 84px;
+      border: 3px solid var(--bg-color-five);
+    }
+    @media (max-width: 639px) {
+      width: 59px;
+      height: 59px;
+      border: 2px solid var(--bg-color-five);
+    }
+  }
+  &__img {
+    width: 117px;
+    height: 117px;
+    border: 5px solid var(--bg-color-five);
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    @media (max-width: 1200px) {
+      width: 106px;
+      height: 106px;
+    }
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
+    @media (max-width: 639px) {
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--bg-color-five);
+    }
+  }
+}

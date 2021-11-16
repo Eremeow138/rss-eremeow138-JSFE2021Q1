@@ -1,0 +1,310 @@
+//  ==========================
+//  Eremin Alexey
+//  Email: eremeow138@yandex.ru
+//  GitHub: https://github.com/Eremeow138
+//  ==========================
+// Файл с переменными
+@import "../../../scss/variables/variables";
+// Подключение примесей
+@import "../../../scss/mixins/mixin";
+// Пример подключение шрифта через google fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// Пример подключение шрифта через mixin
+// 4 параметра: 1. Название шрифта; 2. Путь к шрифту; 3. Толщина шрифта(font-weight); 4. Стиль шрифта(font-style)
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Bold",
+  bold,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Black",
+  900,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Light",
+  300,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Thin",
+  100,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Medium",
+  500,
+  normal
+);
+@include font-face(
+  "Roboto",
+  "../../../assets/fonts/Roboto/Roboto-Regular",
+  normal,
+  normal
+);
+
+// Подключение отдельных фалов стилей в общий css
+
+// Файл со стилями сброса. Используется подправленный normalize.css
+@import "../../../scss/core/reset";
+// Файл с основными стилями каркаса страницы
+@import "../../../scss/core/template";
+// Стили для шапки
+@import "../../../scss/core/header";
+// Стили для подвала
+@import "../../../scss/core/footer";
+// Иконочный шрифт
+$icomoon-font-path: "../../../assets/fonts/icomoon";
+@import "../../../scss/core/icon-fonts";
+.intermediate {
+  background-color: var(--bg-color-four);
+  @media (max-width: 1200px) {
+    padding-bottom: 60px;
+    .map {
+      padding: 37px 0;
+    }
+    .map__box {
+      padding-top: 43%;
+      width: 89%;
+    }
+    .pin__image {
+      width: 35px;
+      height: 35px;
+      left: calc(50% - 17px);
+      top: 12px;
+    }
+    .pin {
+      --pin-width: 59px;
+      --pin-height: 83px;
+    }
+    .button_mt {
+      margin: 3px;
+    }
+  }
+  @media (max-width: 768px) {
+    padding-bottom: 41px;
+    .map__box {
+      padding-top: 48%;
+      width: 100%;
+      margin-top: 17px;
+    }
+    .pin__image {
+      width: 43px;
+      height: 43px;
+      left: calc(50% - 21px);
+      top: 11px;
+    }
+    .pin {
+      --pin-width: 66px;
+      --pin-height: 93px;
+    }
+  }
+  @media (max-width: 425px) {
+    padding-bottom: 20px;
+    .map__box {
+      padding-top: 48.5%;
+      width: 100%;
+      margin-top: 27px;
+    }
+    .pin__image {
+      width: 22px;
+      height: 22px;
+      left: calc(50% - 10.5px);
+      top: 6px;
+    }
+    .pin {
+      --pin-width: 33px;
+      --pin-height: 47px;
+    }
+  }
+}
+.favorite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  margin-bottom: -47px;
+  &__desc {
+    margin: 0;
+    margin-top: -10px;
+    max-width: 790px;
+    font-size: 14px;
+    @media (max-width: 425px) {
+      font-size: 12px;
+      margin: 0;
+      max-width: 280px;
+      line-height: 14px;
+    }
+  }
+  @media (max-width: 1200px) {
+    .range {
+      margin-top: 24px;
+    }
+  }
+  @media (max-width: 425px) {
+    .title {
+      font-size: 24px;
+      margin-top: 5px;
+      margin-bottom: 12px;
+    }
+    .range {
+      margin-top: 20px;
+    }
+  }
+}
+.favorite-slider {
+  width: 100%;
+  position: relative;
+  margin-top: 55px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1200px) {
+    margin-top: 36px;
+    width: 90%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 425px) {
+    margin-top: 39px;
+  }
+  &__arrow {
+    position: relative;
+    cursor: pointer;
+    filter: invert(13%) sepia(5%) saturate(18%) hue-rotate(354deg)
+      brightness(110%) contrast(84%);
+
+    &_left {
+      right: 23px;
+      @media (max-width: 1200px) {
+        right: 31px;
+      }
+      @media (max-width: 768px) {
+        right: 7px;
+      }
+      @media (max-width: 425px) {
+        right: -5px;
+      }
+    }
+    &_right {
+      left: 23px;
+      // margin-left: 10px;
+      transform: rotate(180deg);
+      @media (max-width: 1200px) {
+        left: 31px;
+      }
+      @media (max-width: 768px) {
+        left: 7px;
+      }
+      @media (max-width: 425px) {
+        left: -8px;
+      }
+    }
+    &_empty {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%);
+    }
+    &_empty:hover {
+      filter: invert(58%) sepia(0%) saturate(5548%) hue-rotate(135deg)
+        brightness(89%) contrast(78%) !important;
+    }
+  }
+  &__arrow:hover {
+    filter: invert(52%) sepia(69%) saturate(2416%) hue-rotate(326deg)
+      brightness(97%) contrast(89%);
+  }
+  &__wrapper {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    @media (max-width: 1200px) {
+      max-width: 710px;
+    }
+    @media (max-width: 1024px) {
+      max-width: 538px;
+    }
+    @media (max-width: 639px) {
+      max-width: 245px;
+    }
+  }
+  &__line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    left: 0;
+    transition: left 0.4s;
+    margin-left: -10px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    @media (max-width: 1024px) {
+      margin: 0 7px;
+    }
+    &__item:first-child {
+      margin-left: 0;
+    }
+    &__item:last-child {
+      margin-right: 0;
+    }
+    &_active {
+      width: 157px;
+      height: 157px;
+      margin: 0px -10px;
+      background: linear-gradient(103.3deg, #07eee0 -15.1%, #df496d 92.15%);
+      user-select: none;
+      cursor: default;
+      @media (max-width: 1024px) {
+        margin: 0px 4px;
+      }
+      @media (max-width: 639px) {
+        width: 85px;
+        height: 85px;
+      }
+    }
+    &_active > .favorite-slider__img {
+      width: 150px;
+      height: 150px;
+      border: 7px solid var(--bg-color-four);
+      @media (max-width: 639px) {
+        width: 79px;
+        height: 79px;
+        border: 2px solid var(--bg-color-four);
+      }
+    }
+    &_active:hover {
+      transform: scale(1) !important;
+    }
+  }
+  &__item:hover {
+    transform: scale(1.05);
+  }
+
+  &__img {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @media (max-width: 639px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

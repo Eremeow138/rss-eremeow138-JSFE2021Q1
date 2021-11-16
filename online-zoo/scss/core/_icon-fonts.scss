@@ -1,0 +1,107 @@
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "../assets/fonts/icomoon" !default;
+
+$icon-card: "\e900";
+$icon-donate: "\e901";
+$icon-heart-hand: "\e902";
+$icon-instagram: "\e903";
+$icon-panda: "\e904";
+$icon-play: "\e905";
+$icon-problem-solving: "\e906";
+$icon-twetter: "\e907";
+$icon-vector: "\e908";
+$icon-vk: "\e909";
+$icon-youtube: "\e90a";
+$icon-zoo: "\e90b";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2wrbvv");
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2wrbvv#iefix")
+      format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?2wrbvv")
+      format("truetype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?2wrbvv")
+      format("woff"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?2wrbvv##{$icomoon-font-family}")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-card {
+  &:before {
+    content: $icon-card;
+  }
+}
+.icon-donate {
+  &:before {
+    content: $icon-donate;
+  }
+}
+.icon-heart-hand {
+  &:before {
+    content: $icon-heart-hand;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
+  }
+}
+.icon-panda {
+  &:before {
+    content: $icon-panda;
+  }
+}
+.icon-play {
+  &:before {
+    content: $icon-play;
+  }
+}
+.icon-problem-solving {
+  &:before {
+    content: $icon-problem-solving;
+  }
+}
+.icon-twetter {
+  &:before {
+    content: $icon-twetter;
+  }
+}
+.icon-vector {
+  &:before {
+    content: $icon-vector;
+  }
+}
+.icon-vk {
+  &:before {
+    content: $icon-vk;
+  }
+}
+.icon-youtube {
+  &:before {
+    content: $icon-youtube;
+  }
+}
+.icon-zoo {
+  &:before {
+    content: $icon-zoo;
+  }
+}
