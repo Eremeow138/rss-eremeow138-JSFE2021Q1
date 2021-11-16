@@ -1,0 +1,7 @@
+<div class="admin-category-list">
+  <app-admin-category-card
+    *ngFor="let category of categories"
+    [categoryData]="category"
+  ></app-admin-category-card>
+  <app-admin-new-category-card></app-admin-new-category-card>
+</div>

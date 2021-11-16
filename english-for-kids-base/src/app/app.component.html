@@ -1,0 +1,47 @@
+<app-navigation></app-navigation>
+<router-outlet></router-outlet>
+<app-modal id="{{ loginModalId }}">
+  <div class="login-modal">
+    <h2 class="login-modal__title">Login</h2>
+    <p class="login-modal__message">{{ loginModalMessage }}</p>
+    <form class="login-modal__form" (submit)="login($event)">
+      <p class="login-modal__legend">Login:</p>
+      <input
+        [(ngModel)]="_login"
+        name="login"
+        class="login-modal__input"
+        type="text"
+        placeholder="Login"
+        required
+      />
+
+      <p class="login-modal__legend">Password:</p>
+      <input
+        [(ngModel)]="_password"
+        name="password"
+        class="login-modal__input"
+        type="password"
+        placeholder="Password"
+        required
+      />
+      <div class="login-modal__footer">
+        <button
+          class="
+            login-modal__button
+            admin-button admin-button_small admin-button_red
+          "
+          (click)="closeModal(loginModalId)"
+        >
+          Canel
+        </button>
+        <button
+          [ngClass]="{ disable: _password === '' || _login === '' }"
+          type="submit"
+          class="login-modal__button admin-button admin-button_small"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal>

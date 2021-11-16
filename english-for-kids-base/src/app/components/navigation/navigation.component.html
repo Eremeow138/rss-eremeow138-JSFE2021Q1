@@ -1,0 +1,56 @@
+<nav
+  class="navigation"
+  [ngClass]="{ open: isOpen }"
+  (clickOutside)="closeMenu()"
+>
+  <button class="navigation__toggle" (click)="toggleMenu()"></button>
+  <ul class="navigation__bar">
+    <li class="navigation__item">
+      <a
+        class="navigation__link"
+        routerLink="/user/main"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >Main page</a
+      >
+    </li>
+    <li class="navigation__item" *ngFor="let category of categories">
+      <a
+        class="navigation__link"
+        routerLink="/user/categories/{{ category.id }}"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >{{ category.name }}</a
+      >
+    </li>
+    <li class="navigation__item">
+      <a
+        class="navigation__link"
+        routerLink="/user/statistics"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >Statistics</a
+      >
+    </li>
+    <li class="navigation__item" *ngIf="isLogin; else login">
+      <a
+        class="navigation__link"
+        routerLink="/admin/categories"
+        routerLinkActive="active"
+        (click)="toggleMenu()"
+        >Admin page</a
+      >
+    </li>
+    <ng-template #login>
+      <li class="navigation__item">
+        <button
+          class="navigation__button"
+          (click)="toggleMenu()"
+          (click)="openLoginModal(loginModalId)"
+        >
+          Login
+        </button>
+      </li>
+    </ng-template>
+  </ul>
+</nav>

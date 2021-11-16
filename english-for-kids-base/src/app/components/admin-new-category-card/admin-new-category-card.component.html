@@ -1,0 +1,43 @@
+<div
+  class="admin-new-category-card-container"
+  [ngClass]="{ flipped: isFlipped }"
+>
+  <div class="admin-new-category-card">
+    <div class="admin-new-category-card__front" (click)="flip()">
+      <div class="admin-new-category-card__header">
+        <h3 class="admin-new-category-card__title">Create new category</h3>
+      </div>
+      <div class="admin-new-category-card__main">
+        <div class="plus"></div>
+      </div>
+    </div>
+    <div class="admin-new-category-card__back">
+      <form class="admin-new-category-card__form">
+        <p class="admin-new-category-card__legend">
+          New category name:
+          <input
+            [(ngModel)]="categoryName"
+            [ngModelOptions]="{ standalone: true }"
+            class="admin-new-category-card__input"
+            type="text"
+            placeholder="Category name"
+          />
+        </p>
+      </form>
+      <div class="admin-new-category-card__footer">
+        <button
+          class="admin-button admin-new-category-card__button"
+          (click)="flipBack()"
+        >
+          Canel
+        </button>
+        <button
+          class="admin-button admin-new-category-card__button"
+          (click)="createCategory(categoryName)"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

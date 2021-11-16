@@ -1,0 +1,6 @@
+<div class="admin-words-list" *ngIf="category">
+  <app-admin-word-card
+    *ngFor="let card of category.cards"
+    [cardData]="card"
+  ></app-admin-word-card>
+</div>

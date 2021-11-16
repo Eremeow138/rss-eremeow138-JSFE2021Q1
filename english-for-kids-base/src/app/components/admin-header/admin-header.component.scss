@@ -1,0 +1,37 @@
+.admin-header {
+  font-size: 1rem;
+  height: 3em;
+  background-color: #00bf82;
+  color: white;
+  font-weight: 700;
+  &__container {
+    max-width: 1410;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+.admin-navigation {
+  padding-left: 3em;
+  &__link {
+    margin: 0 0.3em;
+    text-decoration: none;
+    color: white;
+    &_active {
+      text-decoration: underline;
+    }
+    &_disabled {
+      pointer-events: none;
+    }
+  }
+}
